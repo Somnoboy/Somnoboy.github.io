@@ -1,0 +1,962 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/MyStyle.css">
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <script>
+        $(document).ready(function () {
+            $('main').scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            $('#back-to-top').click(function () {
+                $('main').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .back-to-top {
+            background-color: gainsboro;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+        }
+
+        li::before {
+            display: block;
+            content: " ";
+            margin-top: -16px;
+            height: 16px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        main {
+            scroll-behavior: smooth;
+        }
+
+        pre {
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            white-space: pre-wrap;
+        }
+
+        nav {
+            min-height: 99.9vh;
+            max-height: 99.9vh;
+        }
+
+        .nav-item {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main {
+            max-height: 99.9vh;
+        }
+
+        .nav-link {
+            color: gainsboro;
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden" class="alert-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none d-md-block bg-dark navbar-dark sidebar" style="overflow-y: auto; border-right: solid 1px Gray">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Syntax">Syntax</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Variables">Variables</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Numbers">Numbers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Events">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Strings">Strings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Arrays">Arrays</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#DateObjects">Date Objects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#MathObjects">Math Objects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Random">Random</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Booleans">Booleans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ComparisonandLogicalOperators">Comparison and Logical Operators</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ifelseandelseif">if else and else if</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#switch">switch</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Loops">Loops</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#WhileLoop">While Loop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#BreakandContinue">Break and Continue</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#TypeConversion">Type Conversion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#BitwiseOperation">Bitwise Operations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Regex">Regex</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ThrowandTrytoCatch">Throw and Try to Catch</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Scope">Scope</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Hoisting">Hoisting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#StrictMode">Strict Mode</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#thisKeyword"><stong>this</stong> Keyword</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Let">Let</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Const">Const</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ArrowFunctions">Arrow Functions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Classes">Classes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Debugging">Debugging</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#OtherInformation">Other Information</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 ml-md-auto pt-3 px-3" style="overflow-y: auto">
+                <center><h1>JavaScript</h1></center>
+                <hr />
+                <ul style="list-style-type:none;">
+                    <li id="Syntax">
+                        <h2>Syntax</h2>
+                        Semi colons are not necessary but recommended.<br />
+                        White spaces are ignored by JavaScript<br />
+                        If a JavaScript statement does not fit on one line, the best place to break it is after an operator.<br />
+                        In JavaScript the first character must be a letter, or an underscore (_), or a dollar sign ($). myVariable _myVariable $myVariable<br />
+                        All JavaScript identifiers are case sensitive. lastName <> lastname<br />
+                        Hyphens are not allowed in JavaScript. They are reserved for subtractions. first-name as a variable name is not allowed.<br />
+                        JavaScript uses the Unicode character set.  Unicode covers(almost) all the characters, punctuations, and symbols in the world.<br />
+                    </li>
+                    <hr />
+                    <li id="Variables">
+                        <h2>Variables</h2>
+                        A variable declared without a value will have the value undefined.. var carName is undefined.  carName = "Volvo" is no longer undefined.<br />
+                        A variable can be emptied by setting it to undefined. carName = undefined.<br />
+                        You can empty an object by setting it to null or undefined: undefine and null are equal in value but different in type: typeof undefined //undefined typeof null //object.<br />
+                    </li>
+                    <hr />
+                    <li id="DataTypes">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_datatypes.asp">Data Types</a></h2>
+                        Primitive data types: string, number(with or without a decimal), boolena, and undefined.<br />
+                        Complex data types: function and object. typeof returns 'object' for objects, arrays, and null.  typeof returns function for functions.<br />
+                        Accessing a function without() will return the function object instead of the function result.<br />
+                        Comparing two JavaScript objects will always return false.<br />
+                    </li>
+                    <hr />
+                    <li id="Numbers">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_numbers.asp">Numbers</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_number.asp"><strong>List of JavaScript number methods</strong></a><br />
+                        JavaScript has only one type of number. Numbers can be written with or without decimals.<br />
+                        JavaScript Numbers are Always 64-bit Floating Point.<br />
+                        JavaScript numbers are always stored as double precision floating point numbers, following the international IEEE 754 standard.<br />
+                        Integers (numbers without a period or exponent notation) are accurate up to 15 digits.<br />
+                        NaN is a JavaScript reserved word indicating that a number is not a legal number.<br />
+                        Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible number.<br />
+                        Division by 0 (zero) also generates Infinity.<br />
+                    </li>
+                    <hr />
+                    <li id="Events">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_events.asp">Events</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/dom_obj_event.asp"><strong>List of JavaScript events</strong></a>
+                    </li>
+                    <hr />
+                    <li id="Strings">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_strings.asp">Strings</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_string.asp"><strong>List of JavaScript string methods</strong></a>
+                    </li>
+                    <hr />
+                    <li id="Arrays">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_arrays.asp">Arrays</a></h2>
+                        <code><pre>    Array: var cars = [" Saab", "Volvo" , "BMW" ];</pre></code>
+                        <br />
+                        New element can also be added to an array using the length property:<br />
+                        <br />
+                        <code><pre>    fruits[fruits.length]="Lemon";</pre></code>
+                        <code><pre>    Array.isArray(fruits); // returns true</pre></code>
+                        <br />
+                        Create your own isArray method for older browsers:<br />
+                        <br />
+                        <code><pre>    function isArray(x)</pre></code>
+                        <code><pre>        return x.constructor.toString().indexOf("Array")>-1;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_array.asp"><strong>List of Array methods</strong></a><br />
+                        <a target="_blank" href=" https://www.w3schools.com/js/js_array_sort.asp"><strong>Sorting Arrays</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_array_iteration.asp"><strong>Array Iterations</strong></a><br />
+                    </li>
+                    <hr />
+                    <li id="DateObjects">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_dates.asp">Date Objects</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_date.asp"><strong>JavaScript Date Reference</strong></a><br />
+                        By default, JavaScript will use the browser's time zone and display a date as a full text string:<br />
+                        <br />
+                        <code><pre>    var d = new Date();</pre></code>
+                        <br />
+                        Date objects are created with the new Date() constructor.<br />
+                        Date objects are static. The computer time is ticking, but date objects are not.<br />
+                        new Date() creates a new date object with the current date and time:<br />
+                        7 numbers specify year, month, day, hour, minute, second, and millisecond (in that order).<br />
+                        new Date(dateString) creates a new date object from a date string:<br />
+                        <br />
+                        <code><pre>    var d = new Date("October 13, 2014 11:13:00")</pre></code>
+                        <br />
+                        JavaScript stores dates as number of milliseconds since January 01, 1970, 00:00:00 UTC (Universal Time Coordinated).<br />
+                        new Date(milliseconds) creates a new date object as zero time plus milliseconds:<br />
+                        When a Date object is created, a number of methods allow you to operate on it.<br />
+                        When you display a date object in HTML, it is automatically converted to a string, with the toString() method.<br />
+                        The toUTCString() method converts a date to a UTC string (a date display standard).<br />
+                        The toDateString() method converts a date to a more readable format:<br />
+                        <br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_date_formats.asp"><strong>Date Formats</strong></a><br />
+                        <br />
+                        Date.parse() returns the number of milliseconds between the date and January 1, 1970:<br />
+                        <br />
+                        <code><pre>    var msec = Date.parse("March 21, 2012");</pre></code>
+                        <br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_date_methods.asp"><strong>Get Date</strong></a><br />
+                        <br />
+                        These methods can be used for getting information from a date object.<br />
+                        UTC date methods are used for working with UTC dates (Universal Time Zone dates).<br />
+                        <br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_date_methods_set.asp"><strong>Set Date</strong></a><br />
+                        <br />
+                        Set Date methods are used for setting a part of a date.<br />
+                    </li>
+                    <hr />
+                    <li id="MathObjects">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_math.asp">Math Objects</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_math.asp"><strong>JavaScript Math Reference</strong></a><br />
+                        The JavaScript Math object allows you to perform mathematical tasks on numbers.<br />
+                        Unlike other global objects, the Math object has no constructor. Methods and properties are static.<br />
+                        All methods and properties (constants) can be used without creating a Math object first.<br />
+                        <br />
+                        <code><pre>    Math.PI;</pre></code>
+                        <code><pre>    Math.round(x) returns the value of x rounded to its nearest integer.</pre></code>
+                        <code><pre>    Math.pow(x, y) returns the value of x to the power of y.</pre></code>
+                        <code><pre>    Math.sqrt(x) returns the square root of x.</pre></code>
+                        <code><pre>    Math.abs(x) returns the absolute (positive) value of x.</pre></code>
+                        <code><pre>    Math.ceil(x) returns the value of x rounded up to its nearest integer.</pre></code>
+                        <code><pre>    Math.floor(x) returns the value of x rounded down to its nearest integer.</pre></code>
+                        <code><pre>    Math.sin(x) returns the sine (a value between -1 and 1) of the angle x (given in radians).</pre></code>
+                        <code><pre>    Math.cos(x) returns the cosine (a value between -1 and 1) of the angle x (given in radians).</pre></code>
+                        <code><pre>    Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments.</pre></code>
+                        <code><pre>    Math.random() returns a random number between 0 (inclusive), and 1 (exclusive).</pre></code>
+                        <br />
+                        This JavaScript function always returns a random number between min and max (both included):<br />
+                        <br />
+                        <code><pre>    function getRndInteger(min, max) {</pre></code>
+                        <code><pre>        return Math.floor(Math.random() * (max - min + 1) ) + min;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>Math Constants</h5>
+                        JavaScript provides 8 mathematical constants that can be accessed with the Math object:<br />
+                        <br />
+                        <code><pre>    Math.E        // returns Euler's number</pre></code>
+                        <code><pre>    Math.PI       // returns PI</pre></code>
+                        <code><pre>    Math.SQRT2    // returns the square root of 2</pre></code>
+                        <code><pre>    Math.SQRT1_2  // returns the square root of 1/2</pre></code>
+                        <code><pre>    Math.LN2      // returns the natural logarithm of 2</pre></code>
+                        <code><pre>    Math.LN10     // returns the natural logarithm of 10</pre></code>
+                        <code><pre>    Math.LOG2E    // returns base 2 logarithm of E</pre></code>
+                        <code><pre>    Math.LOG10E   // returns base 10 logarithm of E</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Random">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_random.asp">Random</a></h2>
+                        <h5>Math.random()</h5>
+                        Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive):<br />
+                        <br />
+                        <code><pre>    Math.random();              // returns a random number</pre></code>
+                        <br />
+                        Math.random() always returns a number lower than 1.<br />
+                        <br />
+                        <h5>JavaScript Random Integers</h5>
+                        Math.random() used with Math.floor() can be used to return random integers.<br />
+                        <br />
+                        <code><pre>    Math.floor(Math.random() * 10);     // returns a random integer from 0 to 9</pre></code>
+                        <code><pre>    Math.floor(Math.random() * 11); // returns a random integer from 0 to 10 </pre></code>
+                        <code><pre>    Math.floor(Math.random() * 100);     // returns a random integer from 0 to 99</pre></code>
+                        <code><pre>    Math.floor(Math.random() * 101);     // returns a random integer from 0 to 100</pre></code>
+                        <code><pre>    Math.floor(Math.random() * 10) + 1;  // returns a random integer from 1 to 10</pre></code>
+                        <code><pre>    Math.floor(Math.random() * 100) + 1; // returns a random integer from 1 to 100</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Booleans">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_booleans.asp">Booleans</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_boolean.asp"><strong>JavaScript Boolean Reference</strong></a><br />
+                        A JavaScript Boolean represents one of two values: true or false.<br />
+                        You can use the Boolean() function to find out if an expression (or a variable) is true:<br />
+                        <br />
+                        <code><pre>    Boolean(10 > 9)</pre></code>
+                        <br />
+                        Everything With a "Value" is True<br />
+                        Everything Without a "Value" is False<br />
+                        <br />
+                        <code><pre>    var x = "";</pre></code>
+                        <code><pre>    Boolean(x);       // returns false</pre></code>
+                    </li>
+                    <hr />
+                    <li id="ComparisonandLogicalOperators">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_comparisons.asp">Comparison and Logical Operators</a></h2>
+                        <code><pre>    ==	equal to</pre></code>
+                        <code><pre>    ===	equal value and equal type</pre></code>
+                        <code><pre>    !=	not equal</pre></code>
+                        <code><pre>    !==	not equal value or not equal type</pre></code>
+                        <code><pre>    >	greater than</pre></code>
+                        <code><pre>    <	less than</pre></code>
+                        <code><pre>    >=	greater than or equal to</pre></code>
+                        <code><pre>    <=	less than or equal to</pre></code>
+                        <code><pre>    &&	and</pre></code>
+                        <code><pre>    ||	or</pre></code>
+                        <code><pre>    !	not</pre></code>
+                        <br />
+                        A non-numeric string converts to NaN which is always false
+                    </li>
+                    <hr />
+                    <li id="ifelseandelseif">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_if_else.asp">if else and else if</a></h2>
+                        Use the if statement to specify a block of JavaScript code to be executed if a condition is true.<br />
+                        <br />
+                        <code><pre>    if (condition) {</pre></code>
+                        <code><pre>        //  block of code to be executed if the condition is true</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        Use the else statement to specify a block of code to be executed if the condition is false.<br />
+                        <br />
+                        <code><pre>    if (condition) {</pre></code>
+                        <code><pre>        //  block of code to be executed if the condition is true</pre></code>
+                        <code><pre>    } else {</pre></code>
+                        <code><pre>        //  block of code to be executed if the condition is false</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        Use the else if statement to specify a new condition if the first condition is false.<br />
+                        <br />
+                        <code><pre>    if (condition1) {</pre></code>
+                        <code><pre>        //  block of code to be executed if condition1 is true</pre></code>
+                        <code><pre>    } else if (condition2) {</pre></code>
+                        <code><pre>        //  block of code to be executed if the condition1 is false and condition2 is true</pre></code>
+                        <code><pre>    } else {</pre></code>
+                        <code><pre>        //  block of code to be executed if the condition1 is false and condition2 is false</pre></code>
+                        <code><pre>    }</pre></code>
+                    </li>
+                    <hr />
+                    <li id="switch">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_switch.asp">switch</a></h2>
+                        The switch statement is used to perform different actions based on different conditions.<br />
+                        <br />
+                        <code><pre>    switch(expression) {</pre></code>
+                        <code><pre>        case x:</pre></code>
+                        <code><pre>            // code block</pre></code>
+                        <code><pre>            break;</pre></code>
+                        <code><pre>        case y:</pre></code>
+                        <code><pre>            // code block</pre></code>
+                        <code><pre>            break;</pre></code>
+                        <code><pre>        default:</pre></code>
+                        <code><pre>            // code block</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        When JavaScript reaches a break keyword, it breaks out of the switch block.<br />
+                        This will stop the execution of inside the block.<br />
+                        The default keyword specifies the code to run if there is no case match.<br />
+                        Sometimes you will want different switch cases to use the same code.<br />
+                        <br />
+                        <code><pre>    switch (new Date().getDay()) {</pre></code>
+                        <code><pre>        case 4:</pre></code>
+                        <code><pre>        case 5:</pre></code>
+                        <code><pre>            text = "Soon it is Weekend";</pre></code>
+                        <code><pre>            break;</pre></code>
+                        <code><pre>        case 0:</pre></code>
+                        <code><pre>        case 6:</pre></code>
+                        <code><pre>            text = "It is Weekend";</pre></code>
+                        <code><pre>            break;</pre></code>
+                        <code><pre>        default:</pre></code>
+                        <code><pre>            text = "Looking forward to the Weekend";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        If multiple cases matches a case value, the first case is selected.<br />
+                        If no matching cases are found, the program continues to the default label.<br />
+                        If no default label is found, the program continues to the statement(s) after the switch.<br />
+                        Switch cases use strict comparison (===).<br />
+                        The values must be of the same type to match.<br />
+                        A strict comparison can only be true if the operands are of the same type.<br />
+                    </li>
+                    <hr />
+                    <li id="Loops">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_loop_for.asp">Loops</a></h2>
+                        JavaScript supports different kinds of loops:<br />
+                        for - loops through a block of code a number of times<br />
+                        <br />
+                        <code><pre>    for (i = 0; i < 5; i++) {</pre></code>
+                        <code><pre>        text += "The number is " + i + 'br';</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        for/in - loops through the properties of an object<br />
+                        <br />
+                        <code><pre>    var person = {fname:"John", lname:"Doe", age:25};</pre></code>
+                        <code><pre>    var text = "";</pre></code>
+                        <code><pre>    var x;</pre></code>
+                        <code><pre>    for (x in person) {</pre></code>
+                        <code><pre>        text += person[x];</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        for/of - loops through the values of an iterable object<br />
+                        <br />
+                        <code><pre>    var cars = ['BMW', 'Volvo', 'Mini'];</pre></code>
+                        <code><pre>    var x;</pre></code>
+                        <code><pre>    for (x of cars) {</pre></code>
+                        <code><pre>        document.write(x + "br");</pre></code>
+                        <code><pre>    }</pre></code>
+                    </li>
+                    <hr />
+                    <li id="WhileLoop">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_loop_while.asp">While Loop</a></h2>
+                        while - loops through a block of code while a specified condition is true<br />
+                        <br />
+                        <code><pre>    while (i < 10) {</pre></code>
+                        <code><pre>        text += "The number is " + i;</pre></code>
+                        <code><pre>        i++;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        do/while - also loops through a block of code while a specified condition is true<br />
+                        <br />
+                        <code><pre>    do {</pre></code>
+                        <code><pre>        text += "The number is " + i;</pre></code>
+                        <code><pre>        i++;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    while (i < 10);</pre></code>
+                    </li>
+                    <hr />
+                    <li id="BreakandContinue">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_break.asp">Break and Continue</a></h2>
+                        The break statement "jumps out" of a loop.<br />
+                        The continue statement "jumps over" one iteration in the loop.<br />
+                        The break statement can also be used to jump out of a loop.<br />
+                        The break statement breaks the loop and continues executing the code after the loop<br />
+                        The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.<br />
+                    </li>
+                    <hr />
+                    <li id="TypeConversion">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_type_conversion.asp">Type Conversion</a></h2>
+                        In JavaScript there are 5 different data types that can contain values:<br /><br />
+                        <code><pre>   string</pre></code>
+                        <code><pre>   number</pre></code>
+                        <code><pre>   boolean</pre></code>
+                        <code><pre>   object</pre></code>
+                        <code><pre>   function</pre></code>
+                        <br />
+                        There are 6 types of objects:<br />
+                        <br />
+                        <code><pre>   Object</pre></code>
+                        <code><pre>   Date</pre></code>
+                        <code><pre>   Array</pre></code>
+                        <code><pre>   String</pre></code>
+                        <code><pre>   Number</pre></code>
+                        <code><pre>   Boolean</pre></code><br />
+                        And 2 data types that cannot contain values:<br />
+                        <br />
+                        <code><pre>   null</pre></code>
+                        <code><pre>   undefined</pre></code><br />
+                        You can use the typeof operator to find the data type of a JavaScript variable.<br />
+                        <br />
+                        <code><pre>   The data type of NaN is number</pre></code>
+                        <code><pre>   The data type of an array is object</pre></code>
+                        <code><pre>   The data type of a date is object</pre></code>
+                        <code><pre>   The data type of null is object</pre></code>
+                        <code><pre>   The data type of an undefined variable is undefined *</pre></code>
+                        <code><pre>   The data type of a variable that has not been assigned a value is also undefined *</pre></code>
+                        <code><pre>   You cannot use typeof to determine if a JavaScript object is an array (or a date).</pre></code>
+                        <br />
+                        The constructor property returns the constructor function for all JavaScript variables.<br />
+                        You can check the constructor property to find out if an object is an Array (contains the word "Array").<br />
+                        You can check the constructor property to find out if an object is a Date (contains the word "Date").<br />
+                        <br />
+                        <code><pre>   The global method String() can convert numbers to strings.</pre></code>
+                        <code><pre>   The Number method toString() does the same.</pre></code>
+                        <code><pre>   The global method String() can convert booleans to strings.</pre></code>
+                        <code><pre>   The Boolean method toString() does the same.</pre></code>
+                        <code><pre>   The global method String() can convert dates to strings.</pre></code>
+                        <code><pre>   The Date method toString() does the same.</pre></code>
+                        <code><pre>   The global method Number() can convert strings to numbers.</pre></code>
+                        <code><pre>   Strings containing numbers (like "3.14") convert to numbers (like 3.14).</pre></code>
+                        <code><pre>   Empty strings convert to 0.</pre></code>
+                        <code><pre>   Anything else converts to NaN (Not a Number).</pre></code>
+                        <code><pre>   The global method Number() can also convert booleans to numbers.</pre></code>
+                        <code><pre>   The global method Number() can be used to convert dates to numbers.</pre></code><br />
+                    </li>
+                    <hr />
+                    <li id="BitwiseOperation">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_bitwise.asp">Bitwise Operations</a></h2>
+                        More of a reference chapter.
+                    </li>
+                    <hr />
+                    <li id="Regex">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_regexp.asp">Regex</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp"><strong>Regex References</strong></a><br />
+                        A regular expression is a sequence of characters that forms a search pattern.<br />
+                        The search pattern can be used for text search and text replace operations.<br />
+                        <br />
+                        <code><pre>    /pattern/modifiers;</pre></code><br />
+                        In JavaScript, regular expressions are often used with the two string methods: search() and replace().<br />
+                        The search() method uses an expression to search for a match, and returns the position of the match.<br />
+                        <br />
+                        <code><pre>    var str = "Visit W3Schools!";</pre></code>
+                        <code><pre>    var n = str.search("W3Schools");</pre></code>
+                        <br />
+                        The replace() method returns a modified string where the pattern is replaced.<br />
+                        <br />
+                        <code><pre>    var str = "Visit Microsoft!";</pre></code>
+                        <code><pre>    var res = str.replace("Microsoft", "W3Schools");</pre></code>
+                        <br />
+                        <h5>Regular Expression Modifiers</h5>
+                        Modifiers can be used to perform case-insensitive more global searches:<br />
+                        <br />
+                        <code><pre>    i	Perform case-insensitive matching</pre></code>
+                        <code><pre>    g	Perform a global match (find all matches rather than stopping after the first match)</pre></code>
+                        <code><pre>    m	Perform multiline matching</pre></code><br />
+                        <h5>Regular Expression Patterns</h5>
+                        Brackets are used to find a range of characters:<br />
+                        <br />
+                        <code><pre>    [abc]	Find any of the characters between the brackets</pre></code>
+                        <code><pre>    var str = "Visit Microsoft!";</pre></code>
+                        <code><pre>    [0-9]	Find any of the digits between the brackets</pre></code>
+                        <code><pre>    (x|y)	Find any of the alternatives separated with</pre></code>
+                        <br />
+                        Metacharacters are characters with a special meaning:<br />
+                        <br />
+                        <code><pre>    \d	Find a digit</pre></code>
+                        <code><pre>    \s	Find a whitespace character</pre></code>
+                        <code><pre>    \b	Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b</pre></code>
+                        <code><pre>    \uxxxx	Find the Unicode character specified by the hexadecimal number xxxx</pre></code>
+                        <br />
+                        Quantifiers define quantities:<br />
+                        <br />
+                        <code><pre>    n+	Matches any string that contains at least one n</pre></code>
+                        <code><pre>    n*	Matches any string that contains zero or more occurrences of n</pre></code>
+                        <code><pre>    n?	Matches any string that contains zero or one occurrences of n</pre></code>
+                        <br />
+                        <h5>Using the RegExp Object</h5>
+                        In JavaScript, the RegExp object is a regular expression object with predefined properties and methods.<br />
+                        <br />
+                        <h5>Using test()</h5>
+                        The test() method is a RegExp expression method.<br />
+                        It searches a string for a pattern, and returns true or false, depending on the result.<br />
+                        The following example searches a string for the character "e":<br />
+                        <br />
+                        <code><pre>    var patt = /e/;</pre></code>
+                        <code><pre>    patt.test("The best things in life are free!");</pre></code>
+                        <br />
+                        You don't have to put the regular expression in a variable first. The two lines above can be shortened to one:<br />
+                        <br />
+                        <code><pre>    /e/.test("The best things in life are free!");</pre></code>
+                        <br />
+                        <h5>Using exec()</h5>
+                        The exec() method is a RegExp expression method.<br />
+                        It searches a string for a specified pattern, and returns the found text as an object.<br />
+                        If no match is found, it returns an empty (null) object.<br />
+                        The following example searches a string for the character "e":<br />
+                        <br />
+                        <code><pre>    /e/.exec("The best things in life are free!");</pre></code>
+                    </li>
+                    <hr />
+                    <li id="ThrowandTrytoCatch">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_errors.asp">Throw and Try to Catch</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/jsref/jsref_obj_error.asp"><strong>Error References</strong></a><br />
+                        JavaScript will actually create an Error object with two properties: name and message.<br />
+                        The throw statement allows you to create a custom error.<br />
+                        Technically you can throw an exception (throw an error).<br />
+                        The exception can be a JavaScript String, a Number, a Boolean or an Object.<br />
+                        <br />
+                        <code><pre>    try {</pre></code>
+                        <code><pre>        Block of code to try</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    catch(err) {</pre></code>
+                        <code><pre>        //Block of code to handle errors</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    finally {</pre></code>
+                        <code><pre>        //Block of code to be executed regardless of the try / catch result</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>Error Object Properties</h5>
+                        <code><pre>    name		    Sets or returns an error name</pre></code>
+                        <code><pre>    message		Sets or returns an error message (a string)</pre></code>
+                        <br />
+                        <h5>Error Name Values</h5>
+                        <code><pre>    EvalError		An error has occurred in the eval() function</pre></code>
+                        <code><pre>    RangeError		A number "out of range" has occurred</pre></code>
+                        <code><pre>    ReferenceError	An illegal reference has occurred</pre></code>
+                        <code><pre>    SyntaxError		A syntax error has occurred</pre></code>
+                        <code><pre>    TypeError		A type error has occurred</pre></code>
+                        <code><pre>    URIError		    An error in encodeURI() has occurred</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Scope">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_scope.asp">Scope</a></h2>
+                        In JavaScript there are two types of scope:<br />
+                        <br />
+                        <code><pre>    Local scope</pre></code>
+                        <code><pre>    Global scope</pre></code>
+                        <br />
+                        JavaScript has function scope: Each function creates a new scope.<br />
+                        Scope determines the accessibility (visibility) of these variables.<br />
+                        Variables defined inside a function are not accessible (visible) from outside the function.<br />
+                        <br />
+                        <code><pre>    A variable declared outside a function, becomes GLOBAL.</pre></code>
+                        <code><pre>    A global variable has global scope: All scripts and functions on a web page can access it.</pre></code>
+                        <br />
+                        <h5>Automatically Global</h5>
+                        If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.<br />
+                        <br />
+                        <code><pre>    function myFunction() {</pre></code>
+                        <code><pre>        carName = "Volvo";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>The Lifetime of JavaScript Variables</h5>
+                        The lifetime of a JavaScript variable starts when it is declared.<br />
+                        Local variables are deleted when the function is completed.<br />
+                        In a web browser, global variables are deleted when you close the browser window (or tab).<br />
+                        <br />
+                        <h5>Function Arguments</h5>
+                        Function arguments (parameters) work as local variables inside functions.<br />
+                    </li>
+                    <hr />
+                    <li id="Hoisting">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_hoisting.asp">Hoisting</a></h2>
+                        Hoisting is JavaScript's default behavior of moving declarations to the top.<br />
+                        In JavaScript, a variable can be declared after it has been used.<br />
+                        Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope<br />
+                        (to the top of the current script or the current function).<br />
+                        Variables and constants declared with let or const are not hoisted!<br />
+                        JavaScript only hoists declarations, not initializations.<br />
+                        Hoisting is (to many developers) an unknown or overlooked behavior of JavaScript.<br />
+                        If a developer doesn't understand hoisting, programs may contain bugs (errors).<br />
+                        To avoid bugs, always declare all variables at the beginning of every scope.<br />
+                        Since this is how JavaScript interprets the code, it is always a good rule.<br />
+                        JavaScript in strict mode does not allow variables to be used if they are not declared.<br />
+                        <br />
+                    </li>
+                    <hr />
+                    <li id="StrictMode">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_strict.asp">Strict Mode</a></h2>
+                        The purpose of "use strict" is to indicate that the code should be executed in "strict mode".<br />
+                        With strict mode, you can not, for example, use undeclared variables.<br />
+                        Strict mode is declared by adding "use strict"; to the beginning of a script or a function.<br />
+                        Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode).<br />
+                        Declared inside a function, it has local scope (only the code inside the function is in strict mode).<br />
+                        <br />
+                        <h5>Why Strict Mode?</h5>
+                        Strict mode makes it easier to write "secure" JavaScript.<br />
+                        Strict mode changes previously accepted "bad syntax" into real errors.<br />
+                        As an example, in normal JavaScript, mistyping a variable name creates a new global variable.<br />
+                        In strict mode, this will throw an error, making it impossible to accidentally create a global variable.<br />
+                        In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.<br />
+                        In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, <br />
+                        or a non-existing object, will throw an error.<br />
+                        <br />
+                        <h5>Not Allowed in Strict Mode</h5>
+                        <code><pre>    Using a variable, without declaring it, is not allowed.</pre></code>
+                        <code><pre>    Using an object, without declaring it, is not allowed.</pre></code>
+                        <code><pre>    Deleting a variable (or object) is not allowed.<</pre></code>
+                        <code><pre>    Deleting a function is not allowed.</pre></code>
+                        <code><pre>    Duplicating a parameter name is not allowed.</pre></code>
+                        <code><pre>    Octal numeric literals are not allowed.</pre></code>
+                        <code><pre>    Octal escape characters are not allowed.</pre></code>
+                        <code><pre>    Writing to a read-only property is not allowed.</pre></code>
+                        <code><pre>    Writing to a get-only property is not allowed.</pre></code>
+                        <code><pre>    Deleting an undeletable property is not allowed</pre></code>
+                        <code><pre>    The word eval cannot be used as a variable.</pre></code>
+                        <code><pre>    The word arguments cannot be used as a variable.</pre></code>
+                        <code><pre>    The with statement is not allowed.</pre></code>
+                        <br />
+                        For security reasons, eval() is not allowed to create variables in the scope from which it was called.<br />
+                        The this keyword in functions behaves differently in strict mode.<br />
+                        The this keyword refers to the object that called the function.<br />
+                        If the object is not specified, functions in strict mode will return undefined and functions in normal mode will return the global object (window).<br />
+                        Keywords reserved for future JavaScript versions can NOT be used as variable names in strict mode.<br />
+                        These are:<br />
+                        <br />
+                        <code><pre>    implements</pre></code>
+                        <code><pre>    interface</pre></code>
+                        <code><pre>    let</pre></code>
+                        <code><pre>    package</pre></code>
+                        <code><pre>    private</pre></code>
+                        <code><pre>    protected</pre></code>
+                        <code><pre>    public</pre></code>
+                        <code><pre>    static</pre></code>
+                        <code><pre>    yield</pre></code>
+                    </li>
+                    <hr />
+                    <li id="thisKeyword">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_this.asp">this Keyword</a></h2>
+                        The JavaScript this keyword refers to the object it belongs to.<br />
+                        It has different values depending on where it is used:<br />
+                        <br />
+                        <code><pre>    In a method, this refers to the owner object.</pre></code>
+                        <code><pre>    Alone, this refers to the global object.</pre></code>
+                        <code><pre>    In a function, this refers to the global object.</pre></code>
+                        <code><pre>    In a function, in strict mode, this is undefined.</pre></code>
+                        <code><pre>    In an event, this refers to the element that received the event.</pre></code>
+                        <code><pre>    Methods like call(), and apply() can refer this to any object.</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Let">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_let.asp">Let</a></h2>
+                        Redeclaring a variable using the var keyword can impose problems.<br />
+                        Redeclaring a variable using the let keyword can solve this problem.<br />
+                        <br />
+                        <code><pre>    let i = 5;</pre></code>
+                        <code><pre>    for (let i = 0; i < 10; i++) {</pre></code>
+                        <code><pre>        // some statements</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        In the second example, using let, the variable declared in the loop does not redeclare the variable outside the loop.<br />
+                        When let is used to declare the i variable in a loop, the i variable will only be visible within the loop.<br />
+                        Redeclaring a JavaScript variable with var is allowed anywhere in a program.<br />
+                        Redeclaring a var variable with let, in the same scope, or in the same block, is not allowed.<br />
+                        Redeclaring a let variable with let, in the same scope, or in the same block, is not allowed.<br />
+                        Redeclaring a let variable with var, in the same scope, or in the same block, is not allowed.<br />
+                        Redeclaring a variable with let, in another scope, or in another block, is allowed.<br />
+                        Variables defined with let are not hoisted to the top.<br />
+                        Using a let variable before it is declared will result in a ReferenceError.<br />
+                    </li>
+                    <hr />
+                    <li id="Const">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_const.asp">Const</a></h2>
+                        Variables defined with const behave like let variables, except they cannot be reassigned.<br />
+                        JavaScript const variables must be assigned a value when they are declared.<br />
+                        The keyword const is a little misleading.<br />
+                        It does NOT define a constant value. It defines a constant reference to a value.<br />
+                        Because of this, we cannot change constant primitive values, but we can change the properties of constant objects, but you can NOT reassign a constant object.<br />
+                        You can change the elements of a constant array.<br />
+                        But you can NOT reassign a constant array.<br />
+                    </li>
+                    <hr />
+                    <li id="ArrowFunctions">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_arrow_function.asp">Arrow Functions</a></h2>
+                        Arrow functions allow us to write shorter function syntax.<br />
+                        <br />
+                        <code><pre>    hello = function() {</pre></code>
+                        <code><pre>        return "Hello World!";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        Becomes
+                        <br />
+                        <code><pre>    hello = () => {</pre></code>
+                        <code><pre>        return "Hello World!";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        And Becomes
+                        <br />
+                        <code><pre>    hello = () => "Hello World!";</pre></code>
+                        <br />
+                        If you have parameters, you pass them inside the parentheses.<br />
+                        <br />
+                        <code><pre>    hello = (val) => "Hello " + val;</pre></code>
+                        <br />
+                        In fact, if you have only one parameter, you can skip the parentheses as well.<br />
+                        <br />
+                        <code><pre>    hello = val => "Hello " + val;</pre></code>
+                        <br />
+                        The handling of this is also different in arrow functions compared to regular functions.<br />
+                        In short, with arrow functions there are no binding of this.<br />
+                        In regular functions the this keyword represented the object that called the function, which could be the window, the document, a button or whatever.<br />
+                        With arrow functions the this keyword always represents the object that defined the arrow function.<br />
+                    </li>
+                    <hr />
+                    <li id="Classes">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_classes.asp">Classes</a></h2>
+                        Use the keyword class to create a class, and always add the constructor() method.<br />
+                        <br />
+                        <code><pre>    class Car {</pre></code>
+                        <code><pre>        constructor(brand) {</pre></code>
+                        <code><pre>            this.carname = brand;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    mycar = new Car("Ford");</pre></code>
+                        <br />
+                        <h5>Constructor</h5>
+                        The constructor method is special, it is where you initialize properties,<br />
+                        it is called automatically when a class is initiated, and it has to have the exact name "constructor", in fact,<br />
+                        if you do not have a constructor method, JavaScript will add an invisible and empty constructor method.<br />
+                        <br />
+                        <code><pre>    class Car {</pre></code>
+                        <code><pre>        constructor(brand) {</pre></code>
+                        <code><pre>            this.carname = brand;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    mycar = new Car("Ford");</pre></code>
+                        <code><pre>    document.getElementById("demo").innerHTML = mycar.present();</pre></code>
+                        <br />
+                        <h5>Method</h5>
+                        <br />
+                        <code><pre>    class Car {</pre></code>
+                        <code><pre>        constructor(brand) {</pre></code>
+                        <code><pre>            this.carname = brand;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        present(x) {</pre></code>
+                        <code><pre>            return x + ", I have a " + this.carname;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    mycar = new Car("Ford");</pre></code>
+                        <code><pre>    document.getElementById("demo").innerHTML = mycar.present("Hello");</pre></code>
+                        <br />
+                        <h5>Static Methods</h5>
+                        <br />
+                        <code><pre>    class Car {</pre></code>
+                        <code><pre>        constructor(brand) {</pre></code>
+                        <code><pre>            this.carname = brand;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        static hello() {</pre></code>
+                        <code><pre>            return "Hello!!";</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML = Car.hello();</pre></code>
+                        <br />
+                        <h5>Inheritence</h5>
+                        To create a class inheritance, use the extends keyword.<br />
+                        A class created with a class inheritance inherits all the methods from another class.<br />
+                        <br />
+                        <code><pre>    class Car {</pre></code>
+                        <code><pre>        constructor(brand) {</pre></code>
+                        <code><pre>            this.carname = brand;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        present() {</pre></code>
+                        <code><pre>            return 'I have a ' + this.carname;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    class Model extends Car {</pre></code>
+                        <code><pre>        constructor(brand, mod) {</pre></code>
+                        <code><pre>            super(brand);</pre></code>
+                        <code><pre>            this.model = mod;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        show() {</pre></code>
+                        <code><pre>            return this.present() + ', it is a ' + this.model;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    mycar = new Model("Ford", "Mustang");</pre></code>
+                        <code><pre>    document.getElementById("demo").innerHTML = mycar.show();</pre></code>
+                        <br />
+                        The super() method refers to the parent class.<br />
+                        By calling the super() method in the constructor method, we call the parent's constructor method and gets access to the parent's properties and methods.<br />
+                        <br />
+                        <h5>Getter and Setters</h5>
+                        <br />
+                        <code><pre>    class Car {</pre></code>
+                        <code><pre>        constructor(brand) {</pre></code>
+                        <code><pre>            this.carname = brand;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        get cnam() {</pre></code>
+                        <code><pre>            return this.carname;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        set cnam(x) {</pre></code>
+                        <code><pre>            this.carname = x;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    mycar = new Car("Ford");</pre></code>
+                        <code><pre>    document.getElementById("demo").innerHTML = mycar.cnam;</pre></code>
+                        <br />
+                        The name of the getter/setter method cannot be the same as the name of the property, in this case carname.<br />
+                        Many programmers use an underscore character _ before the property name to separate the getter/setter from the actual property:<br />
+                        <br />
+                        <h5>Hoisting</h5>
+                        Unlike functions, and other JavaScript declarations, class declarations are not hoisted.
+                        That means that you must declare a class before you can use it:
+                    </li>
+                    <hr />
+                    <li id="Debugging">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_debugging.asp">Debugging</a></h2>
+                        If your browser supports debugging, you can use console.log() to display JavaScript values in the debugger window.<br />
+                        <a target="_blank" href="https://www.w3schools.com/jsref/met_console_log.asp"><strong>Console Log Reference</strong></a><br />
+                        <br />
+                        <h5>Debugger</h5>
+                        The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function.<br />
+                        This has the same function as setting a breakpoint in the debugger.<br />
+                        If no debugging is available, the debugger statement has no effect.<br />
+                        With the debugger turned on, this code will stop executing before it executes the third line.<br />
+                    </li>
+                    <hr />
+                    <li id="OtherInformation">
+                        <a target="_blank" href="https://www.w3schools.com/js/js_conventions.asp"><strong>Style Guides</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_best_practices.asp"><strong>Best Practices</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_mistakes.asp"><strong>Mistakes</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_performance.asp"><strong>Performance</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_reserved.aspp"><strong>Reserved Word</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_versions.asp"><strong>Versions</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_es5.asp"><strong>Version ES5</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_es6.asp"><strong>Version ES6</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_validation.asp"><strong>Form Validation</strong></a><br />
+                        <a target="_blank" href="https://www.w3schools.com/js/js_validation_api.asp"><strong>Forms API</strong></a><br />
+                    </li>
+                </ul>
+                <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="font-weight: bold; color: white; font-size: large">^</a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

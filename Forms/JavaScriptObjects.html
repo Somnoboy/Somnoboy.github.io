@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/MyStyle.css">
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <script>
+        $(document).ready(function () {
+            $('main').scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            $('#back-to-top').click(function () {
+                $('main').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .back-to-top {
+            background-color: gainsboro;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+        }
+
+        li::before {
+            display: block;
+            content: " ";
+            margin-top: -16px;
+            height: 16px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        main {
+            scroll-behavior: smooth;
+        }
+
+        pre {
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            white-space: pre-wrap;
+        }
+
+        nav {
+            min-height: 99.9vh;
+            max-height: 99.9vh;
+        }
+
+        .nav-item {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main {
+            max-height: 99.9vh;
+        }
+
+        .nav-link {
+            color: gainsboro;
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden" class="alert-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none d-md-block bg-dark navbar-dark sidebar" style="overflow-y: auto; border-right: solid 1px Gray">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptObjectsIntroduction">JavaScript Objects Introduction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Properties">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Methods">Methods</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Display">Display</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Accessor">Accessor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Constructors">Constructors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Prototypes">Prototypes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ES5ObjectMethods">ES5 Object Methods</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 ml-md-auto pt-3 px-3" style="overflow-y: auto">
+                <center><h1>JavaScript Objects</h1></center>
+                <hr />
+                <ul style="list-style-type:none;">
+                    <li id="JavaScriptObjectsIntroduction">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_definition.asp">JavaScript Objects Introduction</a></h2>
+                        JavaScript variables can contain single values.<br />
+                        <br />
+                        <code><pre>    var person = "John Doe";</pre></code>
+                        <br />
+                        Objects are variables too. But objects can contain many values.<br />
+                        The values are written as name : value pairs (name and value separated by a colon).<br />
+                        The named values, in JavaScript objects, are called properties.<br />
+                        <br />
+                        <code><pre>    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</pre></code>
+                        <br />
+                        Object properties can be both primitive values, other objects, and functions.<br />
+                        There are different ways to create new objects:<br />
+                        <br />
+                        Define and create a single object, using an object literal.<br />
+                        Define and create a single object, with the keyword new.<br />
+                        Define an object constructor, and then create objects of the constructed type.<br />
+                        <br />
+                        <code><pre>    var person = {</pre></code>
+                        <code><pre>        firstName: "John",</pre></code>
+                        <code><pre>        lastName: "Doe",</pre></code>
+                        <code><pre>        age: 50,</pre></code>
+                        <code><pre>        eyeColor: "blue"</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        and <br />
+                        <br />
+                        <code><pre>    var person = new Object();</pre></code>
+                        <code><pre>    person.firstName = "John";</pre></code>
+                        <code><pre>    person.lastName = "Doe";</pre></code>
+                        <code><pre>    person.age = 50;</pre></code>
+                        <code><pre>    person.eyeColor = "blue";</pre></code>
+                        <br />
+                        are the same.<br />
+                        <br />
+                        Objects are mutable: They are addressed by reference, not by value.<br />
+                        If person is an object, the following statement will not create a copy of person.<br />
+                        <br />
+                        <code><pre>    var x = person;  // This will not create a copy of person.</pre></code>
+                        <br />
+                        The object x is not a copy of person. It is person. Both x and person are the same object.<br />
+                        Any changes to x will also change person, because x and person are the same object.<br />
+                    </li>
+                    <hr />
+                    <li id="Properties">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_properties.asp">Properties</a></h2>
+                        A JavaScript object is a collection of unordered properties.<br />
+                        Properties can usually be changed, added, and deleted, but some are read only.<br />
+                        <br />
+                        <code><pre>    objectName.property         // person.age</pre></code>
+                        <code><pre>    objectName["property"]      // person["age"]</pre></code>
+                        <code><pre>    objectName[expression]      // x = "age"; person[x]</pre></code>
+                        <br />
+                        The JavaScript for...in statement loops through the properties of an object.<br />
+                        <br />
+                        <code><pre>    for (variable in object) {</pre></code>
+                        <code><pre>        // code to be executed</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        You can add new properties to an existing object by simply giving it a value.<br />
+                        The delete keyword deletes both the value of the property and the property itself.<br />
+                        After deletion, the property cannot be used before it is added back again.<br />
+                        The delete operator is designed to be used on object properties. It has no effect on variables or functions.<br />
+                        The delete operator should not be used on predefined JavaScript object properties. It can crash your application.<br />
+                        <br />
+                        All properties have a name. In addition they also have a value.<br />
+                        The value is one of the property's attributes.<br />
+                        Other attributes are: enumerable, configurable, and writable.<br />
+                        These attributes define how the property can be accessed (is it readable?, is it writable?)<br />
+                        In JavaScript, all attributes can be read, but only the value attribute can be changed (and only if the property is writable).<br />
+                    </li>
+                    <hr />
+                    <li id="Methods">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_methods.asp">Methods</a></h2>
+                        A JavaScript method is a property containing a function definition.<br />
+                        You access an object method with the following syntax:<br />
+                        <br />
+                        <code><pre>    objectName.methodName()</pre></code>
+                        <br />
+                        Adding a new method to an object is easy.<br />
+                        <br />
+                        <code><pre>    person.name = function () {</pre></code>
+                        <code><pre>        return this.firstName + " " + this.lastName;</pre></code>
+                        <code><pre>    };</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Display">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_display.asp">Display</a></h2>
+                        Displaying a JavaScript object will output [object Object].<br />
+                        The properties of an object can be collected in a loop:<br />
+                        <br />
+                        <code><pre>    for (x in person) {</pre></code>
+                        <code><pre>        txt += person[x] + " ";</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        Any JavaScript object can be converted to an array using Object.values():<br />
+                        <br />
+                        <code><pre>    var myArray = Object.values(person);</pre></code>
+                        <br />
+                        myArray is now a JavaScript array, ready to be displayed:<br />
+                        <br />
+                        <code><pre>    var myArray = Object.values(person);</pre></code>
+                        <code><pre>    document.getElementById("demo").innerHTML = myArray;</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Accessor">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_accessors.asp">Accessor</a></h2>
+                        Getters and setters allow you to define Object Accessors (Computed Properties).<br />
+                        <br />
+                        <h5>get</h5>
+                        <code><pre>   // Create an object:</pre></code>
+                        <code><pre>   var person = {</pre></code>
+                        <code><pre>      firstName: "John",</pre></code>
+                        <code><pre>      lastName : "Doe",</pre></code>
+                        <code><pre>      language : "en",</pre></code>
+                        <code><pre>      get lang() {</pre></code>
+                        <code><pre>         return this.language;</pre></code>
+                        <code><pre>      }</pre></code>
+                        <code><pre>   };</pre></code>
+
+                        <code><pre>   // Display data from the object using a getter:</pre></code>
+                        <code><pre>   document.getElementById("demo").innerHTML = person.lang;</pre></code>
+                        <br />
+                        <h5>set</h5>
+                        <code><pre>   var person = {</pre></code>
+                        <code><pre>      firstName: "John",</pre></code>
+                        <code><pre>      lastName : "Doe",</pre></code>
+                        <code><pre>      language : "",</pre></code>
+                        <code><pre>      set lang(lang) {</pre></code>
+                        <code><pre>         this.language = lang;</pre></code>
+                        <code><pre>      }</pre></code>
+                        <code><pre>   };</pre></code>
+                        <br />
+                        <code><pre>   // Set an object property using a setter:</pre></code>
+                        <code><pre>   person.lang = "en";</pre></code>
+                        <br />
+                        <code><pre>   // Display data from the object:</pre></code>
+                        <code><pre>   document.getElementById("demo").innerHTML = person.language;</pre></code>
+                        <br />
+                        It gives simpler syntax<br />
+                        It allows equal syntax for properties and methods<br />
+                        It can secure better data quality<br />
+                        It is useful for doing things behind-the-scenes<br />
+                        <br />
+                        <h5>Object.defineProperty()</h5>
+                        The Object.defineProperty() method can also be used to add Getters and Setters:<br />
+                        <br />
+                        <code><pre>   // Define object</pre></code>
+                        <code><pre>   var obj = {counter : 0};</pre></code>
+                        <br />
+                        <code><pre>   // Define setters</pre></code>
+                        <code><pre>   Object.defineProperty(obj, "reset", {</pre></code>
+                        <code><pre>      get : function () {this.counter = 0;}</pre></code>
+                        <code><pre>   });</pre></code>
+                        <code><pre>   Object.defineProperty(obj, "increment", {</pre></code>
+                        <code><pre>      get : function () {this.counter++;}</pre></code>
+                        <code><pre>   });</pre></code>
+                        <code><pre>   Object.defineProperty(obj, "decrement", {</pre></code>
+                        <code><pre>      get : function () {this.counter--;}</pre></code>
+                        <code><pre>   });</pre></code>
+                        <code><pre>   Object.defineProperty(obj, "add", {</pre></code>
+                        <code><pre>      et : function (value) {this.counter += value;}</pre></code>
+                        <code><pre>   });</pre></code>
+                        <code><pre>   Object.defineProperty(obj, "subtract", {</pre></code>
+                        <code><pre>      set : function (value) {this.counter -= value;}</pre></code>
+                        <code><pre>   });</pre></code>
+                    </li>
+                    <hr />
+                    <li id="Constructors">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_constructors.asp">Constructors</a></h2>
+                        It is considered good practice to name constructor functions with an upper-case first letter.<br />
+                        The way to create an "object type", is to use an object constructor function.<br />
+                        Objects of the same type are created by calling the constructor function with the new keyword:<br />
+                        <br />
+                        <code><pre>    var myFather = new Person("John", "Doe", 50, "blue");</pre></code>
+                        <code><pre>    var myMother = new Person("Sally", "Rally", 48, "green");</pre></code>
+                        <br />
+                        <h5>this</h5>
+                        In JavaScript, the thing called this is the object that "owns" the code.<br />
+                        The value of this, when used in an object, is the object itself.<br />
+                        In a constructor function this does not have a value. It is a substitute for the new object. <br />
+                        The value of this will become the new object when a new object is created.<br />
+                        <br />
+                        <h5>Adding a Property to an Object</h5>
+                        Adding a new property to an existing object is easy:<br />
+                        <br />
+                        <code><pre>   myFather.nationality = "English";</pre></code>
+                        <br />
+                        <h5>Adding a Method to an Object</h5>
+                        Adding a new method to an existing object is easy:<br />
+                        <br />
+                        <code><pre>    myFather.name = function () {</pre></code>
+                        <code><pre>        return this.firstName + " " + this.lastName;</pre></code>
+                        <code><pre>     };</pre></code>
+                        <br />
+                        <h5>Adding a Property to a Constructor</h5>
+                        You cannot add a new property to an object constructor the same way you add a new property to an existing object:<br />
+                        <br />
+                        <code><pre>    Person.nationality = "English";</pre></code>
+                        <br />
+                        To add a new property to a constructor, you must add it to the constructor function:<br />
+                        <br />
+                        <code><pre>    function Person(first, last, age, eyecolor) {</pre></code>
+                        <code><pre>        this.firstName = first;</pre></code>
+                        <code><pre>        this.lastName = last;</pre></code>
+                        <code><pre>        this.age = age;</pre></code>
+                        <code><pre>        this.eyeColor = eyecolor;</pre></code>
+                        <code><pre>        this.nationality = "English";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>Adding a Method to a Constructor</h5>
+                        Your constructor function can also define methods:<br />
+                        <br />
+                        <code><pre>    function Person(first, last, age, eyecolor) {</pre></code>
+                        <code><pre>        this.firstName = first;</pre></code>
+                        <code><pre>        this.lastName = last;</pre></code>
+                        <code><pre>        this.age = age;</pre></code>
+                        <code><pre>        this.eyeColor = eyecolor;</pre></code>
+                        <code><pre>        this.name = function() {return this.firstName + " " + this.lastName;};</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        You cannot add a new method to an object constructor the same way you add a new method to an existing object.<br />
+                        Adding methods to an object constructor must be done inside the constructor function:<br />
+                        <br />
+                        <code><pre>    function Person(firstName, lastName, age, eyeColor) {</pre></code>
+                        <code><pre>        this.firstName = firstName; </pre></code>
+                        <code><pre>        this.lastName = lastName;</pre></code>
+                        <code><pre>        this.age = age;</pre></code>
+                        <code><pre>        this.eyeColor = eyeColor;</pre></code>
+                        <code><pre>        this.changeName = function (name) {</pre></code>
+                        <code><pre>            this.lastName = name;</pre></code>
+                        <code><pre>        };</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        The changeName() function assigns the value of name to the person's lastName property.<br />
+                    </li>
+                    <hr />
+                    <li id="Prototypes">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_prototypes.asp">Prototypes</a></h2>
+                        <h5>Prototype Inheritance</h5>
+                        All JavaScript objects inherit properties and methods from a prototype:<br />
+                        <br />
+                        Date objects inherit from Date.prototype<br />
+                        Array objects inherit from Array.prototype<br />
+                        Person objects inherit from Person.prototype<br />
+                        The Object.prototype is on the top of the prototype inheritance chain:<br />
+                        <br />
+                        Date objects, Array objects, and Person objects inherit from Object.prototype.<br />
+                        <br />
+                        Adding Properties and Methods to Objects<br />
+                        Sometimes you want to add new properties (or methods) to all existing objects of a given type.<br />
+                        <br />
+                        Sometimes you want to add new properties (or methods) to an object constructor.<br />
+                        <br />
+                        <h5>Using the prototype Property</h5>
+                        The JavaScript prototype property allows you to add new properties to object constructors:<br />
+                        <br />
+                        <code><pre>    function Person(first, last, age, eyecolor) {</pre></code>
+                        <code><pre>        this.firstName = first;</pre></code>
+                        <code><pre>        this.lastName = last;</pre></code>
+                        <code><pre>        this.age = age;</pre></code>
+                        <code><pre>        this.eyeColor = eyecolor;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    Person.prototype.nationality = "English";</pre></code>
+                        <br />
+                        The JavaScript prototype property also allows you to add new methods to objects constructors:<br />
+                        <br />
+                        <code><pre>    function Person(first, last, age, eyecolor) {</pre></code>
+                        <code><pre>        this.firstName = first;</pre></code>
+                        <code><pre>        this.lastName = last;</pre></code>
+                        <code><pre>        this.age = age;</pre></code>
+                        <code><pre>        this.eyeColor = eyecolor;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    Person.prototype.name = function() {</pre></code>
+                        <code><pre>        return this.firstName + " " + this.lastName;</pre></code>
+                        <code><pre>    };</pre></code>
+                    </li>
+                    <hr />
+                    <li id="ES5ObjectMethods">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_object_es5.asp">ES5 Object Methods:</a></h2>
+                        <h5>ECMAScript 5 added a lot of new Object Methods to JavaScript.</h5>
+                        <br />
+                        <code><pre>    // Adding or changing an object property</pre></code>
+                        <code><pre>    Object.defineProperty(object, property, descriptor)</pre></code>
+                        <br />
+                        <code><pre>    // Adding or changing many object properties</pre></code>
+                        <code><pre>    Object.defineProperties(object, descriptors)</pre></code>
+                        <br />
+                        <code><pre>    // Accessing Properties</pre></code>
+                        <code><pre>    Object.getOwnPropertyDescriptor(object, property)</pre></code>
+                        <br />
+                        <code><pre>    // Returns all properties as an array</pre></code>
+                        <code><pre>    Object.getOwnPropertyNames(object)</pre></code>
+                        <br />
+                        <code><pre>    // Returns enumerable properties as an array</pre></code>
+                        <code><pre>    Object.keys(object)</pre></code>
+                        <br />
+                        <code><pre>    // Accessing the prototype</pre></code>
+                        <code><pre>    Object.getPrototypeOf(object)</pre></code>
+                        <br />
+                        <code><pre>    // Prevents adding properties to an object</pre></code>
+                        <code><pre>    Object.preventExtensions(object)</pre></code>
+                        <code><pre>    // Returns true if properties can be added to an object</pre></code>
+                        <code><pre>    Object.isExtensible(object)</pre></code>
+                        <br />
+                        <code><pre>    // Prevents changes of object properties (not values)</pre></code>
+                        <code><pre>    Object.seal(object)</pre></code>
+                        <code><pre>    // Returns true if object is sealed</pre></code>
+                        <code><pre>    Object.isSealed(object)</pre></code>
+                        <br />
+                        <code><pre>    // Prevents any changes to an object</pre></code>
+                        <code><pre>    Object.freeze(object)</pre></code>
+                        <code><pre>    // Returns true if object is frozen</pre></code>
+                        <code><pre>    Object.isFrozen(object)</pre></code>
+                        <br />
+                        <h5>Changing a Property Value</h5>
+                        Object.defineProperty(object, property, {value : value})<br />
+                        <br />
+                        <code><pre>    var person = {</pre></code>
+                        <code><pre>        firstName: "John",</pre></code>
+                        <code><pre>        lastName : "Doe",</pre></code>
+                        <code><pre>        language : "EN"</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        <code><pre>    // Change a property</pre></code>
+                        <code><pre>    Object.defineProperty(person, "language", {value : "NO"});</pre></code>
+                        <br />
+                        <h5>Changing Meta Data</h5>
+                        ES5 allows the following property meta data to be changed:<br />
+                        <br />
+                        <code><pre>    writable : true      // Property value can be changed</pre></code>
+                        <code><pre>    enumerable : true    // Property can be enumerated</pre></code>
+                        <code><pre>    configurable : true  // Property can be reconfigured</pre></code>
+                        <code><pre>    writable : false     // Property value can not be changed</pre></code>
+                        <code><pre>    enumerable : false   // Property can be not enumerated</pre></code>
+                        <code><pre>    configurable : false // Property can be not reconfigured</pre></code>
+                        <br />
+                        ES5 allows getters and setters to be changed:<br />
+                        <br />
+                        <code><pre>    // Defining a getter</pre></code>
+                        <code><pre>    get: function() { return language }</pre></code>
+                        <code><pre>    // Defining a setter</pre></code>
+                        <code><pre>    set: function(value) { language = value }</pre></code>
+                        <br />
+                        This example makes language read-only:<br />
+                        <br />
+                        <code><pre>    Object.defineProperty(person, "language", {writable:false});</pre></code>
+                        <br />
+                        This example makes language not enumerable:<br />
+                        <br />
+                        <code><pre>    Object.defineProperty(person, "language", {enumerable:false});</pre></code>
+                        <br />
+                        <h5>Listing All Properties</h5>
+                        This example list all properties of an object:<br />
+                        <br />
+                        <code><pre>    var person = {</pre></code>
+                        <code><pre>        firstName: "John",</pre></code>
+                        <code><pre>        lastName : "Doe"</pre></code>
+                        <code><pre>        language : "EN"</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        <code><pre>    Object.defineProperty(person, "language", {enumerable:false});</pre></code>
+                        <code><pre>    Object.getOwnPropertyNames(person);  // Returns an array of properties</pre></code>
+                        <br />
+                        <h5>Listing Enumerable Properties</h5>
+                        This example list only the enumerable properties of an object:<br />
+                        <br />
+                        <code><pre>    var person = {</pre></code>
+                        <code><pre>        firstName: "John",</pre></code>
+                        <code><pre>        lastName : "Doe"</pre></code>
+                        <code><pre>        language : "EN"</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        <code><pre>    Object.defineProperty(person, "language", {enumerable:false});</pre></code>
+                        <code><pre>    Object.keys(person);  // Returns an array of enumerable properties</pre></code>
+                        <br />
+                        <h5>Adding a Property</h5>
+                        This example adds a new property to an object:<br />
+                        <br />
+                        <code><pre>    // Create an object:</pre></code>
+                        <code><pre>    var person = {</pre></code>
+                        <code><pre>        firstName: "John",</pre></code>
+                        <code><pre>        lastName : "Doe",</pre></code>
+                        <code><pre>        language : "EN"</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        <code><pre>    // Add a property</pre></code>
+                        <code><pre>    Object.defineProperty(person, "year", {value:"2008"});</pre></code>
+                        <br />
+                        <h5>Adding Getters and Setters</h5>
+                        The Object.defineProperty() method can also be used to add Getters and Setters:<br />
+                        <br />
+                        <code><pre>    //Create an object</pre></code>
+                        <code><pre>    var person = {firstName:"John", lastName:"Doe"};</pre></code>
+                        <br />
+                        <code><pre>    // Define a getter</pre></code>
+                        <code><pre>    Object.defineProperty(person, "fullName", {</pre></code>
+                        <code><pre>        get : function () {return this.firstName + " " + this.lastName;}</pre></code>
+                        <code><pre>    });</pre></code>
+                    </li>
+                </ul>
+
+                <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="font-weight: bold; color: white; font-size: large">^</a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/MyStyle.css">
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <script>
+        $(document).ready(function () {
+            $('main').scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            $('#back-to-top').click(function () {
+                $('main').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+        /*
+         * <script src="https: //ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">< /script>
+         * <script src="https: //cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">< /script>
+         * <script src="https:/ /maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">< /script>
+         * <link rel="stylesheet" href="https: //maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        */
+    </script>
+</head>
+<body style="overflow-y: hidden">
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#"></a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="document.getElementById('iFrame').src= 'HTML.html'">HTML</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            JavaScript
+                        </a>
+                        <div class="dropdown-menu bg-secondary pl-2">
+                            <a class="nav-link" href="#" onclick="document.getElementById('iFrame').src= 'JavaScript.html'">JavaScript</a>
+                            <a class="nav-link" href="#" onclick="document.getElementById('iFrame').src= 'JavaScriptAJAX.html'">JavaScript AJAX</a>
+                            <a class="nav-link" href="#" onclick="document.getElementById('iFrame').src= 'JavaScriptObjects.html'">JavaScript Objects</a>
+                            <a class="nav-link" href="#" onclick="document.getElementById('iFrame').src= 'JavaScriptBOM.html'">JavaScript BOM</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <iframe id="iFrame" class="bg-light" style="height: 100%; width: 100%" />
+    </section>
+    <footer>
+    </footer>
+</body>
+</html>

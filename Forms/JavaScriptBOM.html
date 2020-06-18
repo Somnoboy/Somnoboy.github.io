@@ -1,0 +1,813 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/MyStyle.css">
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <script>
+        $(document).ready(function () {
+            $('main').scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            $('#back-to-top').click(function () {
+                $('main').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .back-to-top {
+            background-color: gainsboro;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+        }
+
+        li::before {
+            display: block;
+            content: " ";
+            margin-top: -16px;
+            height: 16px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        main {
+            scroll-behavior: smooth;
+        }
+
+        pre {
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            white-space: pre-wrap;
+        }
+
+        nav {
+            min-height: 99.9vh;
+            max-height: 99.9vh;
+        }
+
+        .nav-item {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main {
+            max-height: 99.9vh;
+        }
+
+        .nav-link {
+            color: gainsboro;
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden" class="alert-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none d-md-block bg-dark navbar-dark sidebar" style="overflow-y: auto; border-right: solid 1px Gray">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptBrowserObjectModelIntroduction">JavaScript Browser Object Model Introduction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptWindowScreen">JavaScript Window Screen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptWindowLocation">JavaScript Window Location</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptWindowHistory">JavaScript Window History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptWindowNavigator">JavaScript Window Navigator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptPopupBoxes">JavaScript Popup Boxes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptTimingEvents">JavaScript Timing Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#JavaScriptCookies">JavaScript Cookies</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 ml-md-auto pt-3 px-3" style="overflow-y: auto">
+                <center><h1>JavaScript Browser Object Model</h1></center>
+                <hr />
+                <ul style="list-style-type:none;">
+                    <li id="JavaScriptBrowserObjectModelIntroduction">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_window.asp">JavaScript Browser Object Model Introduction</a></h2>
+                        The Browser Object Model (BOM) allows JavaScript to "talk to" the browser.<br />
+                        <br />
+                        <h5>The Browser Object Model (BOM)</h5>
+                        There are no official standards for the Browser Object Model (BOM).<br />
+                        <br />
+                        Since modern browsers have implemented (almost) the same methods and properties for JavaScript interactivity, it is often referred to, as methods and properties of the BOM.<br />
+                        <br />
+                        <h5>The Window Object</h5>
+                        The window object is supported by all browsers. It represents the browser's window.<br />
+                        All global JavaScript objects, functions, and variables automatically become members of the window object.<br />
+                        Global variables are properties of the window object.<br />
+                        Global functions are methods of the window object.<br />
+                        Even the document object (of the HTML DOM) is a property of the window object:<br />
+                        <br />
+                        <code><pre>    window.document.getElementById("header");</pre></code>
+                        <br />
+                        is the same as:<br />
+                        <br />
+                        <code><pre>    document.getElementById("header");</pre></code>
+                        <br />
+                        <h5>Window Size</h5>
+                        Two properties can be used to determine the size of the browser window.<br />
+                        Both properties return the sizes in pixels:<br />
+                        <br />
+                        <code><pre>    window.innerHeight - the inner height of the browser window (in pixels)</pre></code>
+                        <code><pre>    window.innerWidth - the inner width of the browser window (in pixels)</pre></code>
+                        <br />
+                        The browser window (the browser viewport) is NOT including toolbars and scrollbars.<br />
+                        <br />
+                        For Internet Explorer 8, 7, 6, 5:<br />
+                        <br />
+                        <code><pre>    document.documentElement.clientHeight</pre></code>
+                        <code><pre>    document.documentElement.clientWidth</pre></code>
+                        <br />
+                        or<br />
+                        <br />
+                        <code><pre>    document.body.clientHeight</pre></code>
+                        <code><pre>    document.body.clientWidth</pre></code>
+                        <br />
+                        A practical JavaScript solution (covering all browsers):<br />
+                        <br />
+                        <code><pre>    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;</pre></code>
+                        <code><pre>    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;</pre></code>
+                        <br />
+                        The example displays the browser window's height and width: (NOT including toolbars/scrollbars)<br />
+                        <br />
+                        <h5>Other Window Methods</h5>
+                        Some other methods:<br />
+                        <br />
+                        <code><pre>    window.open() - open a new window</pre></code>
+                        <code><pre>    window.close() - close the current window</pre></code>
+                        <code><pre>    window.moveTo() - move the current window</pre></code>
+                        <code><pre>    window.resizeTo() - resize the current window</pre></code>
+                    </li>
+                    <hr />
+                    <li id="JavaScriptWindowScreen">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_window_screen.asp">JavaScript Window Screen</a></h2>
+                        The window.screen object contains information about the user's screen.<br />
+                        <br />
+                        <h5>Window Screen</h5>
+                        The window.screen object can be written without the window prefix.<br />
+                        <br />
+                        Properties:<br />
+                        <br />
+                        <code><pre>    screen.width</pre></code>
+                        <code><pre>    screen.height</pre></code>
+                        <code><pre>    screen.availWidth</pre></code>
+                        <code><pre>    screen.availHeight</pre></code>
+                        <code><pre>    screen.colorDepth</pre></code>
+                        <code><pre>    screen.pixelDepth</pre></code>
+                        <br />
+                        <h5>Window Screen Width</h5>
+                        The screen.width property returns the width of the visitor's screen in pixels.<br />
+                        Display the width of the screen in pixels:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Screen Width: " + screen.width;</pre></code>
+                        <br />
+                        Result will be:	Screen Width: 1600<br />
+                        <br />
+                        <h5>Window Screen Height</h5>
+                        The screen.height property returns the height of the visitor's screen in pixels.<br />
+                        Display the height of the screen in pixels:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Screen Height: " + screen.height;</pre></code>
+                        <br />
+                        Result will be: Screen Height: 900
+
+                        <h5>Window Screen Available Width</h5>
+                        The screen.availWidth property returns the width of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.<br />
+                        Display the available width of the screen in pixels:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Available Screen Width: " + screen.availWidth;</pre></code>
+                        <br />
+                        Result will be: Available Screen Width: 1600<br />
+                        <br />
+                        <h5>Window Screen Available Height</h5>
+                        The screen.availHeight property returns the height of the visitor's screen, in pixels, minus interface features like the Windows Taskbar.<br />
+                        Display the available height of the screen in pixels:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Available Screen Height: " + screen.availHeight;</pre></code>
+                        <br />
+                        Result will be:	Available Screen Height: 860<br />
+                        <br />
+                        <h5>Window Screen Color Depth</h5>
+                        The screen.colorDepth property returns the number of bits used to display one color.<br />
+                        All modern computers use 24 bit or 32 bit hardware for color resolution:<br />
+                        <br />
+                        <code><pre>    24 bits =      16,777,216 different "True Colors"</pre></code>
+                        <code><pre>    32 bits = 4,294,967,296 different "Deep Colors"</pre></code>
+                        <br />
+                        Older computers used 16 bits: 65,536 different "High Colors" resolution.<br />
+                        Very old computers, and old cell phones used 8 bits: 256 different "VGA colors".<br />
+                        Display the color depth of the screen in bits:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Screen Color Depth: " + screen.colorDepth;</pre></code>
+                        <br />
+                        Result will be:	Screen Color Depth: 24<br />
+                        The #rrggbb (rgb) values used in HTML represents "True Colors" (16,777,216 different colors)<br />
+                        <br />
+                        <h5>Window Screen Pixel Depth</h5>
+                        The screen.pixelDepth property returns the pixel depth of the screen.<br />
+                        Display the pixel depth of the screen in bits:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Screen Pixel Depth: " + screen.pixelDepth;</pre></code>
+                        <br />
+                        Result will be:	Screen Pixel Depth: 24<br />
+                    </li>
+                    <hr />
+                    <li id="JavaScriptWindowLocation">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_window_location.asp">JavaScript Window Location</a></h2>
+                        The window.location object can be used to get the current page address (URL) and to redirect the browser to a new page.<br />
+                        <br />
+                        <h5>Window Location</h5>
+                        The window.location object can be written without the window prefix.<br />
+                        Some examples:<br />
+                        <br />
+                        <code><pre>    window.location.href returns the href (URL) of the current page</pre></code>
+                        <code><pre>    window.location.hostname returns the domain name of the web host</pre></code>
+                        <code><pre>    window.location.pathname returns the path and filename of the current page</pre></code>
+                        <code><pre>    window.location.protocol returns the web protocol used (http: or https:)</pre></code>
+                        <code><pre>    window.location.assign() loads a new document</pre></code>
+                        <code><pre>    Window Location Href</pre></code>
+                        <code><pre>    The window.location.href property returns the URL of the current page.</pre></code>
+                        <br />
+                        Display the href (URL) of the current page:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Page location is " + window.location.href;</pre></code>
+                        <br />
+                        Result is: Page location is https://www.w3schools.com/js/js_window_location.asp<br />
+                        <br />
+                        <h5>Window Location Hostname</h5>
+                        The window.location.hostname property returns the name of the internet host (of the current page).<br />
+                        Display the name of the host:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML =	"Page hostname is " + window.location.hostname;</pre></code>
+                        <br />
+                        Result is: Page hostname is www.w3schools.com<br />
+                        <br />
+                        <h5>Window Location Pathname</h5>
+                        The window.location.pathname property returns the pathname of the current page.<br />
+                        Display the path name of the current URL:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML = "Page path is " + window.location.pathname;</pre></code>
+                        <br />
+                        Result is: Page path is /js/js_window_location.asp<br />
+                        <br />
+                        <h5>Window Location Protocol</h5>
+                        The window.location.protocol property returns the web protocol of the page.<br />
+                        Display the web protocol:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML = "Page protocol is " + window.location.protocol;</pre></code>
+                        <br />
+                        Result is: Page protocol is https:<br />
+                        <br />
+                        <h5>Window Location Port</h5>
+                        The window.location.port property returns the number of the internet host port (of the current page).<br />
+                        Display the name of the host:<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML = "Port number is " + window.location.port;</pre></code>
+                        <br />
+                        Result is: Port number is Most browsers will not display default port numbers (80 for http and 443 for https)<br />
+                        <br />
+                        <h5>Window Location Assign</h5>
+                        The window.location.assign() method loads a new document.<br />
+                        Load a new document:<br />
+                        <br />
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &ltscript&gt</pre></code>
+                        <code><pre>            function newDoc() {</pre></code>
+                        <code><pre>                window.location.assign("https://www.w3schools.com")</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        &lt/script&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &ltinput type="button" value="Load new document" onclick="newDoc()"&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="JavaScriptWindowHistory">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_window_history.asp">JavaScript Window History</a></h2>
+                        The window.history object contains the browsers history.<br />
+                        <br />
+                        <h5>Window History</h5>
+                        The window.history object can be written without the window prefix.<br />
+                        To protect the privacy of the users, there are limitations to how JavaScript can access this object.<br />
+                        Some methods:<br />
+                        <br />
+                        <code><pre>    history.back() - same as clicking back in the browser</pre></code>
+                        <code><pre>    history.forward() - same as clicking forward in the browser</pre></code>
+                        <br />
+                        <h5>Window History Back</h5>
+                        The history.back() method loads the previous URL in the history list.<br />
+                        This is the same as clicking the Back button in the browser.<br />
+                        Create a back button on a page:<br />
+                        <br />
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &ltscript&gt</pre></code>
+                        <code><pre>            function goBack() {</pre></code>
+                        <code><pre>                window.history.back()</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        &lt/script&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &ltinput type="button" value="Back" onclick="goBack()"&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        <h5>Window History Forward</h5>
+                        The history.forward() method loads the next URL in the history list.<br />
+                        This is the same as clicking the Forward button in the browser.<br />
+                        Create a forward button on a page:<br />
+                        <br />
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &ltscript&gt</pre></code>
+                        <code><pre>            function goForward() {</pre></code>
+                        <code><pre>                window.history.forward()</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &ltinput type="button" value="Forward" onclick="goForward()"&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="JavaScriptWindowNavigator">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_window_navigator.asp">JavaScript Window Navigator</a></h2>
+                        The window.navigator object contains information about the visitor's browser.<br />
+                        <br />
+                        <h5>Window Navigator</h5>
+                        The window.navigator object can be written without the window prefix.<br />
+                        Some examples:<br />
+                        <br />
+                        <code><pre>    navigator.appName</pre></code>
+                        <code><pre>    navigator.appCodeName</pre></code>
+                        <code><pre>    navigator.platform</pre></code>
+                        <br />
+                        <h5>Browser Cookies</h5>
+                        The cookieEnabled property returns true if cookies are enabled, otherwise false:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = "cookiesEnabled is " + navigator.cookieEnabled;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        <h5>Browser Application Name</h5>
+                        The appName property returns the application name of the browser:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = "navigator.appName is " + navigator.appName;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        Strange enough, "Netscape" is the application name for both IE11, Chrome, Firefox, and Safari.<br />
+                        <br />
+                        <h5>Browser Application Code Name</h5>
+                        The appCodeName property returns the application code name of the browser:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = "navigator.appCodeName is " + navigator.appCodeName;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        "Mozilla" is the application code name for both Chrome, Firefox, IE, Safari, and Opera.<br />
+                        <br />
+                        <h5>The Browser Engine</h5>
+                        The product property returns the product name of the browser engine:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = "navigator.product is " + navigator.product;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        Do not rely on this. Most browsers returns "Gecko" as product name !!<br />
+                        <br />
+                        <h5>The Browser Version</h5>
+                        The appVersion property returns version information about the browser:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = navigator.appVersion;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        <h5>The Browser Agent</h5>
+                        The userAgent property returns the user-agent header sent by the browser to the server:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = navigator.userAgent;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        Warning !!!<br />
+                        The information from the navigator object can often be misleading, and should not be used to detect browser versions because:<br />
+                        <br />
+                        <code><pre>    Different browsers can use the same name</pre></code>
+                        <code><pre>    The navigator data can be changed by the browser owner</pre></code>
+                        <code><pre>    Some browsers misidentify themselves to bypass site tests</pre></code>
+                        <code><pre>    Browsers cannot report new operating systems, released later than the browser</pre></code>
+                        <br />
+                        <h5>The Browser Platform</h5>
+                        The platform property returns the browser platform (operating system):
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = navigator.platform;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        <h5>The Browser Language</h5>
+                        The language property returns the browser's language:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = navigator.language;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        <h5>Is The Browser Online?</h5>
+                        The onLine property returns true if the browser is online:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = navigator.onLine;</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        <h5>Is Java Enabled?</h5>
+                        The javaEnabled() method returns true if Java is enabled:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = navigator.javaEnabled();</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="JavaScriptPopupBoxes">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_popup.asp">JavaScript Popup Boxes</a></h2>
+                        JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.<br />
+                        <br />
+                        <h5>Alert Box</h5>
+                        An alert box is often used if you want to make sure information comes through to the user.<br />
+                        When an alert box pops up, the user will have to click "OK" to proceed.<br />
+                        <br />
+                        <code><pre>    window.alert("sometext");</pre></code>
+                        <br />
+                        The window.alert() method can be written without the window prefix.<br />
+                        <br />
+                        <code><pre>    alert("I am an alert box!");</pre></code>
+                        <br />
+                        <h5>Confirm Box</h5>
+                        A confirm box is often used if you want the user to verify or accept something.<br />
+                        When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.<br />
+                        If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.<br />
+                        <br />
+                        <code><pre>    window.confirm("sometext");</pre></code>
+                        <br />
+                        The window.confirm() method can be written without the window prefix.<br />
+                        <br />
+                        <code><pre>    if (confirm("Press a button!")) {</pre></code>
+                        <code><pre>        txt = "You pressed OK!";</pre></code>
+                        <code><pre>    } else {</pre></code>
+                        <code><pre>        txt = "You pressed Cancel!";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>Prompt Box</h5>
+                        A prompt box is often used if you want the user to input a value before entering a page.<br />
+                        When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value.<br />
+                        If the user clicks "OK" the box returns the input value. If the user clicks "Cancel" the box returns null.<br />
+                        <br />
+                        <code><pre>    window.prompt("sometext","defaultText");</pre></code>
+                        <br />
+                        The window.prompt() method can be written without the window prefix.<br />
+                        <br />
+                        <code><pre>    var person = prompt("Please enter your name", "Harry Potter");</pre></code>
+                        <br />
+                        <code><pre>    if (person == null || person == "") {</pre></code>
+                        <code><pre>        txt = "User cancelled the prompt.";</pre></code>
+                        <code><pre>    } else {</pre></code>
+                        <code><pre>        txt = "Hello " + person + "! How are you today?";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>Line Breaks</h5>
+                        To display line breaks inside a popup box, use a back-slash followed by the character n.<br />
+                        <br />
+                        <code><pre>    alert("Hello\nHow are you?");</pre></code>
+                    </li>
+                    <hr />
+                    <li id="JavaScriptTimingEvents">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_timing.asp">JavaScript Timing Events</a></h2>
+                        JavaScript can be executed in time-intervals.<br />
+                        This is called timing events.<br />
+                        <br />
+                        <h5>Timing Events</h5>
+                        The window object allows execution of code at specified time intervals.<br />
+                        These time intervals are called timing events.<br />
+                        The two key methods to use with JavaScript are:<br />
+                        <br />
+                        <code><pre>    setTimeout(function, milliseconds)</pre></code>
+                        <br />
+                        Executes a function, after waiting a specified number of milliseconds.<br />
+                        <br />
+                        <code><pre>    setInterval(function, milliseconds)</pre></code>
+                        <br />
+                        Same as setTimeout(), but repeats the execution of the function continuously.<br />
+                        The setTimeout() and setInterval() are both methods of the HTML DOM Window object.<br />
+                        <br />
+                        <h5>The setTimeout() Method</h5>
+                        <br />
+                        <code><pre>    window.setTimeout(function, milliseconds);</pre></code>
+                        <br />
+                        The window.setTimeout() method can be written without the window prefix.<br />
+                        The first parameter is a function to be executed.<br />
+                        The second parameter indicates the number of milliseconds before execution.<br />
+                        Click a button. Wait 3 seconds, and the page will alert "Hello":<br />
+                        <br />
+                        <code><pre>    &ltbutton onclick="setTimeout(myFunction, 3000)"&gtTry it&lt/button&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        function myFunction() {</pre></code>
+                        <code><pre>            alert('Hello');</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                        <br />
+                        <h6>How to Stop the Execution?</h6>
+                        The clearTimeout() method stops the execution of the function specified in setTimeout().<br />
+                        <br />
+                        <code><pre>    window.clearTimeout(timeoutVariable)</pre></code>
+                        <br />
+                        The window.clearTimeout() method can be written without the window prefix.<br />
+                        The clearTimeout() method uses the variable returned from setTimeout():<br />
+                        <br />
+                        <code><pre>    myVar = setTimeout(function, milliseconds);</pre></code>
+                        <code><pre>    clearTimeout(myVar);</pre></code>
+                        <br />
+                        If the function has not already been executed, you can stop the execution by calling the clearTimeout() method:<br />
+                        Same example as above, but with an added "Stop" button:<br />
+                        <br />
+                        <code><pre>    &ltbutton onclick="myVar = setTimeout(myFunction, 3000)"&gtTry it&lt/button&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltbutton onclick="clearTimeout(myVar)"&gtStop it&lt/button&gt</pre></code>
+                        <br />
+                        <h5>The setInterval() Method</h5>
+                        The setInterval() method repeats a given function at every given time-interval.<br />
+                        <br />
+                        <code><pre>    window.setInterval(function, milliseconds);</pre></code>
+                        <br />
+                        The window.setInterval() method can be written without the window prefix.<br />
+                        The first parameter is the function to be executed.<br />
+                        The second parameter indicates the length of the time-interval between each execution.<br />
+                        This example executes a function called "myTimer" once every second (like a digital watch).<br />
+                        Display the current time:<br />
+                        <br />
+                        <code><pre>    var myVar = setInterval(myTimer, 1000);</pre></code>
+                        <br />
+                        <code><pre>    function myTimer() {</pre></code>
+                        <code><pre>        var d = new Date();</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = d.toLocaleTimeString();</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        There are 1000 milliseconds in one second.<br />
+                        <br />
+                        <h6>How to Stop the Execution?</h6>
+                        The clearInterval() method stops the executions of the function specified in the setInterval() method.<br />
+                        <br />
+                        <code><pre>    window.clearInterval(timerVariable)</pre></code>
+                        <br />
+                        The window.clearInterval() method can be written without the window prefix.<br />
+                        The clearInterval() method uses the variable returned from setInterval():<br />
+                        <br />
+                        <code><pre>    myVar = setInterval(function, milliseconds);</pre></code>
+                        <code><pre>    clearInterval(myVar);</pre></code>
+                        <br />
+                        Same example as above, but we have added a "Stop time" button:<br />
+                        <br />
+                        <code><pre>    &ltp id="demo"&gt&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltbutton onclick="clearInterval(myVar)"&gtStop time&lt/button&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        var myVar = setInterval(myTimer, 1000);</pre></code>
+                        <code><pre>        function myTimer() {</pre></code>
+                        <code><pre>            var d = new Date();</pre></code>
+                        <code><pre>            document.getElementById("demo").innerHTML = d.toLocaleTimeString();</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="JavaScriptCookies">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_cookies.asp">JavaScript Cookies</a></h2>
+                        Cookies let you store user information in web pages.<br />
+                        <br />
+                        <h5>What are Cookies?</h5>
+                        Cookies are data, stored in small text files, on your computer.<br />
+                        When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.<br />
+                        Cookies were invented to solve the problem "how to remember information about the user":<br />
+                        <br />
+                        When a user visits a web page, his/her name can be stored in a cookie.<br />
+                        Next time the user visits the page, the cookie "remembers" his/her name.<br />
+                        Cookies are saved in name-value pairs like:<br />
+                        <br />
+                        <code><pre>   username = John Doe</pre></code>
+                        <br />
+                        When a browser requests a web page from a server, cookies belonging to the page are added to the request. <br />
+                        This way the server gets the necessary data to "remember" information about users.<br />
+                        None of the examples below will work if your browser has local cookies support turned off.<br />
+                        <br />
+                        <h5>Create a Cookie with JavaScript</h5>
+                        JavaScript can create, read, and delete cookies with the document.cookie property.<br />
+                        With JavaScript, a cookie can be created like this:<br />
+                        <br />
+                        <code><pre>    document.cookie = "username=John Doe";</pre></code>
+                        <br />
+                        You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:<br />
+                        <br />
+                        <code><pre>    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";</pre></code>
+                        <br />
+                        With a path parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs to the current page.<br />
+                        <br />
+                        <code><pre>    document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";</pre></code>
+                        <br />
+                        <h5>Read a Cookie with JavaScript</h5>
+                        With JavaScript, cookies can be read like this:<br />
+                        <br />
+                        <code><pre>    var x = document.cookie;</pre></code>
+                        <br />
+                        <code><pre>    document.cookie will return all cookies in one string much like: cookie1=value; cookie2=value; cookie3=value;</pre></code>
+                        <br />
+                        <h5>Change a Cookie with JavaScript</h5>
+                        With JavaScript, you can change a cookie the same way as you create it:<br />
+                        <br />
+                        <code><pre>    document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";</pre></code>
+                        <br />
+                        The old cookie is overwritten.<br />
+                        <br />
+                        <h5>Delete a Cookie with JavaScript</h5>
+                        Deleting a cookie is very simple.<br />
+                        You don't have to specify a cookie value when you delete a cookie.<br />
+                        Just set the expires parameter to a passed date:<br />
+                        <br />
+                        <code><pre>    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";</pre></code>
+                        <br />
+                        You should define the cookie path to ensure that you delete the right cookie.<br />
+                        Some browsers will not let you delete a cookie if you don't specify the path.<br />
+                        <br />
+                        The Cookie String<br />
+                        The document.cookie property looks like a normal text string. But it is not.<br />
+                        Even if you write a whole cookie string to document.cookie, when you read it out again, you can only see the name-value pair of it.<br />
+                        If you set a new cookie, older cookies are not overwritten. The new cookie is added to document.cookie, so if you read document.cookie again you will get something like:<br />
+                        <br />
+                        <code><pre>    cookie1 = value; cookie2 = value;</pre></code>
+                        <br />
+                        Display All Cookies  Create Cookie 1  Create Cookie 2 Delete Cookie 1  Delete Cookie 2<br />
+                        If you want to find the value of one specified cookie, you must write a JavaScript function that searches for the cookie value in the cookie string.<br />
+                        <br />
+                        JavaScript Cookie Example<br />
+                        In the example to follow, we will create a cookie that stores the name of a visitor.<br />
+                        The first time a visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a cookie.<br />
+                        The next time the visitor arrives at the same page, he/she will get a welcome message.<br />
+                        For the example we will create 3 JavaScript functions:<br />
+                        <br />
+                        <code><pre>    A function to set a cookie value</pre></code>
+                        <code><pre>    A function to get a cookie value</pre></code>
+                        <code><pre>    A function to check a cookie value</pre></code>
+                        <code><pre>    A Function to Set a Cookie</pre></code>
+                        <br />
+                        First, we create a function that stores the name of the visitor in a cookie variable:<br />
+                        <br />
+                        <code><pre>    function setCookie(cname, cvalue, exdays) {</pre></code>
+                        <code><pre>        var d = new Date();</pre></code>
+                        <code><pre>        d.setTime(d.getTime() + (exdays*24*60*60*1000));</pre></code>
+                        <code><pre>        var expires = "expires="+ d.toUTCString();</pre></code>
+                        <code><pre>    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        The parameters of the function above are the name of the cookie (cname), the value of the cookie (cvalue), and the number of days until the cookie should expire (exdays).<br />
+                        The function sets a cookie by adding together the cookiename, the cookie value, and the expires string.<br />
+                        <br />
+                        <h5>A Function to Get a Cookie</h5>
+                        Then, we create a function that returns the value of a specified cookie:<br />
+                        <br />
+                        <code><pre>    function getCookie(cname) {</pre></code>
+                        <code><pre>        var name = cname + "=";</pre></code>
+                        <code><pre>        var decodedCookie = decodeURIComponent(document.cookie);</pre></code>
+                        <code><pre>        var ca = decodedCookie.split(';');</pre></code>
+                        <code><pre>        for(var i = 0; i < ca.length; i++) {</pre></code>
+                        <code><pre>            var c = ca[i];</pre></code>
+                        <code><pre>            while (c.charAt(0) == ' ') {</pre></code>
+                        <code><pre>                c = c.substring(1);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>            if (c.indexOf(name) == 0) {</pre></code>
+                        <code><pre>                return c.substring(name.length, c.length);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        return "";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        Take the cookiename as parameter (cname).<br />
+                        Create a variable (name) with the text to search for (cname + "=").<br />
+                        Decode the cookie string, to handle cookies with special characters, e.g. '$'<br />
+                        Split document.cookie on semicolons into an array called ca (ca = decodedCookie.split(';')).<br />
+                        Loop through the ca array (i = 0; i < ca.length; i++), and read out each value c = ca[i]).<br />
+                        If the cookie is found (c.indexOf(name) == 0), return the value of the cookie (c.substring(name.length, c.length).<br />
+                        If the cookie is not found, return "".<br />
+                        <br />
+                        <h5>A Function to Check a Cookie</h5>
+                        Last, we create the function that checks if a cookie is set.<br />
+                        If the cookie is set it will display a greeting.<br />
+                        If the cookie is not set, it will display a prompt box, asking for the name of the user, and stores the username cookie for 365 days, by calling the setCookie function:<br />
+                        <br />
+                        <code><pre>    function checkCookie() {</pre></code>
+                        <code><pre>        var username = getCookie("username");</pre></code>
+                        <code><pre>        if (username != "") {</pre></code>
+                        <code><pre>            alert("Welcome again " + username);</pre></code>
+                        <code><pre>        } else {</pre></code>
+                        <code><pre>            username = prompt("Please enter your name:", "");</pre></code>
+                        <code><pre>            if (username != "" && username != null) {</pre></code>
+                        <code><pre>                setCookie("username", username, 365);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>All Together Now</h5>
+                        <code><pre>    function setCookie(cname, cvalue, exdays) {</pre></code>
+                        <code><pre>        var d = new Date();</pre></code>
+                        <code><pre>        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));</pre></code>
+                        <code><pre>        var expires = "expires="+d.toUTCString();</pre></code>
+                        <code><pre>        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    function getCookie(cname) {</pre></code>
+                        <code><pre>        var name = cname + "=";</pre></code>
+                        <code><pre>        var ca = document.cookie.split(';');</pre></code>
+                        <code><pre>        for(var i = 0; i < ca.length; i++) {</pre></code>
+                        <code><pre>            var c = ca[i];</pre></code>
+                        <code><pre>            while (c.charAt(0) == ' ') {</pre></code>
+                        <code><pre>                c = c.substring(1);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>            if (c.indexOf(name) == 0) {</pre></code>
+                        <code><pre>                return c.substring(name.length, c.length);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        return "";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    function checkCookie() {</pre></code>
+                        <code><pre>        var user = getCookie("username");</pre></code>
+                        <code><pre>        if (user != "") {</pre></code>
+                        <code><pre>            alert("Welcome again " + user);</pre></code>
+                        <code><pre>        } else {</pre></code>
+                        <code><pre>            user = prompt("Please enter your name:", "");</pre></code>
+                        <code><pre>            if (user != "" && user != null) {</pre></code>
+                        <code><pre>                setCookie("username", user, 365);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        The example above runs the checkCookie() function when the page loads.
+                    </li>
+                </ul>
+
+                <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="font-weight: bold; color: white; font-size: large">^</a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

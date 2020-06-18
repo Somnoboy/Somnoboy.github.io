@@ -1,0 +1,2397 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/MyStyle.css">
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <script>
+        $(document).ready(function () {
+            $('main').scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            $('#back-to-top').click(function () {
+                $('main').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .back-to-top {
+            background-color: gainsboro;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+        }
+
+        li::before {
+            display: block;
+            content: " ";
+            margin-top: -16px;
+            height: 16px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        main {
+            scroll-behavior: smooth;
+        }
+
+        pre {
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            white-space: pre-wrap;
+        }
+
+        nav {
+            min-height: 99.9vh;
+            max-height: 99.9vh;
+        }
+
+        .nav-item {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main {
+            max-height: 99.9vh;
+        }
+
+        .nav-link {
+            color: gainsboro;
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden" class="alert-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none d-md-block bg-dark navbar-dark sidebar" style="overflow-y: auto; border-right: solid 1px Gray">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Introduction">Introduction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLEditors">HTML Editors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLBasicExamples">HTML Basic Examples</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLElements">HTML Elements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLAttributes">HTML Attributes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLHeadings">HTML Headings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLParagraphs">HTML Paragraphs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLStyles">HTML Styles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLTextFormatting">HTML Text Formatting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLQuotationandCitationElements">HTML Quotation and Citation Elements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLComments">HTML Comments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLColors">HTML Colors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLStyles-CSS">HTML Styles - CSS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLLink">HTML Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLImages">HTML Images</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLTables">HTML Tables</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLLists">HTML Lists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLBlockandInlineElements">HTML Block and Inline Elements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLTheclassAttribute">HTML The class Attribute</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLTheidAttribute">HTML The id Attribute</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLIframes">HTMLIframes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLFilePaths">HTML File Paths</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTML-TheHeadElement">HTML - The Head Element</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLLayoutElementsandTechniques">HTML Layout Elements and Techniquest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLResponsiveWebDesign">HTML Responsive Web Design</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLComputerCodeElements">HTML Computer Code Elements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLSemanticElements">HTML Semantic Elements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLEntities">HTML Entities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#HTMLReferences">HTML References</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 ml-md-auto pt-3 px-3" style="overflow-y: auto">
+                <center><h1>HTML</h1></center>
+                <hr />
+                <ul style="list-style-type:none;">
+                    <li id="Introduction">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_intro.asp">Introduction</a></h2>
+                        HTML is the standard markup language for creating Web pages.<br />
+                        <br />
+                        <h5>What is HTML?</h5>
+                        HTML stands for Hyper Text Markup Language<br />
+                        HTML describes the structure of a Web page<br />
+                        HTML consists of a series of elements<br />
+                        HTML elements tell the browser how to display the content<br />
+                        HTML elements are represented by tags<br />
+                        HTML tags label pieces of content such as "heading", "paragraph", "table", and so on<br />
+                        Browsers do not display the HTML tags, but use them to render the content of the page.<br />
+                        <br />
+                        <h5>A Simple HTML Document</h5>
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &lttitle>Page Title&lt/title&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtMy First Heading&lth1&gt</pre></code>
+                        <code><pre>        &ltp&gtMy first paragraph.&ltp&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        The &lt!DOCTYPE html&gt declaration defines this document to be HTML5.<br />
+                        The &lthtml&gt element is the root element of an HTML page.<br />
+                        The &lthead&gt element contains meta information about the document.<br />
+                        The &lttitle&gt element specifies a title for the document.<br />
+                        The &ltbody&gt element contains the visible page content Note: Only the content inside the &ltbody> section (the white area above) is displayed in a browser.<br />
+                        The &lth1&gt element defines a large heading.<br />
+                        The &ltp&gt element defines a paragraph.<br />
+                        <br />
+                        <h5>HTML Tags</h5>
+                        HTML tags are element names surrounded by angle brackets:<br />
+                        <br />
+                        <code><pre>    &lttagname&gtcontent goes here...&lt/tagname&gt</pre></code>
+                        <br />
+                        HTML tags normally come in pairs like<br />
+                        <br />
+                        <code><pre>   &ltp&gt and &lt/p&gt</pre></code>
+                        <br />
+                        The first tag in a pair is the start tag, the second tag is the end tag.<br />
+                        The end tag is written like the start tag, but with a forward slash inserted before the tag name.<br />
+                        Tip: The start tag is also called the opening tag, and the end tag the closing tag.<br />
+                        <br />
+                        <h5>Web Browsers</h5>
+                        The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them.<br />
+                        The browser does not display the HTML tags, but uses them to determine how to display the document:<br />
+                        <br />
+                        <h5>The <!DOCTYPE> Declaration</h5>
+                        The <!DOCTYPE> declaration represents the document type, and helps browsers to display web pages correctly.<br />
+                        It must only appear once, at the top of the page (before any HTML tags).<br />
+                        The <!DOCTYPE> declaration is not case sensitive.<br />
+                        The <!DOCTYPE> declaration for HTML5 is:<br />
+                        <br />
+                        <code><pre>   &lt!DOCTYPE html&gt</pre></code>
+                        <br />
+                        <h5>HTML History</h5>
+                        Since the early days of the World Wide Web, there have been many versions of HTML:<br />
+                        <br />
+                        <code><pre>    Year	Version</pre></code>
+                        <code><pre>    1989	Tim Berners-Lee invented www</pre></code>
+                        <code><pre>    1991	Tim Berners-Lee invented HTML</pre></code>
+                        <code><pre>    1993	Dave Raggett drafted HTML+</pre></code>
+                        <code><pre>    1995	HTML Working Group defined HTML 2.0</pre></code>
+                        <code><pre>    1997	W3C Recommendation: HTML 3.2</pre></code>
+                        <code><pre>    1999	W3C Recommendation: HTML 4.01</pre></code>
+                        <code><pre>    2000	W3C Recommendation: XHTML 1.0</pre></code>
+                        <code><pre>    2008	WHATWG HTML5 First Public Draft</pre></code>
+                        <code><pre>    2012	WHATWG HTML5 Living Standard</pre></code>
+                        <code><pre>    2014	W3C Recommendation: HTML5</pre></code>
+                        <code><pre>    2016	W3C Candidate Recommendation: HTML 5.1</pre></code>
+                        <code><pre>    2017	W3C Recommendation: HTML5.1 2nd Edition</pre></code>
+                        <code><pre>    2017	W3C Recommendation: HTML5.2</pre></code>
+                        <br />
+                        This tutorial follows the latest HTML 5 standard.<br />
+                    </li>
+                    <hr />
+                    <li id="HTMLEditors">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_editors.asp">HTML Editors</a></h2>
+                        A simple text editor is all you need to learn HTML.<br />
+                        <br />
+                        <h5>Learn HTML Using Notepad or TextEdit</h5>
+                        Web pages can be created and modified by using professional HTML editors.<br />
+                        However, for learning HTML we recommend a simple text editor like Notepad (PC) or TextEdit (Mac).<br />
+                        We believe using a simple text editor is a good way to learn HTML.<br />
+                        Follow the steps below to create your first web page with Notepad or TextEdit.<br />
+                        <br />
+                        <h5>Step 1: Open Notepad (PC)</h5>
+                        Windows 8 or later:<br />
+                        <br />
+                        <code><pre>    Open the Start Screen (the window symbol at the bottom left on your screen). Type Notepad.</pre></code>
+                        <br />
+                        Windows 7 or earlier:<br />
+                        <br />
+                        <code><pre>    Open Start > Programs > Accessories > Notepad</pre></code>
+                        <br />
+                        Step 1: Open TextEdit (Mac)<br />
+                        <br />
+                        <code><pre>    Open Finder > Applications > TextEdit</pre></code>
+                        <br />
+                        Also change some preferences to get the application to save files correctly. In Preferences > Format > choose "Plain Text".<br />
+                        Then under "Open and Save", check the box that says "Display HTML files as HTML code instead of formatted text".<br />
+                        Then open a new document to place the code.<br />
+                        <br />
+                        <h5>Step 2: Write Some HTML</h5>
+                        Write or copy some HTML into Notepad.<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtMy First Heading.&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtMy first paragraph.&ltp&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        <h5>Step 3: Save the HTML Page</h5>
+                        Save the file on your computer. Select File > Save as in the Notepad menu.<br />
+                        Name the file "index.htm" and set the encoding to UTF-8 (which is the preferred encoding for HTML files).<br />
+                        You can use either .htm or .html as file extension. There is no difference, it is up to you.<br />
+                        <br />
+                        <h5>Step 4: View the HTML Page in Your Browser</h5>
+                        Open the saved HTML file in your favorite browser (double click on the file, or right-click - and choose "Open with").<br />
+                        The result will look much like this:<br />
+                        <br />
+                        <code><pre>    View in Browser</pre></code>
+                        <br />
+                        <h5>W3Schools Online Editor</h5>
+                        With our free online editor, you can edit the HTML code and view the result in your browser.<br />
+                        It is the perfect tool when you want to test code fast. It also has color coding and the ability to save and share code with others:<br />
+                        <br />
+                        <a target="_blank" href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default"><strong>HTML Editor</strong></a><br />
+                    </li>
+                    <hr />
+                    <li id="HTMLBasicExamples">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_basic.asp">HTML Basic Examples</a></h2>
+                        <h5>HTML Documents</h5>
+                        All HTML documents must start with a document type declaration: &lt!DOCTYPE html&gt.<br />
+                        The HTML document itself begins with &lthtml&gt and ends with &lt/html&gt.<br />
+                        The visible part of the HTML document is between &ltbody&gt and &lt/body&gt.<br />
+                        <br />
+                        <code><pre>   &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>   &lthtml&gt</pre></code>
+                        <code><pre>   &ltbody&gt</pre></code>
+                        <code><pre>       &lth1&gtMy First Heading&lt/h1&gt</pre></code>
+                        <code><pre>       &ltp&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <code><pre>   &lt/body&gt</pre></code>
+                        <code><pre>   &lt/html&gt</pre></code>
+                        <br />
+                        <h5>HTML Headings</h5>
+                        HTML headings are defined with the &lth1&gt to &lth6&gt tags.<br />
+                        &lth1&gt defines the most important heading.<br />
+                        &lth6&gt defines the least important heading:<br />
+                        <br />
+                        <code><pre>   &lth1&gtThis is heading 1&lt/h1&gt</pre></code>
+                        <code><pre>   &lth2&gtThis is heading 2&lt/h2&gt</pre></code>
+                        <code><pre>   &lth3&gtThis is heading 3&lt/h3&gt</pre></code>
+                        <br />
+                        <h5>HTML Paragraphs</h5>
+                        HTML paragraphs are defined with the &ltp&gt tag:<br />
+                        <br />
+                        <code><pre>   &ltp&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <code><pre>   &ltp&gtThis is another paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML Links</h5>
+                        HTML links are defined with the &lta&gt tag:<br />
+                        <br />
+                        <code><pre>   &lta href="https://www.w3schools.com"&gtThis is a link&lt/a&gt</pre></code>
+                        <br />
+                        The link's destination is specified in the href attribute.<br />
+                        Attributes are used to provide additional information about HTML elements.<br />
+                        <br />
+                        <h5>HTML Images</h5>
+                        HTML images are defined with the &ltimg&gt tag.<br />
+                        The source file (src), alternative text (alt), width, and height are provided as attributes:<br />
+                        <br />
+                        <code><pre>   &ltimg src="w3schools.jpg" alt="W3Schools.com" width="104" height="142"&gt</pre></code>
+                        <br />
+                        <h5>HTML Buttons</h5>
+                        HTML buttons are defined with the &ltbutton&gt tag:<br />
+                        <br />
+                        <code><pre>   &ltbutton&gtClick me&lt/button&gt</pre></code>
+                        <br />
+                        <h5>HTML Lists</h5>
+                        HTML lists are defined with the &ltul&gt (unordered/bullet list) or the &ltol&gt (ordered/numbered list) tag, followed by &ltli&gt tags (list items):<br />
+                        <br />
+                        <code><pre>    &ltul&gt</pre></code>
+                        <code><pre>        &ltli&gtCoffee&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtTea&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtMilk&lt/li&gt</pre></code>
+                        <code><pre>    &lt/ul&gt</pre></code>
+                        <code><pre>    &ltol&gt</pre></code>
+                        <code><pre>        &ltli&gtCoffee&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtTea&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtMilk&lt/li&gt</pre></code>
+                        <code><pre>    &lt/ol&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLElements">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_elements.asp">HTML Elements</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/tags/default.asp"><strong>Complete list of all available HTML tags</strong></a><br />
+                        An HTML element is defined by a start tag, some content, and an end tag.<br />
+                        <br />
+                        <h5>HTML Elements</h5>
+                        An HTML element usually consists of a start tag and an end tag, with the content inserted in between:<br />
+                        <br />
+                        <code><pre>    &lttagname&gtContent goes here...&lt/tagname&gt</pre></code>
+                        <br />
+                        The HTML element is everything from the start tag to the end tag:<br />
+                        <br />
+                        <code><pre>    &ltp&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        Start tag	Element content	End tag
+                        <br />
+                        <code><pre>    &lth1&gtMy First Heading &lt/h1&gt</pre></code>
+                        <code><pre>    &ltp&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &ltbr&gt</pre></code>
+                        <br />
+                        HTML elements with no content are called empty elements. Empty elements do not have an end tag, such as the <br> element (which indicates a line break).<br />
+                        <br />
+                        <h5>Nested HTML Elements</h5>
+                        HTML elements can be nested (elements can contain elements).<br />
+                        All HTML documents consist of nested HTML elements.<br />
+                        This example contains four HTML elements:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtMy First Heading&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        The &lthtml&gt element defines the whole document.<br />
+                        It has a start tag &lthtml&gt and an end tag &lt/html&gt.<br />
+                        Inside the &lthtml&gt element is the &ltbody&gt element.<br />
+                        <br />
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtMy First Heading&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        The &ltbody&gt element defines the document body.<br />
+                        It has a start tag &ltbody&gt and an end tag &lt/body&gt.<br />
+                        Inside the &ltbody&gt element is two other HTML elements: &lth1&gt and &ltp&gt.<br />
+                        <br />
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtMy First Heading&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <br />
+                        The &lth1&gt element defines a heading.<br />
+                        It has a start tag &lth1&gt and an end tag &lt/h1&gt.<br />
+                        The element content is: My First Heading.<br />
+                        <br />
+                        <code><pre>    &lth1&gtMy First Heading&lt/h1&gt</pre></code>
+                        <br />
+                        The &ltp&gt element defines a paragraph.<br />
+                        It has a start tag &ltp&gt and an end tag &lt/p&gt.<br />
+                        The element content is: My first paragraph.<br />
+                        <br />
+                        <code><pre>    p&gtMy first paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Do Not Forget the End Tag</h5>
+                        Some HTML elements will display correctly, even if you forget the end tag:<br />
+                        <br />
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &ltp&gtThis is a paragraph</pre></code>
+                        <code><pre>        &ltp&gtThis is a paragraph</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        The example above works in all browsers, because the closing tag is considered optional.<br />
+                        Never rely on this. It might produce unexpected results and/or errors if you forget the end tag.<br />
+                        <br />
+                        <h5>Empty HTML Elements</h5>
+                        HTML elements with no content are called empty elements.<br />
+                        &ltbr&gt is an empty element without a closing tag (the &ltbr&gt tag defines a line break):<br />
+                        &ltp&gtThis is a paragraph with a line break.&ltbr&gt&lt/p&gt<br />
+                        Empty elements can be "closed" in the opening tag like this: <br />.
+                        <br />
+                        <code><pre>    &ltbr /&gt</pre></code>
+                        <br />
+                        HTML does not require empty elements to be closed. But if you want stricter validation, or if you need to make your document readable by XML parsers, you must close all HTML elements properly.<br />
+                        <br />
+                        <h5>HTML Is Not Case Sensitive</h5>
+                        HTML tags are not case sensitive: &ltP&gt means the same as &ltp&gt.<br />
+                        <br />                            .
+                        The HTML standard does not require lowercase tags, but W3C recommends lowercase in HTML, and demands lowercase for stricter document types like XHTML.
+                    </li>
+                    <hr />
+                    <li id="HTMLAttributes">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_attributes.asp">HTML Attributes</a></h2>
+                        <a target="_blank" href="https://www.w3schools.com/tags/ref_attributes.asp"><strong>Complete list of all attributes for each HTML element</strong></a><br />
+                        An HTML attribute provides additional information about an HTML element.<br />
+                        <br />
+                        <h5>HTML Attributes</h5>
+                        All HTML elements can have attributes.<br />
+                        Attributes provide additional information about an element.<br />
+                        Attributes are always specified in the start tag.<br />
+                        Attributes usually come in name/value pairs like: name="value."<br />
+                        <br />
+                        <h5>The href Attribute</h5>
+                        HTML links are defined with the &lta&gt tag.
+                        The link address is specified in the href attribute:<br />
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com"&gtThis is a link&lt/a&gt</pre></code>
+                        <br />
+                        <h5>The src Attribute</h5>
+                        HTML images are defined with the &ltimg&gt tag.<br />
+                        The filename of the image source is specified in the src attribute:<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_girl.jpg"&gt</pre></code>
+                        <br />
+                        <h5>The width and height Attributes</h5>
+                        HTML images also have width and height attributes, which specifies the width and height of the image:<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_girl.jpg" width="500" height="600"&gt</pre></code>
+                        <br />
+                        The width and height are specified in pixels by default; so width="500" means 500 pixels wide.<br />
+                        <br />
+                        <h5>The alt Attribute</h5>
+                        The alt attribute specifies an alternative text to be used, if an image cannot be displayed.<br />
+                        The value of the alt attribute can be read by screen readers.<br />
+                        This way, someone "listening" to the webpage, e.g. a vision impaired person, can "hear" the element.<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_girl.jpg" alt="Girl with a jacket"&gt</pre></code>
+                        <br />
+                        The alt attribute is also useful if the image cannot be displayed (e.g. if it does not exist):<br />
+                        See what happens if we try to display an image that does not exist:<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_typo.jpg" alt="Girl with a jacket"&gt</pre></code>
+                        <br />
+                        <h5>The style Attribute</h5>
+                        The style attribute is used to specify the styling of an element, like color, font, size etc.<br />
+                        <br />
+                        <code><pre>    &ltp style="color:red"&gtThis is a red paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>The lang Attribute</h5>
+                        The language of the document can be declared in the &lthtml&gt tag.<br />
+                        The language is declared with the lang attribute.<br />
+                        Declaring a language is important for accessibility applications (screen readers) and search engines:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml lang="en-US"&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        ...</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        The first two letters specify the language (en). If there is a dialect, add two more letters (US).<br />
+                        <br />
+                        <h5>The title Attribute</h5>
+                        Here, a title attribute is added to the &ltp&gt element. The value of the title attribute will be displayed as a tooltip when you mouse over the paragraph:<br />
+                        <br />
+                        <code><pre>    &ltp title="I'm a tooltip"&gt</pre></code>
+                        <br />
+                        <h5>We Suggest: Use Lowercase Attributes</h5>
+                        The HTML standard does not require lowercase attribute names.<br />
+                        The title attribute can be written with uppercase or lowercase like title or TITLE.<br />
+                        W3C recommends lowercase in HTML, and demands lowercase for stricter document types like XHTML.<br />
+                        At W3Schools we always use lowercase attribute names.<br />
+                        <br />
+                        <h5>We Suggest: Quote Attribute Values</h5>
+                        The HTML standard does not require quotes around attribute values.<br />
+                        The href attribute can be written without quotes:<br />
+                        <br />
+                        Bad<br />
+                        <br />
+                        <code><pre>    &lta href=https://www.w3schools.com&gt</pre></code>
+                        <br />
+                        Good<br />
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com"&gt</pre></code>
+                        <br />
+                        W3C recommends quotes in HTML, and demands quotes for stricter document types like XHTML.<br />
+                        Sometimes it is necessary to use quotes. This example will not display the title attribute correctly, because it contains a space:<br />
+                        <br />
+                        <code><pre>    &ltp title=About W3Schools&gt</pre></code>
+                        <br />
+                        Using quotes are the most common. Omitting quotes can produce errors.<br />
+                        At W3Schools we always use quotes around attribute values.<br />
+                        <br />
+                        <h5>Single or Double Quotes?</h5>
+                        Double quotes around attribute values are the most common in HTML, but single quotes can also be used.<br />
+                        In some situations, when the attribute value itself contains double quotes, it is necessary to use single quotes:<br />
+                        <br />
+                        <code><pre>    &ltp title='John "ShotGun" Nelson'&gt</pre></code>
+                        <br />
+                        Or vice versa:
+                        <br />
+                        <code><pre>    &ltp title="John 'ShotGun' Nelson"&gt</pre></code>
+                        <br />
+                        <h5>Chapter Summary</h5>
+                        All HTML elements can have attributes:
+                        <br />
+                        <code><pre>    The title attribute provides additional "tool-tip" information</pre></code>
+                        <code><pre>    The href attribute provides address information for links</pre></code>
+                        <code><pre>    The width and height attributes provide size information for images</pre></code>
+                        <code><pre>    The alt attribute provides text for screen readers</pre></code>
+                        <code><pre>    At W3Schools we always use lowercase attribute names</pre></code>
+                        <code><pre>    At W3Schools we always quote attribute values</pre></code>
+                        <br />
+                        <h5>HTML Attributes</h5>
+                        Below is an alphabetical list of some attributes often used in HTML, which you will learn more about in this tutorial:<br />
+                        <br />
+                        <code><pre>    Attribute    Description</pre></code>
+                        <code><pre>    alt          Specifies an alternative text for an image, when the image cannot be displayed</pre></code>
+                        <code><pre>    disabled     Specifies that an input element should be disabled</pre></code>
+                        <code><pre>    href         Specifies the URL (web address) for a link</pre></code>
+                        <code><pre>    id           Specifies a unique id for an element</pre></code>
+                        <code><pre>    src          Specifies the URL (web address) for an image</pre></code>
+                        <code><pre>    style        Specifies an inline CSS style for an element</pre></code>
+                        <code><pre>    title        Specifies extra information about an element (displayed as a tool tip</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLHeadings">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_headings.asp">HTML Headings</a></h2>
+                        HTML headings are titles or subtitles that you want to display on a webpage.<br />
+                        <br />
+                        <code><pre>    Heading 1</pre></code>
+                        <code><pre>    Heading 2</pre></code>
+                        <code><pre>    Heading 3</pre></code>
+                        <code><pre>    Heading 4</pre></code>
+                        <code><pre>    Heading 5</pre></code>
+                        <code><pre>    Heading 6</pre></code>
+                        <br />
+                        <h5>HTML Headings</h5>
+                        HTML headings are defined with the &lth1&gt to &lth6&gt tags.<br />
+                        &lth1&gt defines the most important heading. &lth6&gt defines the least important heading.<br />
+                        <br />
+                        <code><pre>    &lth1&gtHeading 1&lt/h1&gt</pre></code>
+                        <code><pre>    &lth2&gtHeading 2&lt/h2&gt</pre></code>
+                        <code><pre>    &lth3&gtHeading 3&lt/h3&gt</pre></code>
+                        <code><pre>    &lth4&gtHeading 4&lt/h4&gt</pre></code>
+                        <code><pre>    &lth5&gtHeading 5&lt/h5&gt</pre></code>
+                        <code><pre>    &lth6&gtHeading 6&lt/h6&gt</pre></code>
+                        <br />
+                        Note: Browsers automatically add some white space (a margin) before and after a heading.<br />
+                        <br />
+                        <h5>Headings Are Important</h5>
+                        Search engines use the headings to index the structure and content of your web pages.<br />
+                        Users often skim a page by its headings. It is important to use headings to show the document structure.<br />
+                        &lth1&gt headings should be used for main headings, followed by &lth2&gt headings, then the less important &lth3&gt, and so on.<br />
+                        Note: Use HTML headings for headings only. Don't use headings to make text BIG or bold.<br />
+                        <br />
+                        <h5>Bigger Headings</h5>
+                        Each HTML heading has a default size. However, you can specify the size for any heading with the style attribute, using the CSS font-size property:<br />
+                        <br />
+                        <code><pre>    &lth1 style="font-size:60px;"&gtHeading 1&lt/h1&gt</pre></code>
+                        <br />
+                        <h5>HTML Horizontal Rules</h5>
+                        The &lthr&gt tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.<br />
+                        The &lthr&gt element is used to separate content (or define a change) in an HTML page:<br />
+                        <br />
+                        <code><pre>    &lth1&gtThis is heading 1&lt/h1&gt</pre></code>
+                        <code><pre>    &ltp&gtThis is some text.&lt/p&gt</pre></code>
+                        <code><pre>    &lthr&gt</pre></code>
+                        <code><pre>    &lth2&gtThis is heading 2&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtThis is some other text.&lt/p&gt</pre></code>
+                        <code><pre>    &lthr&gt</pre></code>
+                        <br />
+                        <h5>The HTML &lthead&gt Element</h5>
+                        The HTML &lthead&gt element is a container for metadata. HTML metadata is data about the HTML document. Metadata is not displayed.
+                        The &lthead&gt element is placed between the &lthtml&gt tag and the &ltbody&gt tag:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>    &lttitle&gtMy First HTML&lt/title&gt</pre></code>
+                        <code><pre>    &ltmeta charset="UTF-8"&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <br />
+                        Note: Metadata typically define the document title, character set, styles, scripts, and other meta information.<br />
+                        <br />
+                        <h5>How to View HTML Source?</h5>
+                        Have you ever seen a Web page and wondered "Hey! How did they do that?"<br />
+                        <br />
+                        <h6>View HTML Source Code:</h6>
+                        Right-click in an HTML page and select "View Page Source" (in Chrome) or "View Source" (in Edge), or similar in other browsers. This will open a window containing the HTML source code of the page.<br />
+                        <br />
+                        <h6>Inspect an HTML Element:</h6>
+                        Right-click on an element (or a blank area), and choose "Inspect" or "Inspect Element" to see what elements are made up of (you will see both the HTML and the CSS). You can also edit the HTML or CSS on-the-fly in the Elements or Styles panel that opens.<br />
+                        <br />
+                        <h5>HTML Tag Reference</h5>
+                        W3Schools' tag reference contains additional information about these tags and their attributes.<br />
+                        <br />
+                        <code><pre>    Tag                      Description</pre></code>
+                        <code><pre>    &lthtml&gt               Defines the root of an HTML document</pre></code>
+                        <code><pre>    &ltbody&gt               Defines the document's body</pre></code>
+                        <code><pre>    &lthead&gt               A container for all the head elements (title, scripts, styles, meta information, and more)</pre></code>
+                        <code><pre>    &lth1&gt to &lth6&gt     Defines HTML headings</pre></code>
+                        <code><pre>    &lthr&gt	                Defines a thematic change in the content</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLParagraphs">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_paragraphs.asp">HTML Paragraph</a></h2>
+                        A paragraph always starts on a new line, and is usually a block of text.<br />
+                        <br />
+                        <h5>HTML Paragraphs</h5>
+                        The HTML &ltp&gt element defines a paragraph.<br />
+                        A paragraph always starts on a new line, and browsers automatically add some white space (a margin) before and after a paragraph.<br />
+                        <br />
+                        <code><pre>    &ltp&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &ltp&gtThis is another paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML Display</h5>
+                        You cannot be sure how HTML will be displayed.<br />
+                        Large or small screens, and resized windows will create different results.<br />
+                        With HTML, you cannot change the output by adding extra spaces or extra lines in your HTML code.<br />
+                        The browser will remove any extra spaces and extra lines when the page is displayed:<br />
+                        <br />
+                        <code><pre>    &ltp&gt</pre></code>
+                        <code><pre>    	This paragraph</pre></code>
+                        <code><pre>    	contains a lot of lines</pre></code>
+                        <code><pre>    	in the source code,</pre></code>
+                        <code><pre>    	but the browser</pre></code>
+                        <code><pre>    	ignores it.</pre></code>
+                        <code><pre>    &lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltp&gt</pre></code>
+                        <code><pre>    	This paragraph</pre></code>
+                        <code><pre>    	contains         a lot of spaces</pre></code>
+                        <code><pre>    	in the source         code,</pre></code>
+                        <code><pre>    	but the        browser</pre></code>
+                        <code><pre>    	ignores it.</pre></code>
+                        <code><pre>    &lt/p&gt</pre></code>
+                        <br />
+                        <h5>Don't Forget the End Tag</h5>
+                        Most browsers will display HTML correctly even if you forget the end tag:<br />
+                        <br />
+                        <code><pre>    &ltp&gtThis is a paragraph.</pre></code>
+                        <code><pre>    &ltp&gtThis is another paragraph.</pre></code>
+                        <br />
+                        The example above will work in most browsers, but do not rely on it.<br />
+                        Note: Dropping the end tag can produce unexpected results or errors.<br />
+                        <br />
+                        <h5>HTML Line Breaks</h5>
+                        The HTML &ltbr&gt element defines a line break.<br />
+                        Use &ltbr&gt if you want a line break (a new line) without starting a new paragraph:<br />
+                        <br />
+                        <code><pre>    &ltp&gtThis is&ltbr&gta paragraph&ltbr&gtwith line breaks.&lt/p&gt</pre></code>
+                        <br />
+                        The &ltbr&gt tag is an empty tag, which means that it has no end tag.<br />
+                        <br />
+                        <h5>The Poem Problem</h5>
+                        This poem will display on a single line:<br />
+                        <br />
+                        <code><pre>    &ltp&gt</pre></code>
+                        <code><pre>    	My Bonnie lies over the ocean.</pre></code>
+                        <code><pre>    </pre></code>
+                        <code><pre>    	My Bonnie lies over the sea.</pre></code>
+                        <code><pre>    </pre></code>
+                        <code><pre>    	My Bonnie lies over the ocean.</pre></code>
+                        <code><pre>    </pre></code>
+                        <code><pre>    	Oh, bring back my Bonnie to me.</pre></code>
+                        <code><pre>    &lt/p&gt</pre></code>
+                        <br />
+                        <h5>The HTML &ltpre&gt Element</h5>
+                        The HTML &ltpre&gt element defines preformatted text.<br />
+                        The text inside a &ltpre&gt element is displayed in a fixed-width font (usually Courier), and it preserves both spaces and line breaks:<br />
+                        <br />
+                        <code><pre>    &ltpre&gt</pre></code>
+                        <code><pre>    	My Bonnie lies over the ocean.</pre></code>
+                        <code><pre>    </pre></code>
+                        <code><pre>    	My Bonnie lies over the sea.</pre></code>
+                        <code><pre>    </pre></code>
+                        <code><pre>    	My Bonnie lies over the ocean.</pre></code>
+                        <code><pre>    </pre></code>
+                        <code><pre>    	Oh, bring back my Bonnie to me.</pre></code>
+                        <code><pre>    &lt/pre&gt</pre></code>
+                        <br />
+                        <h5>HTML Tag Reference</h5>
+                        W3Schools' tag reference contains additional information about HTML elements and their attributes.<br />
+                        <br />
+                        <code><pre>    Tag			Description</pre></code>
+                        <code><pre>    &ltp&gt		Defines a paragraph</pre></code>
+                        <code><pre>    &ltbr&gt	    nserts a single line break</pre></code>
+                        <code><pre>    &ltpre&gt	Defines pre-formatted text</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLStyles">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_styles.asp">HTML Styles</a></h2>
+                        The HTML style attribute is used to add styles to an element, such as color, font, size, and more.<br />
+                        <br />
+                        <h5>The HTML Style Attribute</h5>
+                        Setting the style of an HTML element, can be done with the style attribute.<br />
+                        The HTML style attribute has the following syntax:<br />
+                        <br />
+                        <code><pre>    &lttagname style="property:value;"&gt</pre></code>
+                        <br />
+                        The property is a CSS property. The value is a CSS value.<br />
+                        <br />
+                        <h5>Background Color</h5>
+                        The CSS background-color property defines the background color for an HTML element.<br />
+                        This example sets the background color for a page to powderblue:<br />
+                        <br />
+                        <code><pre>    &ltbody style="background-color:powderblue;"&gt</pre></code>
+                        <code><pre>    &lth1&gtThis is a heading&lt/h1&gt</pre></code>
+                        <code><pre>    &ltp&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <br />
+                        <h5>Text Color</h5>
+                        The CSS color property defines the text color for an HTML element:<br />
+                        <br />
+                        <code><pre>    &lth1 style="color:blue;"&gtThis is a heading&lt/h1&gt</pre></code>
+                        <code><pre>    &ltp style="color:red;"&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Fonts</h5>
+                        The CSS font-family property defines the font to be used for an HTML element:<br />
+                        <br />
+                        <code><pre>    &lth1 style="font-family:verdana;"&gtThis is a heading&lt/h1&gt</pre></code>
+                        <code><pre>    &ltp style="font-family:courier;"&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Text Size</h5>
+                        The CSS font-size property defines the text size for an HTML element:<br />
+                        <br />
+                        <code><pre>    &lth1 style="font-size:300%;"&gtThis is a heading&lt/h1&gt</pre></code>
+                        <code><pre>    &ltp style="font-size:160%;"&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Text Alignment</h5>
+                        The CSS text-align property defines the horizontal text alignment for an HTML element:<br />
+                        <br />
+                        <code><pre>    &lth1 style="text-align:center;"&gtCentered Heading&lt/h1&gt</pre></code>
+                        <code><pre>    &ltp style="text-align:center;"&gtCentered paragraph.&lt/p&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLTextFormatting">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_formatting.asp">HTML Text Formatting</a></h2>
+                        HTML contains several elements for defining text with a special meaning.<br />
+                        <br />
+                        <h5>HTML Formatting Elements</h5>
+                        Formatting elements were designed to display special types of text:<br />
+                        <br />
+                        <code><pre>    &ltb&gt - Bold text</pre></code>
+                        <code><pre>    &ltstrong&gt - Important text</pre></code>
+                        <code><pre>    &lti&gt - Italic text</pre></code>
+                        <code><pre>    &ltem&gt - Emphasized text</pre></code>
+                        <code><pre>    &ltmark&gt - Marked text</pre></code>
+                        <code><pre>    &ltsmall&gt - Smaller text</pre></code>
+                        <code><pre>    &ltdel&gt - Deleted text</pre></code>
+                        <code><pre>    &ltins&gt - Inserted text</pre></code>
+                        <code><pre>    &ltsub&gt - Subscript text</pre></code>
+                        <code><pre>    &ltsup&gt - Superscript text</pre></code>
+                        <br />
+                        <h5>HTML &ltb&gt and &ltstrong&gt Elements</h5>
+                        The HTML &ltb&gt element defines bold text, without any extra importance.<br />
+                        <br />
+                        <code><pre>    &ltb&gtThis text is bold&lt/b&gt</pre></code>
+                        <br />
+                        The HTML &ltstrong&gt element defines strong text, with added semantic "strong" importance.<br />
+                        <br />
+                        <code><pre>    &ltstrong&gtThis text is strong&lt/strong&gt</pre></code>
+                        <br />
+                        <h5>HTML &lti&gt and &ltem&gt Elements</h5>
+                        The HTML &lti&gt element defines italic text, without any extra importance.<br />
+                        <br />
+                        <code><pre>    &lti&gtThis text is italic&lt/i&gt</pre></code>
+                        <br />
+                        The HTML &ltem&gt element defines emphasized text, with added semantic importance.<br />
+                        <br />
+                        <code><pre>    &ltem&gtThis text is emphasized&lt/em&gt</pre></code>
+                        <br />
+                        Note: Browsers display &ltstrong&gt as &ltb&gt, and &ltem&gt as &lti&gt. However, there is a difference in the meaning of these tags:<br />
+                        <br />
+                        <code><pre>    &ltb&gt and &lti&gt defines bold and italic text, but &ltstrong&gt and &ltem&gt means that the text is "important".</pre></code>
+                        <br />
+                        <h5>HTML &ltsmall&gt Element</h5>
+                        The HTML &ltsmall&gt element defines smaller text:<br />
+                        <br />
+                        <code><pre>    &lth2&gtHTML &ltsmall&gtSmall&lt/small&gt Formatting&lt/h2&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltmark&gt Element</h5>
+                        The HTML &ltmark&gt element defines marked/highlighted text:<br />
+                        <br />
+                        <code><pre>    &lth2&gtHTML &ltmark&gtMarked&lt/mark&gt Formatting&lt/h2&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltdel&gt Element</h5>
+                        The HTML &ltdel&gt element defines deleted/removed text.<br />
+                        <br />
+                        <code><pre>    &ltp&gtMy favorite color is &ltdel&gtblue&lt/del&gt red.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltins&gt Element</h5>
+                        The HTML &ltins&gt element defines inserted/added text.<br />
+                        <br />
+                        <code><pre>    &ltp&gtMy favorite &ltins&gtcolor&lt/ins&gt is red.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltsub&gt Element</h5>
+                        The HTML &ltsub&gt element defines subscripted text.<br />
+                        <br />
+                        <code><pre>    &ltp&gtThis is &ltsub&gtsubscripted&lt/sub&gt text.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltsup&gt Element</h5>
+                        The HTML &ltsup&gt element defines superscripted text.<br />
+                        <br />
+                        <code><pre>    &ltp&gtThis is &ltsup&gtsuperscripted&lt/sup&gt text.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML Text Formatting Elements</h5>
+                        <code><pre>    Tag				Description</pre></code>
+                        <code><pre>    &ltb&gt			Defines bold text</pre></code>
+                        <code><pre>    &ltem&gt			Defines emphasized text</pre></code>
+                        <code><pre>    &lti&gt			Defines italic text</pre></code>
+                        <code><pre>    &ltsmall&gt		Defines smaller text</pre></code>
+                        <code><pre>    &ltstrong&gt		Defines important text</pre></code>
+                        <code><pre>    &ltsub&gt		Defines subscripted text</pre></code>
+                        <code><pre>    &ltsup&gt		Defines superscripted text</pre></code>
+                        <code><pre>    &ltins&gt		Defines inserted text</pre></code>
+                        <code><pre>    &ltdel&gt		Defines deleted text</pre></code>
+                        <code><pre>    &ltmark&gt		Defines marked/highlighted text</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLQuotationandCitationElements">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_quotation_elements.asp">HTML Quotation and Citation Elements</a></h2>
+                        In this chapter we will go through the &ltq&gt, &ltblockquote&gt, &ltabbr&gt, &ltaddress&gt, &ltcite&gt, and &ltbdo&gt HTML elements.<br />
+                        Browsers usually insert quotation marks around the &ltq&gt element.<br />
+                        <br />
+                        <code><pre>    &ltp&gtWWF's goal is to: &ltq&gtBuild a future where people live in harmony with nature.&lt/q&gt&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltblockquote&gt for Quotations</h5>
+                        The HTML &ltblockquote&gt element defines a section that is quoted from another source.<br />
+                        Browsers usually indent &ltblockquote&gt elements.<br />
+                        <br />
+                        <code><pre>    &ltp&gtHere is a quote from WWF's website:&lt/p&gt</pre></code>
+                        <code><pre>    &ltblockquote cite="http://www.worldwildlife.org/who/index.html"&gt</pre></code>
+                        <code><pre>        For 50 years, WWF has been protecting the future of nature.</pre></code>
+                        <code><pre>        The world's leading conservation organization,</pre></code>
+                        <code><pre>        WWF works in 100 countries and is supported by</pre></code>
+                        <code><pre>        1.2 million members in the United States and</pre></code>
+                        <code><pre>        close to 5 million globally.</pre></code>
+                        <code><pre>    &lt/blockquote&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltabbr&gt for Abbreviations</h5>
+                        The HTML &ltabbr&gt element defines an abbreviation or an acronym.<br />
+                        Marking abbreviations can give useful information to browsers, translation systems and search-engines.<br />
+                        <br />
+                        <code><pre>    &ltp&gtThe &ltabbr title="World Health Organization"&gtWHO&lt/abbr&gt was founded in 1948.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltaddress&gt for Contact Information</h5>
+                        The HTML &ltaddress&gt element defines contact information (author/owner) of a document or an article.<br />
+                        The &ltaddress&gt element is usually displayed in italic. Most browsers will add a line break before and after the element.<br />
+                        <br />
+                        <code><pre>    &ltaddress&gt</pre></code>
+                        <code><pre>        Written by John Doe.&ltbr&gt</pre></code>
+                        <code><pre>        Visit us at:&ltbr&gt</pre></code>
+                        <code><pre>        Example.com&ltbr&gt</pre></code>
+                        <code><pre>        Box 564, Disneyland&ltbr&gt</pre></code>
+                        <code><pre>        USA</pre></code>
+                        <code><pre>    &lt/address&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltcite&gt for Work Title</h5>
+                        The HTML &ltcite&gt element defines the title of a work.<br />
+                        Browsers usually display &ltcite&gt elements in italic.<br />
+                        <br />
+                        <code><pre>    &ltp&gt&ltcite&gtThe Scream&lt/cite&gt by Edvard Munch. Painted in 1893.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltbdo&gt for Bi-Directional Override</h5>
+                        The HTML &ltbdo&gt element defines bi-directional override.<br />
+                        The &ltbdo&gt element is used to override the current text direction:<br />
+                        <br />
+                        <code><pre>    &ltbdo dir="rtl"&gtThis text will be written from right to left&lt/bdo&gt</pre></code>
+                        <br />
+                        <h5>HTML Quotation and Citation Elements</h5>
+                        <code><pre>    Tag					Description</pre></code>
+                        <code><pre>    &ltabbr&gt			Defines an abbreviation or acronym</pre></code>
+                        <code><pre>    &ltaddress&gt		Defines contact information for the author/owner of a document</pre></code>
+                        <code><pre>    &ltbdo&gt			Defines the text direction</pre></code>
+                        <code><pre>    &ltblockquote&gt		Defines a section that is quoted from another source</pre></code>
+                        <code><pre>    &ltcite&gt			Defines the title of a work</pre></code>
+                        <code><pre>    &ltq&gt				Defines a short inline quotation</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLComments">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_comments.asp">HTML Comments</a></h2>
+                        HTML comments are not displayed in the browser, but they can help document your HTML source code.<br />
+                        <br />
+                        <h5>HTML Comment Tags</h5>
+                        You can add comments to your HTML source by using the following syntax:<br />
+                        <br />
+                        <code><pre>    &lt!-- Write your comments here --&gt</pre></code>
+                        <br />
+                        Notice that there is an exclamation point (!) in the opening tag, but not in the closing tag.<br />
+                        Note: Comments are not displayed by the browser, but they can help document your HTML source code.<br />
+                        With comments you can place notifications and reminders in your HTML:<br />
+                        <br />
+                        <code><pre>    &lt!-- This is a comment --&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltp&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &lt!-- Remember to add more information here --&gt</pre></code>
+                        <br />
+                        Comments are also great for debugging HTML, because you can comment out HTML lines of code, one at a time, to search for errors:<br />
+                        <br />
+                        <code><pre>    &lt!-- Do not display this image at the moment</pre></code>
+                        <code><pre>    &ltimg border="0" src="pic_trulli.jpg" alt="Trulli"&gt</pre></code>
+                        <code><pre>    --&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLColors">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_colors.asp">HTML Colors</a></h2>
+                        HTML colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.<br />
+                        <br />
+                        <h5>Color Names</h5>
+                        In HTML, a color can be specified by using a color name:<br />
+                        <br />
+                        <code><pre>   Tomato</pre></code>
+                        <code><pre>   Orange</pre></code>
+                        <code><pre>   DodgerBlue</pre></code>
+                        <code><pre>   MediumSeaGreen</pre></code>
+                        <code><pre>   Gray</pre></code>
+                        <code><pre>   SlateBlue</pre></code>
+                        <code><pre>   Violet</pre></code>
+                        <code><pre>   LightGray</pre></code>
+                        <br />
+                        HTML supports 140 standard color names.<br />
+                        <br />
+                        <h5>Background Color</h5>
+                        You can set the background color for HTML elements:<br />
+                        <br />
+                        <code><pre>   &lth1 style="background-color:DodgerBlue;"&gtHello World&lt/h1&gt</pre></code>
+                        <code><pre>   &ltp style="background-color:Tomato;"&gtLorem ipsum...&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Text Color</h5>
+                        You can set the color of text:<br />
+                        <br />
+                        <code><pre>   &lth1 style="color:Tomato;"&gtHello World&lt/h1&gt</pre></code>
+                        <code><pre>   &ltp style="color:DodgerBlue;"&gtLorem ipsum...&lt/p&gt</pre></code>
+                        <code><pre>   &ltp style="color:MediumSeaGreen;"&gtUt wisi enim...&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Border Color</h5>
+                        You can set the color of borders:<br />
+                        <br />
+                        <code><pre>   &lth1 style="border:2px solid Tomato;"&gtHello World&lt/h1&gt</pre></code>
+                        <code><pre>   &lth1 style="border:2px solid DodgerBlue;"&gtHello World&lt/h1&gt</pre></code>
+                        <code><pre>   &lth1 style="border:2px solid Violet;"&gtHello World&lt/h1&gt</pre></code>
+                        <br />
+                        <h5>Color Values</h5>
+                        In HTML, colors can also be specified using RGB values, HEX values, HSL values, RGBA values, and HSLA values:<br />
+                        <br />
+                        Same as color name "Tomato":<br />
+                        <br />
+                        <code><pre>   rgb(255, 99, 71)</pre></code>
+                        <code><pre>   #ff6347</pre></code>
+                        <code><pre>   hsl(9, 100%, 64%)</pre></code>
+                        <br />
+                        Same as color name "Tomato", but 50% transparent:<br />
+                        <br />
+                        <code><pre>   rgba(255, 99, 71, 0.5)</pre></code>
+                        <code><pre>   hsla(9, 100%, 64%, 0.5)</pre></code>
+                        <br />
+                        <code><pre>   &lth1 style="background-color:rgb(255, 99, 71);"&gt...&lt/h1&gt</pre></code>
+                        <code><pre>   &lth1 style="background-color:#ff6347;"&gt...&lt/h1&gt</pre></code>
+                        <code><pre>   &lth1 style="background-color:hsl(9, 100%, 64%);"&gt...&lt/h1&gt</pre></code>
+                        <code><pre>   &lth1 style="background-color:rgba(255, 99, 71, 0.5);"&gt...&lt/h1&gt</pre></code>
+                        <code><pre>   &lth1 style="background-color:hsla(9, 100%, 64%, 0.5);"&gt...&lt/h1&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLStyles-CSS">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_css.asp">HTML Styles - CSS</a></h2>
+                        CSS stands for Cascading Style Sheets.<br />
+                        CSS saves a lot of work. It can control the layout of multiple web pages all at once.<br />
+                        <br />
+                        <h5>Styling HTML with CSS</h5>
+                        CSS describes how HTML elements are to be displayed on screen, paper, or in other media.<br />
+                        CSS can be added to HTML elements in 3 ways:<br />
+                        <br />
+                        <code><pre>   Inline - by using the style attribute in HTML elements</pre></code>
+                        <code><pre>   Internal - by using a &ltstyle&gt element in the &lthead&gt section</pre></code>
+                        <code><pre>   External - by using an external CSS file</pre></code>
+                        <br />
+                        The most common way to add CSS, is to keep the styles in separate CSS files. However, here we will use inline and internal styling, because this is easier to demonstrate, and easier for you to try it yourself.<br />
+                        Tip: You can learn much more about CSS in our CSS Tutorial.<br />
+                        <br />
+                        <h5>Inline CSS</h5>
+                        An inline CSS is used to apply a unique style to a single HTML element.<br />
+                        An inline CSS uses the style attribute of an HTML element.<br />
+                        This example sets the text color of the &lth1&gt element to blue:<br />
+                        <br />
+                        <code><pre>   &lth1 style="color:blue;"&gtThis is a Blue Heading&lt/h1&gt</pre></code>
+                        <br />
+                        <h5>Internal CSS</h5>
+                        An internal CSS is used to define a style for a single HTML page.<br />
+                        An internal CSS is defined in the &lthead&gt section of an HTML page, within a &ltstyle&gt element:<br />
+                        <br />
+                        <code><pre>   &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>   &lthtml&gt</pre></code>
+                        <code><pre>     &lthead&gt</pre></code>
+                        <code><pre>         &ltstyle&gt</pre></code>
+                        <code><pre>             body {background-color: powderblue;}</pre></code>
+                        <code><pre>             h1   {color: blue;}</pre></code>
+                        <code><pre>             p    {color: red;}</pre></code>
+                        <code><pre>         &lt/style&gt</pre></code>
+                        <code><pre>     &lt/head&gt</pre></code>
+                        <code><pre>     &ltbody&gt</pre></code>
+                        <code><pre>         &lth1&gtThis is a heading&lt/h1&gt</pre></code>
+                        <code><pre>         &ltp&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <code><pre>     &lt/body&gt</pre></code>
+                        <code><pre>     &lt/html&gt</pre></code>
+                        <br />
+                        <h5>External CSS</h5>
+                        An external style sheet is used to define the style for many HTML pages.<br />
+                        With an external style sheet, you can change the look of an entire web site, by changing one file!<br />
+                        To use an external style sheet, add a link to it in the &lthead&gt section of the HTML page:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &ltlink rel="stylesheet" href="styles.css"&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtThis is a heading&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtThis is a paragraph.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        An external style sheet can be written in any text editor. The file must not contain any HTML code, and must be saved with a .css extension.<br />
+                        Here is how the "styles.css" looks:<br />
+                        <br />
+                        <code><pre>    body {</pre></code>
+                        <code><pre>        background-color: powderblue;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    h1 {</pre></code>
+                        <code><pre>        color: blue;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    p {</pre></code>
+                        <code><pre>        color: red;</pre></code>
+                        <code><pre>    }</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLLink">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_links.asp">HTML Link</a></h2>
+                        Links are found in nearly all web pages. Links allow users to click their way from page to page.<br />
+                        <br />
+                        <h5>HTML Links - Hyperlinks</h5>
+                        HTML links are hyperlinks.<br />
+                        You can click on a link and jump to another document.<br />
+                        When you move the mouse over a link, the mouse arrow will turn into a little hand.<br />
+                        Note: A link does not have to be text. It can be an image or any other HTML element.<br />
+                        <br />
+                        <h5>HTML Links - Syntax</h5>
+                        Hyperlinks are defined with the HTML &lta&gt tag:<br />
+                        <br />
+                        <code><pre>    &lta href="url"&gtlink text&lt/a&gt</pre></code>
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com/html/"&gtVisit our HTML tutorial&lt/a&gt</pre></code>
+                        <br />
+                        The href attribute specifies the destination address (https://www.w3schools.com/html/) of the link.<br />
+                        The link text is the visible part (Visit our HTML tutorial).<br />
+                        Clicking on the link text will send you to the specified address.<br />
+                        Note: Without a forward slash at the end of subfolder addresses, you might generate two requests to the server. <br />
+                        Many servers will automatically add a forward slash to the end of the address, and then create a new request.<br />
+                        <br />
+                        <h5>Local Links</h5>
+                        The example above used an absolute URL (a full web address).<br />
+                        A local link (link to the same web site) is specified with a relative URL (without https://www....).<br />
+                        <br />
+                        <code><pre>    &lta href="html_images.asp"&gtHTML Images&lt/a&gt</pre></code>
+                        <br />
+                        <h5>HTML Links - The target Attribute</h5>
+                        The target attribute specifies where to open the linked document.<br />
+                        The target attribute can have one of the following values:<br />
+                        <br />
+                        <code><pre>    _blank - Opens the linked document in a new window or tab</pre></code>
+                        <code><pre>    _self - Opens the linked document in the same window/tab as it was clicked (this is default)</pre></code>
+                        <code><pre>    _parent - Opens the linked document in the parent frame</pre></code>
+                        <code><pre>    _top - Opens the linked document in the full body of the window</pre></code>
+                        <code><pre>    framename - Opens the linked document in a named frame</pre></code>
+                        <br />
+                        This example will open the linked document in a new browser window/tab:<br />
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com/" target="_blank"&gtVisit W3Schools!&lt/a&gt</pre></code>
+                        <br />
+                        Tip: If your webpage is locked in a frame, you can use target="_top" to break out of the frame:<br />
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com/html/" target="_top"&gtHTML tutorial!&lt/a&gt</pre></code>
+                        <br />
+                        <h5>HTML Links - Image as a Link</h5>
+                        It is common to use images as links:<br />
+                        <br />
+                        <code><pre>    &lta href="default.asp"&gt</pre></code>
+                        <code><pre>    &ltimg src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;"&gt</pre></code>
+                        <code><pre>    &lt/a&gt</pre></code>
+                        <br />
+                        Note: border:0; is added to prevent IE9 (and earlier) from displaying a border around the image (when the image is a link).<br />
+                        <br />
+                        <h5>Button as a Link</h5>
+                        To use an HTML button as a link, you have to add some JavaScript code.<br />
+                        JavaScript allows you to specify what happens at certain events, such as a click of a button:<br />
+                        <br />
+                        <code><pre>    &ltbutton onclick="document.location = 'default.asp'"&gtHTML Tutorial&lt/button&gt</pre></code>
+                        <br />
+                        <h5>Link Titles</h5>
+                        The title attribute specifies extra information about an element. <br />
+                        The information is most often shown as a tooltip text when the mouse moves over the element.<br />
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com/html/" title="Go to W3Schools HTML section"&gtVisit our HTML Tutorial&lt/a&gt</pre></code>
+                        <br />
+                        <h5>External Paths</h5>
+                        External pages can be referenced with a full URL or with a path relative to the current web page.<br />
+                        This example uses a full URL to link to a web page:<br />
+                        <br />
+                        <code><pre>    &lta href="https://www.w3schools.com/html/default.asp"&gtHTML tutorial&lt/a&gt</pre></code>
+                        <br />
+                        This example links to a page located in the html folder on the current web site:<br />
+                        <br />
+                        <code><pre>    &lta href="/html/default.asp"&gtHTML tutorial&lt/a&gt</pre></code>
+                        <br />
+                        This example links to a page located in the same folder as the current page:<br />
+                        <br />
+                        <code><pre>    &lta href="default.asp"&gtHTML tutorial&lt/a&gt</pre></code>
+                        <br />
+                        <h5>Chapter Summary</h5>
+                        Use the &lta&gt element to define a link<br />
+                        Use the href attribute to define the link address<br />
+                        Use the target attribute to define where to open the linked document<br />
+                        Use the &ltimg&gt element (inside &lta&gt) to use an image as a link<br />
+                    </li>
+                    <hr />
+                    <li id="HTMLImages">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_images.asp">HTML Images</a></h2>
+                        Images can improve the design and the appearance of a web page.<br />
+                        In HTML, images are defined with the &ltimg&gt tag.<br />
+                        The &ltimg&gt tag is empty, it contains attributes only, and does not have a closing tag.<br />
+                        The src attribute specifies the URL (web address) of the image:<br />
+                        <br />
+                        <code><pre>    &ltimg src="url"&gt</pre></code>
+                        <br />
+                        <h5>The alt Attribute</h5>
+                        The alt attribute provides an alternate text for an image, if the user for some reason cannot view it (because of slow connection, an error in the src attribute, or if the user uses a screen reader).<br />
+                        The value of the alt attribute should describe the image:<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_chania.jpg" alt="Flowers in Chania"&gt</pre></code>
+                        <br />
+                        If a browser cannot find an image, it will display the value of the alt attribute:<br />
+                        <br />
+                        <code><pre>    &ltimg src="wrongname.gif" alt="Flowers in Chania"&gt</pre></code>
+                        <br />
+                        Note: The alt attribute is required. A web page will not validate correctly without it.<br />
+                        <br />
+                        <h5>Image Size - Width and Height</h5>
+                        You can use the style attribute to specify the width and height of an image.<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_girl.jpg" alt="Girl in a jacket" style="width:500px;height:600px;"&gt</pre></code>
+                        <br />
+                        Alternatively, you can use the width and height attributes:<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"&gt</pre></code>
+                        <br />
+                        The width and height attributes always define the width and height of the image in pixels.<br />
+                        Note: Always specify the width and height of an image. If width and height are not specified, the page might flicker while the image loads.<br />
+                        <br />
+                        <h5>Width and Height, or Style?</h5>
+                        The width, height, and style attributes are valid in HTML.<br />
+                        However, we suggest using the style attribute. It prevents styles sheets from changing the size of images:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &ltstyle&gt</pre></code>
+                        <code><pre>            img {</pre></code>
+                        <code><pre>               width: 100%;</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        &lt/style&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &ltimg src="html5.gif" alt="HTML5 Icon" width="128" height="128"&gt</pre></code>
+                        <code><pre>        &ltimg src="html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        <h5>Images in Another Folder</h5>
+                        If not specified, the browser expects to find the image in the same folder as the web page.<br />
+                        However, it is common to store images in a sub-folder. You must then include the folder name in the src attribute:<br />
+                        <br />
+                        <code><pre>    &ltimg src="/images/html5.gif" alt="HTML5 Icon" style="width:128px;height:128px;"&gt</pre></code>
+                        <br />
+                        <h5>Images on Another Server</h5>
+                        Some web sites store their images on image servers.<br />
+                        Actually, you can access images from any web address in the world:<br />
+                        <br />
+                        <code><pre>    &ltimg src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com"&gt</pre></code>
+                        <br />
+                        <h5>Animated Images</h5>
+                        HTML allows animated GIFs:<br />
+                        <br />
+                        <code><pre>    &ltimg src="programming.gif" alt="Computer Man" style="width:48px;height:48px;"&gt</pre></code>
+                        <br />
+                        <h5>Image as a Link</h5>
+                        To use an image as a link, put the &ltimg&gt tag inside the &lta&gt tag:<br />
+                        <br />
+                        <code><pre>    &lta href="default.asp"&gt</pre></code>
+                        <code><pre>    	&ltimg src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;"&gt</pre></code>
+                        <code><pre>    &lt/a&gt</pre></code>
+                        <br />
+                        <h5>Image Floating</h5>
+                        Use the CSS float property to let the image float to the right or to the left of a text:<br />
+                        <br />
+                        <code><pre>    &ltp&gt&ltimg src="smiley.gif" alt="Smiley face" style="float:right;width:42px;height:42px;"&gt</pre></code>
+                        <br />
+                        The image will float to the right of the text.&lt/p&gt<br />
+                        <br />
+                        <code><pre>    &ltp&gt&ltimg src="smiley.gif" alt="Smiley face" style="float:left;width:42px;height:42px;"&gt</pre></code>
+                        <br />
+                        The image will float to the left of the text.&lt/p&gt<br />
+                        Tip: To learn more about CSS Float, read our CSS Float Tutorial.<br />
+                        <br />
+                        <h5>HTML Screen Readers</h5>
+                        A screen reader is a software program that reads the HTML code, converts the text, and allows the user to "listen" to the content.<br />
+                        Screen readers are useful for people who are visually impaired or learning disabled.<br />
+                        <br />
+                        <h5>Chapter Summary</h5>
+                        Use the HTML &ltimg&gt element to define an image<br />
+                        Use the HTML src attribute to define the URL of the image<br />
+                        Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed<br />
+                        Use the HTML width and height attributes to define the size of the image<br />
+                        Use the CSS width and height properties to define the size of the image (alternatively)<br />
+                        Use the CSS float property to let the image float<br />
+                        <br />
+                        Loading images takes time. Large images can slow down your page. Use images carefully.
+                    </li>
+                    <hr />
+                    <li id="HTMLTables">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_tables.asp">HTML Tables</a></h2>
+                        HTML tables allow web authors to arrange data into rows and columns.<br />
+                        <h5>Defining an HTML Table</h5>
+                        An HTML table is defined with the &lttable&gt tag.<br />
+                        Each table row is defined with the &lttr&gt tag. A table header is defined with the &ltth&gt tag. <br />
+                        By default, table headings are bold and centered. A table data/cell is defined with the &lttd&gt tag.<br />
+                        <br />
+                        <code><pre>    &lttable style="width:100%"&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &ltth&gtFirstname&lt/th&gt</pre></code>
+                        <code><pre>        &ltth&gtLastname&lt/th&gt</pre></code>
+                        <code><pre>        &ltth&gtAge&lt/th&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gtJill&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gtSmith&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt50&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gtEve&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gtJackson&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt94&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lt/table&gt</pre></code>
+                        <br />
+                        Note: The &lttd&gt elements are the data containers of the table.<br />
+                        They can contain all sorts of HTML elements; text, images, lists, other tables, etc.<br />
+                        <br />
+                        <h5>HTML Table - Adding a Border</h5>
+                        If you do not specify a border for the table, it will be displayed without borders.<br />
+                        A border is set using the CSS border property:<br />
+                        <br />
+                        <code><pre>    table, th, td {</pre></code>
+                        <code><pre>        border: 1px solid black;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        Remember to define borders for both the table and the table cells.<br />
+                        <br />
+                        <h5>HTML Table - Collapsed Borders</h5>
+                        If you want the borders to collapse into one border, add the CSS border-collapse property:<br />
+                        <br />
+                        <code><pre>    table, th, td {</pre></code>
+                        <code><pre>        border: 1px solid black;</pre></code>
+                        <code><pre>        border-collapse: collapse;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>HTML Table - Adding Cell Padding</h5>
+                        Cell padding specifies the space between the cell content and its borders.<br />
+                        If you do not specify a padding, the table cells will be displayed without padding.<br />
+                        To set the padding, use the CSS padding property:<br />
+                        <br />
+                        <code><pre>    th, td {</pre></code>
+                        <code><pre>        padding: 15px;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>HTML Table - Left-align Headings</h5>
+                        By default, table headings are bold and centered.<br />
+                        To left-align the table headings, use the CSS text-align property:<br />
+                        <br />
+                        <code><pre>    th {</pre></code>
+                        <code><pre>        text-align: left;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>HTML Table - Adding Border Spacing</h5>
+                        Border spacing specifies the space between the cells.<br />
+                        To set the border spacing for a table, use the CSS border-spacing property:<br />
+                        <br />
+                        <code><pre>    table {</pre></code>
+                        <code><pre>        border-spacing: 5px;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        Note: If the table has collapsed borders, border-spacing has no effect.<br />
+                        <br />
+                        <h5>HTML Table - Cells that Span Many Columns</h5>
+                        To make a cell span more than one column, use the colspan attribute:<br />
+                        <br />
+                        <code><pre>    &lttable style="width:100%"&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &ltth&gtName&lt/th&gt</pre></code>
+                        <code><pre>        &ltth colspan="2"&gtTelephone&lt/th&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gtBill Gates&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt55577854&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt55577855&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lt/table&gt</pre></code>
+                        <br />
+                        <h5>HTML Table - Cells that Span Many Rows</h5>
+                        To make a cell span more than one row, use the rowspan attribute:<br />
+                        <br />
+                        <code><pre>    &lttable style="width:100%"&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &ltth&gtName:&lt/th&gt</pre></code>
+                        <code><pre>        &lttd&gtBill Gates&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &ltth rowspan="2"&gtTelephone:&lt/th&gt</pre></code>
+                        <code><pre>        &lttd&gt55577854&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gt55577855&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lt/table&gt</pre></code>
+                        <br />
+                        <h5>HTML Table - Adding a Caption</h5>
+                        To add a caption to a table, use the &ltcaption&gt tag:<br />
+                        <br />
+                        <code><pre>    &lttable style="width:100%"&gt</pre></code>
+                        <code><pre>    &ltcaption&gtMonthly savings&lt/caption&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &ltth&gtMonth&lt/th&gt</pre></code>
+                        <code><pre>        &ltth&gtSavings&lt/th&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gtJanuary&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt$100&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gtFebruary&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt$50&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lt/table&gt</pre></code>
+                        <br />
+                        Note: The &ltcaption&gt tag must be inserted immediately after the &lttable&gt tag.<br />
+                        <br />
+                        <h5>A Special Style for One Table</h5>
+                        To define a special style for a special table, add an id attribute to the table:<br />
+                        <br />
+                        <code><pre>    &lttable id="t01"&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &ltth&gtFirstname&lt/th&gt</pre></code>
+                        <code><pre>        &ltth&gtLastname&lt/th&gt</pre></code>
+                        <code><pre>        &ltth&gtAge&lt/th&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lttr&gt</pre></code>
+                        <code><pre>        &lttd&gtEve&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gtJackson&lt/td&gt</pre></code>
+                        <code><pre>        &lttd&gt94&lt/td&gt</pre></code>
+                        <code><pre>    &lt/tr&gt</pre></code>
+                        <code><pre>    &lt/table&gt</pre></code>
+                        <br />
+                        Now you can define a special style for this table:<br />
+                        <br />
+                        <code><pre>    table#t01 {</pre></code>
+                        <code><pre>        width: 100%;</pre></code>
+                        <code><pre>        background-color: #f1f1c1;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        And add more styles:<br />
+                        <br />
+                        <code><pre>    table#t01 tr:nth-child(even) {</pre></code>
+                        <code><pre>        background-color: #eee;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    table#t01 tr:nth-child(odd) {</pre></code>
+                        <code><pre>        background-color: #fff;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    table#t01 th {</pre></code>
+                        <code><pre>        color: white;</pre></code>
+                        <code><pre>        background-color: black;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <h5>Chapter Summary</h5>
+                        Use the HTML &lttable&gt element to define a table<br />
+                        Use the HTML &lttr&gt element to define a table row<br />
+                        Use the HTML &lttd&gt element to define a table data<br />
+                        Use the HTML &ltth&gt element to define a table heading<br />
+                        Use the HTML &ltcaption&gt element to define a table caption<br />
+                        Use the CSS border property to define a border<br />
+                        Use the CSS border-collapse property to collapse cell borders<br />
+                        Use the CSS padding property to add padding to cells<br />
+                        Use the CSS text-align property to align cell text<br />
+                        Use the CSS border-spacing property to set the spacing between cells<br />
+                        Use the colspan attribute to make a cell span many columns<br />
+                        Use the rowspan attribute to make a cell span many rows<br />
+                        Use the id attribute to uniquely define one table<br />
+                    </li>
+                    <hr />
+                    <li id="HTMLLists">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_lists.asp">HTML Lists</a></h2>
+                        HTML lists allow web authors to group a set of related items in lists.<br />
+                        <br />
+                        <h5>Unordered HTML List</h5>
+                        An unordered list starts with the &ltul&gt tag. Each list item starts with the &ltli&gt tag.<br />
+                        The list items will be marked with bullets (small black circles) by default:<br />
+                        <br />
+                        <code><pre>    &ltul&gt</pre></code>
+                        <code><pre>        &ltli&gtCoffee&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtTea&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtMilk&lt/li&gt</pre></code>
+                        <code><pre>    &lt/ul&gt</pre></code>
+                        <br />
+                        <h5>Ordered HTML List</h5>
+                        An ordered list starts with the &ltol&gt tag. Each list item starts with the &ltli&gt tag.<br />
+                        The list items will be marked with numbers by default:<br />
+                        <br />
+                        <code><pre>    &ltol&gt</pre></code>
+                        <code><pre>        &ltli&gtCoffee&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtTea&lt/li&gt</pre></code>
+                        <code><pre>        &ltli&gtMilk&lt/li&gt</pre></code>
+                        <code><pre>    &lt/ol&gt</pre></code>
+                        <br />
+                        <h5>HTML Description Lists</h5>
+                        HTML also supports description lists.<br />
+                        A description list is a list of terms, with a description of each term.<br />
+                        The &ltdl&gt tag defines the description list, the &ltdt&gt tag defines the term (name), and the &ltdd&gt tag describes each term:<br />
+                        <br />
+                        <code><pre>    &ltdl&gt</pre></code>
+                        <code><pre>        &ltdt&gtCoffee&lt/dt&gt</pre></code>
+                        <code><pre>        &ltdd&gt- black hot drink&lt/dd&gt</pre></code>
+                        <code><pre>        &ltdt&gtMilk&lt/dt&gt</pre></code>
+                        <code><pre>        &ltdd&gt- white cold drink&lt/dd&gt</pre></code>
+                        <code><pre>    &lt/dl&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLBlockandInlineElements">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_blocks.asp">HTML Block and Inline Elements</a></h2>
+                        Every HTML element has a default display value, depending on what type of element it is.<br />
+                        The two display values are: block and inline.<br />
+                        <br />
+                        <h5>Block-level Elements</h5>
+                        A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).<br />
+                        <br />
+                        The &ltdiv&gt element is a block-level element.<br />
+                        <br />
+                        <code><pre>    &ltdiv&gtHello World&lt/div&gt</pre></code>
+                        <br />
+                        <h6>Block level elements in HTML:</h6>
+                        <br />
+                        <code><pre>    &ltaddress&gt</pre></code>
+                        <code><pre>    &ltarticle&gt</pre></code>
+                        <code><pre>    &ltaside&gt</pre></code>
+                        <code><pre>    &ltblockquote&gt</pre></code>
+                        <code><pre>    &ltcanvas&gt</pre></code>
+                        <code><pre>    &ltdd&gt</pre></code>
+                        <code><pre>    &ltdiv&gt</pre></code>
+                        <code><pre>    &ltdl&gt</pre></code>
+                        <code><pre>    &ltdt&gt</pre></code>
+                        <code><pre>    &ltfieldset&gt</pre></code>
+                        <code><pre>    &ltfigcaption&gt</pre></code>
+                        <code><pre>    &ltfigure&gt</pre></code>
+                        <code><pre>    &ltfooter&gt</pre></code>
+                        <code><pre>    &ltform&gt</pre></code>
+                        <code><pre>    &lth1&gt-&lth6&gt</pre></code>
+                        <code><pre>    &ltheader&gt</pre></code>
+                        <code><pre>    &lthr&gt</pre></code>
+                        <code><pre>    &ltli&gt</pre></code>
+                        <code><pre>    &ltmain&gt</pre></code>
+                        <code><pre>    &ltnav&gt</pre></code>
+                        <code><pre>    &ltnoscript&gt</pre></code>
+                        <code><pre>    &ltol&gt</pre></code>
+                        <code><pre>    &ltp&gt</pre></code>
+                        <code><pre>    &ltpre&gt</pre></code>
+                        <code><pre>    &ltsection&gt</pre></code>
+                        <code><pre>    &lttable&gt</pre></code>
+                        <code><pre>    &lttfoot&gt</pre></code>
+                        <code><pre>    &ltul&gt</pre></code>
+                        <code><pre>    &ltvideo&gt</pre></code>
+                        <br />
+                        <h5>Inline Elements</h5>
+                        An inline element does not start on a new line and only takes up as much width as necessary.<br />
+                        <br />
+                        <code><pre>    &ltspan&gtHello World&lt/span&gt</pre></code>
+                        <br />
+                        <h6>Inline elements in HTML:</h6>
+                        <br />
+                        <code><pre>    &lta&gt</pre></code>
+                        <code><pre>    &ltabbr&gt</pre></code>
+                        <code><pre>    &ltacronym&gt</pre></code>
+                        <code><pre>    &ltb&gt</pre></code>
+                        <code><pre>    &ltbdo&gt</pre></code>
+                        <code><pre>    &ltbig&gt</pre></code>
+                        <code><pre>    &ltbr&gt</pre></code>
+                        <code><pre>    &ltbutton&gt</pre></code>
+                        <code><pre>    &ltcite&gt</pre></code>
+                        <code><pre>    &ltcode&gt</pre></code>
+                        <code><pre>    &ltdfn&gt</pre></code>
+                        <code><pre>    &ltem&gt</pre></code>
+                        <code><pre>    &lti&gt</pre></code>
+                        <code><pre>    &ltimg&gt</pre></code>
+                        <code><pre>    &ltinput&gt</pre></code>
+                        <code><pre>    &ltkbd&gt</pre></code>
+                        <code><pre>    &ltlabel&gt</pre></code>
+                        <code><pre>    &ltmap&gt</pre></code>
+                        <code><pre>    &ltobject&gt</pre></code>
+                        <code><pre>    &ltoutput&gt</pre></code>
+                        <code><pre>    &ltq&gt</pre></code>
+                        <code><pre>    &ltsamp&gt</pre></code>
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>    &ltselect&gt</pre></code>
+                        <code><pre>    &ltsmall&gt</pre></code>
+                        <code><pre>    &ltspan&gt</pre></code>
+                        <code><pre>    &ltstrong&gt</pre></code>
+                        <code><pre>    &ltsub&gt</pre></code>
+                        <code><pre>    &ltsup&gt</pre></code>
+                        <code><pre>    &lttextarea&gt</pre></code>
+                        <code><pre>    &lttime&gt</pre></code>
+                        <code><pre>    &lttt&gt</pre></code>
+                        <code><pre>    &ltvar&gt</pre></code>
+                        <br />
+                        <h5>The &ltdiv&gt Element</h5>
+                        The &ltdiv&gt element is often used as a container for other HTML elements.<br />
+                        The &ltdiv&gt element has no required attributes, but style, class and id are common.<br />
+                        When used together with CSS, the &ltdiv&gt element can be used to style blocks of content:<br />
+                        <br />
+                        <code><pre>    &ltdiv style="background-color:black;color:white;padding:20px;"&gt</pre></code>
+                        <code><pre>        &lth2&gtLondon&lt/h2&gt</pre></code>
+                        <code><pre>        &ltp&gtLondon is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/div&gt</pre></code>
+                        <br />
+                        <h5>The &ltspan&gt Element</h5>
+                        The &ltspan&gt element is often used as a container for some text.<br />
+                        The &ltspan&gt element has no required attributes, but style, class and id are common.<br />
+                        When used together with CSS, the &ltspan&gt element can be used to style parts of the text:<br />
+                        <br />
+                        <code><pre>    &lth1&gtMy &ltspan style="color:red"&gtImportant&lt/span&gt Heading&lt/h1&gt</pre></code>
+                        <br />
+                        <h5>HTML Grouping Tags</h5>
+                        <code><pre>    Tag			Description</pre></code>
+                        <code><pre>    &ltdiv&gt	Defines a section in a document (block-level)</pre></code>
+                        <code><pre>    &ltspan&gt	Defines a section in a document (inline)</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLTheclassAttribute">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_classes.asp">HTML The class Attribute</a></h2>
+                        The HTML class attribute is used to define equal styles for elements with the same class name.<br />
+                        <br />
+                        <h5>Using The class Attribute</h5>
+                        All HTML elements with the same class attribute will get the same style.<br />
+                        Here we have three &ltdiv&gt elements that point to the same class name:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>        &lthead&gt</pre></code>
+                        <code><pre>            &ltstyle&gt</pre></code>
+                        <code><pre>               .cities {</pre></code>
+                        <code><pre>                   background-color: black;</pre></code>
+                        <code><pre>                   color: white;</pre></code>
+                        <code><pre>                   margin: 20px;</pre></code>
+                        <code><pre>                   padding: 20px;</pre></code>
+                        <code><pre>                }</pre></code>
+                        <code><pre>            &lt/style&gt</pre></code>
+                        <code><pre>        &lt/head&gt</pre></code>
+                        <code><pre>        &ltbody&gt</pre></code>
+                        <code><pre>            &ltdiv class="cities"&gt</pre></code>
+                        <code><pre>                &lth2&gtLondon&lt/h2&gt</pre></code>
+                        <code><pre>                &ltp&gtLondon is the capital of England.&lt/p&gt</pre></code>
+                        <code><pre>            &lt/div&gt</pre></code>
+                        <br />
+                        <code><pre>            &ltdiv class="cities"&gt</pre></code>
+                        <code><pre>                &lth2&gtParis&lt/h2&gt</pre></code>
+                        <code><pre>                &ltp&gtParis is the capital of France.&lt/p&gt</pre></code>
+                        <code><pre>            &lt/div&gt</pre></code>
+                        <br />
+                        <code><pre>            &ltdiv class="cities"&gt</pre></code>
+                        <code><pre>                &lth2&gtTokyo&lt/h2&gt</pre></code>
+                        <code><pre>                &ltp&gtTokyo is the capital of Japan.&lt/p&gt</pre></code>
+                        <code><pre>            &lt/div&gt</pre></code>
+                        <code><pre>         &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        <h5>Using The class Attribute on Inline Elements</h5>
+                        The HTML class attribute can also be used on inline elements:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    &lthead&gt</pre></code>
+                        <code><pre>        &ltstyle&gt</pre></code>
+                        <code><pre>            span.note {</pre></code>
+                        <code><pre>            font-size: 120%;</pre></code>
+                        <code><pre>            color: red;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/style&gt</pre></code>
+                        <code><pre>    &lt/head&gt</pre></code>
+                        <code><pre>    &ltbody&gt</pre></code>
+                        <code><pre>        &lth1&gtMy &ltspan class="note"&gtImportant&lt/span&gt Heading&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtThis is some &ltspan class="note"&gtimportant&lt/span&gt text.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        Tip: The class attribute can be used on any HTML element.<br />
+                        Note: The class name is case sensitive!<br />
+                        <br />
+                        <h5>Select Elements With a Specific Class</h5>
+                        In CSS, to select elements with a specific class, write a period (.) character, followed by the name of the class:<br />
+                        Use CSS to style all elements with the class name "city":<br />
+                        <br />
+                        <code><pre>    &ltstyle&gt</pre></code>
+                        <code><pre>        .city {</pre></code>
+                        <code><pre>            background-color: tomato;</pre></code>
+                        <code><pre>            color: white;</pre></code>
+                        <code><pre>            padding: 10px;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/style&gt</pre></code>
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtLondon&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtLondon is the capital of England.&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtParis&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtParis is the capital of France.&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtTokyo&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtTokyo is the capital of Japan.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Multiple Classes</h5>
+                        HTML elements can have more than one class name, each class name must be separated by a space.<br />
+                        Style elements with the class name "city", also style elements with the class name "main":<br />
+                        <br />
+                        <code><pre>    &lth2 class="city main"&gtLondon&lt/h2&gt</pre></code>
+                        <code><pre>    &lth2 class="city"&gtParis&lt/h2&gt</pre></code>
+                        <code><pre>    &lth2 class="city"&gtTokyo&lt/h2&gt</pre></code>
+                        <br />
+                        In the example above, the first &lth2&gt element belongs to both the "city" class and the "main" class.<br />
+                        <br />
+                        <h5>Different Tags Can Share Same Class</h5>
+                        Different tags, like &lth2&gt and &ltp&gt, can have the same class name and thereby share the same style:<br />
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtParis&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp class="city"&gtParis is the capital of France&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Using The class Attribute in JavaScript</h5>
+                        The class name can also be used by JavaScript to perform certain tasks for elements with the specified class name.<br />
+                        JavaScript can access elements with a specified class name by using the getElementsByClassName() method:<br />
+                        When a user clicks on a button, hide all elements with the class name "city":<br />
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>        function myFunction() {</pre></code>
+                        <code><pre>            var x = document.getElementsByClassName("city");</pre></code>
+                        <code><pre>            for (var i = 0; i &lt x.length; i++) {</pre></code>
+                        <code><pre>                x[i].style.display = "none";</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLTheidAttribute">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_id.asp">HTML The id Attribute</a></h2>
+                        The HTML id attribute is used to specify a unique id for an HTML element (the value must be unique within the HTML document).<br />
+                        <br />
+                        <h5>Using The id Attribute</h5>
+                        The id attribute is used by CSS or JavaScript to perform certain tasks for the element with the specific id value.<br />
+                        In CSS, to select an element with a specific id, write a hash (#) character, followed by the id of the element:<br />
+                        Use CSS to style an element with the id "myHeader":<br />
+                        <br />
+                        <code><pre>    &ltstyle&gt</pre></code>
+                        <code><pre>        #myHeader {</pre></code>
+                        <code><pre>            background-color: lightblue;</pre></code>
+                        <code><pre>            color: black;</pre></code>
+                        <code><pre>            padding: 40px;</pre></code>
+                        <code><pre>            text-align: center;</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    &lt/style&gt</pre></code>
+                        <br />
+                        <code><pre>    &lth1 id="myHeader"&gtMy Header&lt/h1&gt</pre></code>
+                        <br />
+                        Tip: The id attribute can be used on any HTML element.<br />
+                        Note: The id value is case-sensitive.<br />
+                        Note: The id value must contain at least one character, and must not contain whitespace (spaces, tabs, etc.).<br />
+                        <br />
+                        <h5>Difference Between Class and ID</h5>
+                        An HTML element can only have one unique id that belongs to that single element, while a class name can be used by multiple elements:<br />
+                        <br />
+                        <code><pre>    &ltstyle&gt</pre></code>
+                        <code><pre>        /* Style the element with the id "myHeader" */</pre></code>
+                        <code><pre>        #myHeader {</pre></code>
+                        <code><pre>               background-color: lightblue;</pre></code>
+                        <code><pre>               color: black;</pre></code>
+                        <code><pre>               padding: 40px;</pre></code>
+                        <code><pre>               text-align: center;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <br />
+                        <code><pre>        /* Style all elements with the class name "city" */</pre></code>
+                        <code><pre>        .city {</pre></code>
+                        <code><pre>               background-color: tomato;</pre></code>
+                        <code><pre>               color: white;</pre></code>
+                        <code><pre>               padding: 10px;</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/style&gt</pre></code>
+                        <br />
+                        <h5>A unique element</h5>
+                        <br />
+                        <code><pre>    &lth1 id="myHeader"&gtMy Cities&lt/h1&gt</pre></code>
+                        <br />
+                        <h5>Multiple similar elements</h5>
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtLondon&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtLondon is the capital of England.&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtParis&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtParis is the capital of France.&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &lth2 class="city"&gtTokyo&lt/h2&gt</pre></code>
+                        <code><pre>    &ltp&gtTokyo is the capital of Japan.&lt/p&gt</pre></code>
+                        <br />
+                        <h5>Bookmarks with ID and Links</h5>
+                        HTML bookmarks are used to allow readers to jump to specific parts of a Web page.<br />
+                        Bookmarks can be useful if your webpage is very long.<br />
+                        To make a bookmark, you must first create the bookmark, and then add a link to it.<br />
+                        When the link is clicked, the page will scroll to the location with the bookmark.<br />
+                        First, create a bookmark with the id attribute:<br />
+                        <br />
+                        <code><pre>    &lth2 id="C4"&gtChapter 4&lt/h2&gt</pre></code>
+                        <br />
+                        Then, add a link to the bookmark ("Jump to Chapter 4"), from within the same page:<br />
+                        <br />
+                        <code><pre>    &lta href="#C4"&gtJump to Chapter 4&lt/a&gt</pre></code>
+                        <br />
+                        Or, add a link to the bookmark ("Jump to Chapter 4"), from another page:<br />
+                        <br />
+                        <code><pre>    &lta href="html_demo.html#C4"&gtJump to Chapter 4&lt/a&gt</pre></code>
+                        <br />
+                        <h5>Using The id Attribute in JavaScript</h5>
+                        JavaScript can access an element with a specified id by using the getElementById() method:<br />
+                        Use the id attribute to manipulate text with JavaScript:<br />
+                        <br />
+                        <code><pre>    &ltscript&gt</pre></code>
+                        <code><pre>         function displayResult() {</pre></code>
+                        <code><pre>        document.getElementById("myHeader").innerHTML = "Have a nice day!";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    &lt/script&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLIframes">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_iframe.asp">HTML Iframes</a></h2>
+                        An HTML iframe is used to display a web page within a web page.<br />
+                        <br />
+                        <h5>Iframe Syntax</h5>
+                        An HTML iframe is defined with the &ltiframe&gt tag:<br />
+                        <br />
+                        <code><pre>    &ltiframe src="URL"&gt&lt/iframe&gt</pre></code>
+                        <br />
+                        The src attribute specifies the URL (web address) of the inline frame page.<br />
+                        <br />
+                        <h5>Iframe - Set Height and Width</h5>
+                        Use the height and width attributes to specify the size of the iframe.<br />
+                        The height and width are specified in pixels by default:<br />
+                        <br />
+                        <code><pre>    &ltiframe src="demo_iframe.htm" height="200" width="300"&gt&lt/iframe&gt</pre></code>
+                        <br />
+                        Or you can use CSS to set the height and width of the iframe:<br />
+                        <br />
+                        <code><pre>    &ltiframe src="demo_iframe.htm" style="height:200px;width:300px;"&gt&lt/iframe&gt</pre></code>
+                        <br />
+                        <h5>Iframe - Remove the Border</h5>
+                        By default, an iframe has a border around it.<br />
+                        To remove the border, add the style attribute and use the CSS border property:<br />
+                        <br />
+                        <code><pre>    &ltiframe src="demo_iframe.htm" style="border:none;"&gt&lt/iframe&gt</pre></code>
+                        <br />
+                        With CSS, you can also change the size, style and color of the iframe's border:<br />
+                        <br />
+                        <code><pre>    &ltiframe src="demo_iframe.htm" style="border:2px solid red;"&gt&lt/iframe&gt</pre></code>
+                        <br />
+                        <h5>Iframe - Target for a Link</h5>
+                        An iframe can be used as the target frame for a link.<br />
+                        The target attribute of the link must refer to the name attribute of the iframe:<br />
+                        <br />
+                        <code><pre>    &ltiframe src="demo_iframe.htm" name="iframe_a"&gt&lt/iframe&gt</pre></code>
+                        <code><pre>    &ltp&gt&lta href="https://www.w3schools.com" target="iframe_a"&gtW3Schools.com&lt/a&gt&lt/p&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLFilePaths">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_filepaths.asp">HTML File Paths</a></h2>
+                        A file path describes the location of a file in a web site's folder structure.<br />
+                        <br />
+                        <h5>File Path Examples</h5>
+                        <code><pre>    Path                                     Description</pre></code>
+                        <code><pre>    &ltimg src="picture.jpg"&gt              picture.jpg is located in the same folder as the current page</pre></code>
+                        <code><pre>    &ltimg src="images/picture.jpg"&gt       picture.jpg is located in the images folder in the current folder</pre></code>
+                        <code><pre>    &ltimg src="/images/picture.jpg"&gt      picture.jpg is located in the images folder at the root of the current web</pre></code>
+                        <code><pre>    &ltimg src="../picture.jpg"&gt           picture.jpg is located in the folder one level up from the current folder</pre></code>
+                        <br />
+                        <h5>HTML File Paths</h5>
+                        A file path describes the location of a file in a web site's folder structure.<br />
+                        File paths are used when linking to external files, like:<br />
+                        <br />
+                        <code><pre>    Web pages</pre></code>
+                        <code><pre>    Images</pre></code>
+                        <code><pre>    Style sheets</pre></code>
+                        <code><pre>    JavaScripts</pre></code>
+                        <code><pre>    Absolute File Paths</pre></code>
+                        <code><pre>    An absolute file path is the full URL to a file:</pre></code>
+                        <br />
+                        <code><pre>    &ltimg src="https://www.w3schools.com/images/picture.jpg" alt="Mountain"&gt</pre></code>
+                        <br />
+                        The &ltimg&gt tag is explained in the chapter about HTML Images.<br />
+                        <br />
+                        <h5>Relative File Paths</h5>
+                        A relative file path points to a file relative to the current page.<br />
+                        In this example, the file path points to a file in the images folder located at the root of the current web:<br />
+                        <br />
+                        <code><pre>    &ltimg src="/images/picture.jpg" alt="Mountain"&gt</pre></code>
+                        <br />
+                        In this example, the file path points to a file in the images folder located in the current folder:<br />
+                        <br />
+                        <code><pre>    &ltimg src="images/picture.jpg" alt="Mountain"&gt</pre></code>
+                        <br />
+                        In this example, the file path points to a file in the images folder located in the folder one level above the current folder:<br />
+                        <br />
+                        <code><pre>    &ltimg src="../images/picture.jpg" alt="Mountain"&gt</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTML-TheHeadElement">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_head.asp">HTML - The Head Element</a></h2>
+                        The HTML &lthead&gt element is a container for all the head elements: &lttitle&gt, &ltstyle&gt, &ltmeta&gt, &ltlink&gt, &ltscript&gt, and &ltbase&gt.<br />
+                        <br />
+                        <h5>The HTML &lthead&gt Element</h5>
+                        The &lthead&gt element is a container for metadata (data about data) and is placed between the &lthtml&gt tag and the &ltbody&gt tag.<br />
+                        HTML metadata is data about the HTML document. Metadata is not displayed.<br />
+                        Metadata typically define the document title, character set, styles, scripts, and other meta information.<br />
+                        <br />
+                        <h5>The HTML &lttitle&gt Element</h5>
+                        The &lttitle&gt element defines the title of the document, and is required in all HTML documents.<br />
+                        <br />
+                        <h6>The &lttitle&gt element:</h6>
+                        <br />
+                        defines a title in the browser tab<br />
+                        provides a title for the page when it is added to favorites<br />
+                        displays a title for the page in search engine results<br />
+                        A simple HTML document:<br />
+                        <br />
+                        <code><pre>    &lt!DOCTYPE html&gt</pre></code>
+                        <code><pre>    &lthtml&gt</pre></code>
+                        <code><pre>    	&lthead&gt</pre></code>
+                        <code><pre>    		&lttitle&gtPage Title&lt/title&gt</pre></code>
+                        <code><pre>    	&lt/head&gt</pre></code>
+                        <code><pre>    	&ltbody&gt</pre></code>
+                        <code><pre>    		The content of the document......</pre></code>
+                        <code><pre>    	&lt/body&gt</pre></code>
+                        <code><pre>    &lt/html&gt</pre></code>
+                        <br />
+                        <h6>The HTML &ltstyle&gt Element</h6>
+                        The &ltstyle&gt element is used to define style information for a single HTML page:<br />
+                        <br />
+                        <code><pre>    &ltstyle&gt</pre></code>
+                        <code><pre>        body {background-color: powderblue;}</pre></code>
+                        <code><pre>    	    h1 {color: red;}</pre></code>
+                        <code><pre>    	    p {color: blue;}</pre></code>
+                        <code><pre>    &lt/style&gt</pre></code>
+                        <br />
+                        <h6>The HTML &ltlink&gt Element</h6>
+                        The &ltlink&gt element is used to link to external style sheets:<br />
+                        <br />
+                        <code><pre>    <&ltlink rel="stylesheet" href="mystyle.css" &gt</pre></code>
+                        <br />
+                        <h6>The HTML &ltmeta&gt Element</h6>
+                        The &ltmeta&gt element is used to specify which character set is used, page description, keywords, author, and other metadata.<br />
+                        Metadata is used by browsers (how to display content), by search engines (keywords), and other web services.<br />
+                        <br />
+                        <h6>Define the character set used:</h6>
+                        <br />
+                        <code><pre>    &ltmeta charset="UTF-8"&gt</pre></code>
+                        <br />
+                        <h6>Define a description of your web page:</h6>
+                        <br />
+                        <code><pre>    &ltmeta name="description" content="Free Web tutorials"&gt</pre></code>
+                        <br />
+                        <h6>Define keywords for search engines:</h6>
+                        <br />
+                        <code><pre>    &ltmeta name="keywords" content="HTML, CSS, XML, JavaScript"&gt</pre></code>
+                        <br />
+                        <h6>Define the author of a page:</h6>
+                        <br />
+                        <code><pre>    &ltmeta name="author" content="John Doe"&gt</pre></code>
+                        <br />
+                        <h6>Refresh document every 30 seconds:</h6>
+                        <br />
+                        <code><pre>    &ltmeta http-equiv="refresh" content="30"&gt</pre></code>
+                        <br />
+                        <h6>Example of &ltmeta&gt tags:</h6>
+                        <br />
+                        <code><pre>    &ltmeta charset="UTF-8"&gt</pre></code>
+                        <code><pre>    &ltmeta name="description" content="Free Web tutorials"&gt</pre></code>
+                        <code><pre>    &ltmeta name="keywords" content="HTML,CSS,XML,JavaScript"&gt</pre></code>
+                        <code><pre>    &ltmeta name="author" content="John Doe"&gt</pre></code>
+                        <br />
+                        <h5>Setting The Viewport</h5>
+                        In HTML, there is a method to let web designers take control over the viewport, through the &ltmeta&gt tag.<br />
+                        The viewport is the user's visible area of a web page. It varies with the device, and will be smaller on a mobile phone than on a computer screen.<br />
+                        You should include the following &ltmeta&gt viewport element in all your web pages:<br />
+                        <br />
+                        &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+                        <br />
+                        A &ltmeta&gt viewport element gives the browser instructions on how to control the page's dimensions and scaling.<br />
+                        The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).<br />
+                        The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser.<br />
+                    </li>
+                    <hr />
+                    <li id="HTMLLayoutElementsandTechniques">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_layout.asp">HTML Layout Elements and Techniques</a></h2>
+                        Websites often display content in multiple columns (like a magazine or newspaper).<br />
+                        <br />
+                        <h5>HTML Layout Elements</h5>
+                        HTML offers several semantic elements that define the different parts of a web page:<br />
+                        <br />
+                        HTML5 Semantic Elements<br />
+                        <br />
+                        <code><pre>    &ltheader&gt - Defines a header for a document or a section</pre></code>
+                        <code><pre>    &ltnav&gt - Defines a container for navigation links</pre></code>
+                        <code><pre>    &ltsection&gt - Defines a section in a document</pre></code>
+                        <code><pre>    &ltarticle&gt - Defines an independent self-contained article</pre></code>
+                        <code><pre>    &ltaside&gt - Defines content aside from the content (like a sidebar)</pre></code>
+                        <code><pre>    &ltfooter&gt - Defines a footer for a document or a section</pre></code>
+                        <code><pre>    &ltdetails&gt - Defines additional details</pre></code>
+                        <code><pre>    &ltsummary&gt - Defines a heading for the &ltdetails&gt element</pre></code>
+                        <br />
+                        <h5>HTML Layout Techniques</h5>
+                        There are four different techniques to create multicolumn layouts. Each way has its pros and cons:<br />
+                        <br />
+                        <code><pre>    CSS framework</pre></code>
+                        <code><pre>    CSS float property</pre></code>
+                        <code><pre>    CSS flexbox</pre></code>
+                        <code><pre>    CSS grid</pre></code>
+                        <br />
+                        <h5>CSS Frameworks</h5>
+                        If you want to create your layout fast, you can use a framework, like W3.CSS or Bootstrap.<br />
+                        <br />
+                        <h5>CSS Float Layout</h5>
+                        It is common to do entire web layouts using the CSS float property. <br />
+                        Float is easy to learn - you just need to remember how the float and clear properties work. <br />
+                        Disadvantages: Floating elements are tied to the document flow, which may harm the flexibility. <br />
+                        <br />
+                        <h5>CSS Flexbox Layout</h5>
+                        Flexbox is a new layout mode in CSS3.<br />
+                        Use of flexbox ensures that elements behave predictably when the page layout must accommodate different screen sizes and different display devices.<br />
+                        <br />
+                        <h5>CSS Grid Layout</h5>
+                        The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.
+                    </li>
+                    <hr />
+                    <li id="HTMLResponsiveWebDesign">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_responsive.asp">HTML Responsive Web Design</a></h2>
+                        Responsive web design is about creating web pages that look good on all devices!<br />
+                        A responsive web design will automatically adjust for different screen sizes and viewports.<br />
+                        <br />
+                        <h5>Responsive Web Design</h5>
+                        What is Responsive Web Design?<br />
+                        Responsive Web Design is about using HTML and CSS to automatically resize, hide, shrink, or enlarge, a website, to make it look good on all devices (desktops, tablets, and phones):<br />
+                        <br />
+                        <h5>Setting The Viewport</h5>
+                        To create a responsive website, add the following &ltmeta&gt tag to all your web pages:<br />
+                        <br />
+                        &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+                        <br />
+                        This will set the viewport of your page, which will give the browser instructions on how to control the page's dimensions and scaling.<br />
+                        <br />
+                        <h5>Responsive Images</h5>
+                        Responsive images are images that scale nicely to fit any browser size.<br />
+                        <br />
+                        <h5>Using the width Property</h5>
+                        If the CSS width property is set to 100%, the image will be responsive and scale up and down:<br />
+                        <br />
+                        <code><pre>    &ltimg src="img_girl.jpg" style="width:100%;"&gt</pre></code>
+                        <br />
+                        <h5>Using the max-width Property</h5>
+                        If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size:<br />
+                        <br />
+                        <code><pre>   &ltimg src="img_girl.jpg" style="max-width:100%;height:auto;"&gt</pre></code>
+                        <br />
+                        <h5>Show Different Images Depending on Browser Width</h5>
+                        The HTML &ltpicture&gt element allows you to define different images for different browser window sizes.<br />
+                        <br />
+                        <h5>Responsive Text Size</h5>
+                        The text size can be set with a "vw" unit, which means the "viewport width".<br />
+                        That way the text size will follow the size of the browser window:<br />
+                        <br />
+                        <code><pre>   &lth1 style="font-size:10vw"&gtHello World&lt/h1&gt</pre></code>
+                        <br />
+                        Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.<br />
+                        <br />
+                        <h5>Media Queries</h5>
+                        In addition to resize text and images, it is also common to use media queries in responsive web pages.<br />
+                        With media queries you can define completely different styles for different browser sizes.<br />
+                        <br />
+                        <code><pre>    &ltstyle&gt</pre></code>
+                        <code><pre>        .left, .right {</pre></code>
+                        <code><pre>            float: left;</pre></code>
+                        <code><pre>            width: 20%; /* The width is 20%, by default */</pre></code>
+                        <code><pre>        }</pre></code>
+                        <br />
+                        <code><pre>        .main {</pre></code>
+                        <code><pre>            float: left;</pre></code>
+                        <code><pre>            width: 60%; /* The width is 60%, by default */</pre></code>
+                        <code><pre>        }</pre></code>
+                        <br />
+                        <code><pre>        /* Use a media query to add a breakpoint at 800px: */</pre></code>
+                        <code><pre>        @media screen and (max-width: 800px) {</pre></code>
+                        <code><pre>            .left, .main, .right {</pre></code>
+                        <code><pre>                width: 100%; /* The width is 100%, when the viewport is 800px or smaller */</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    &lt/style&gt</pre></code>
+                        <br />
+                        Tip: To learn more about Media Queries and Responsive Web Design, read our RWD Tutorial.<br />
+                        <br />
+                        <h5>Responsive Web Page - Full Example</h5>
+                        A responsive web page should look good on large desktop screens and on small mobile phones.<br />
+                        <br />
+                        <h5>Responsive Web Design - Frameworks</h5>
+                        There are many existing CSS Frameworks that offer Responsive Design.<br />
+                        They are free, and easy to use.<br />
+                        <br />
+                        <h6>Using W3.CSS</h6>
+                        A great way to create a responsive design, is to use a responsive style sheet, like W3.CSS<br />
+                        W3.CSS makes it easy to develop sites that look nice at any size; desktop, laptop, tablet, or phone:<br />
+                        <br />
+                        <h6>Bootstrap</h6>
+                        Another popular framework is Bootstrap, it uses HTML, CSS and jQuery to make responsive web pages.<br />
+                    </li>
+                    <hr />
+                    <li id="HTMLComputerCodeElements">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_computercode_elements.asp">HTML Computer Code Elements</a></h2>
+                        HTML contains several elements for defining user input and computer code.<br />
+                        <br />
+                        <h5>HTML &ltkbd&gt For Keyboard Input</h5>
+                        The HTML &ltkbd&gt element represents user input, like keyboard input or voice commands.<br />
+                        Text surrounded by &ltkbd&gt tags is typically displayed in a monospace font:<br />
+                        <br />
+                        <code><pre>   	&ltp&gtSave the document by pressing &ltkbd&gtCtrl + S&lt/kbd&gt&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltsamp&gt For Program Output</h5>
+                        The HTML &ltsamp&gt element represents output from a program or computing system.<br />
+                        Text surrounded by &ltsamp&gt tags is typically displayed in a monospace font:<br />
+                        <br />
+                        <code><pre>   	&ltp&gtIf you input wrong value, the program will return &ltsamp&gtError!&lt/samp&gt&lt/p&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltcode&gt For Computer Code</h5>
+                        The HTML &ltcode&gt element defines a fragment of computer code.<br />
+                        Text surrounded by &ltcode&gt tags is typically displayed in a monospace font: <br />
+                        <br />
+                        <code><pre>    &ltcode&gt</pre></code>
+                        <code><pre>        x = 5;</pre></code>
+                        <code><pre>        y = 6;</pre></code>
+                        <code><pre>        z = x + y;</pre></code>
+                        <code><pre>    &lt/code&gt</pre></code>
+                        <br />
+                        Notice that the &ltcode&gt element does not preserve extra whitespace and line-breaks.<br />
+                        To fix this, you can put the &ltcode&gt element inside a &ltpre&gt element:<br />
+                        <br />
+                        <code><pre>    &ltpre&gt</pre></code>
+                        <code><pre>        &ltcode&gt</pre></code>
+                        <code><pre>            x = 5;</pre></code>
+                        <code><pre>            y = 6;</pre></code>
+                        <code><pre>            z = x + y;</pre></code>
+                        <code><pre>        &lt/code&gt</pre></code>
+                        <code><pre>    &lt/pre&gt</pre></code>
+                        <br />
+                        <h5>HTML &ltvar&gt For Variables</h5>
+                        The HTML &ltvar&gt element defines a variable.
+                        The variable could be a variable in a mathematical expression or a variable in programming context:<br />
+                        <br />
+                        <code><pre>    Einstein wrote: &ltvar&gtE&lt/var&gt = &ltvar&gtmc&lt/var&gt&ltsup&gt2&lt/sup&gt.</pre></code>
+                        <br />
+                        <h5>HTML Computer Code Elements</h5>
+                        <code><pre>    Tag            Description</pre></code>
+                        <code><pre>    &ltcode&gt     Defines programming code</pre></code>
+                        <code><pre>    &ltkbd&gt      Defines keyboard input </pre></code>
+                        <code><pre>    &ltsamp&gt     Defines computer output</pre></code>
+                        <code><pre>    &ltvar&gt      Defines a variable</pre></code>
+                        <code><pre>    &ltpre&gt      Defines preformatted text</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLSemanticElements">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html5_semantic_elements.asp">HTML Semantic Elements</a></h2>
+                        Semantic elements = elements with a meaning.<br />
+                        <br />
+                        <h5>What are Semantic Elements?</h5>
+                        A semantic element clearly describes its meaning to both the browser and the developer.<br />
+                        Examples of non-semantic elements: &ltdiv&gt and &ltspan&gt - Tells nothing about its content.<br />
+                        Examples of semantic elements: &ltform&gt, &lttable&gt, and &ltarticle&gt - Clearly defines its content.<br />
+                        <br />
+                        <h5>Semantic Elements in HTML</h5>
+                        Many web sites contain HTML code like: &ltdiv id="nav"&gt &ltdiv class="header"&gt &ltdiv id="footer"&gt to indicate navigation, header, and footer.<br />
+                        In HTML there are some semantic elements that can be used to define different parts of a web page:  <br />
+                        <br />
+                        <code><pre>    &ltarticle&gt</pre></code>
+                        <code><pre>    &ltaside&gt</pre></code>
+                        <code><pre>    &ltdetails&gt</pre></code>
+                        <code><pre>    &ltfigcaption&gt</pre></code>
+                        <code><pre>    &ltfigure&gt</pre></code>
+                        <code><pre>    &ltfooter&gt</pre></code>
+                        <code><pre>    &ltheader&gt</pre></code>
+                        <code><pre>    &ltmain&gt</pre></code>
+                        <code><pre>    &ltmark&gt</pre></code>
+                        <code><pre>    &ltnav&gt</pre></code>
+                        <code><pre>    &ltsection&gt</pre></code>
+                        <code><pre>    &ltsummary&gt</pre></code>
+                        <code><pre>    &lttime&gt</pre></code>
+                        <br />
+                        <h5>HTML Semantic Elements</h5>
+                        <h6>HTML &ltsection&gt Element</h6>
+                        The &ltsection&gt element defines a section in a document.<br />
+                        According to W3C's HTML documentation: "A section is a thematic grouping of content, typically with a heading."<br />
+                        A home page could normally be split into sections for introduction, content, and contact information.<br />
+                        <br />
+                        <code><pre>    &ltsection&gt</pre></code>
+                        <code><pre>        &lth1&gtWWF&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtThe World Wide Fund for Nature (WWF) is....&lt/p&gt</pre></code>
+                        <code><pre>    &lt/section&gt</pre></code>
+                        <br />
+                        <h6>HTML &ltarticle&gt Element</h6>
+                        The &ltarticle&gt element specifies independent, self-contained content.<br />
+                        An article should make sense on its own, and it should be possible to read it independently from the rest of the web site.<br />
+                        Examples of where an &ltarticle&gt element can be used:<br />
+                        <br />
+                        <code><pre>    Forum post</pre></code>
+                        <code><pre>    Blog post</pre></code>
+                        <code><pre>    Newspaper article</pre></code>
+                        <br />
+                        <code><pre>    &ltarticle&gt</pre></code>
+                        <code><pre>        &lth1&gtWhat Does WWF Do?&lt/h1&gt</pre></code>
+                        <code><pre>        &ltp&gtWWF's mission is to stop the degradation of our planet's natural environment,</pre></code>
+                        <code><pre>        and build a future in which humans live in harmony with nature.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/article&gt</pre></code>
+                        <br />
+                        <h6>Nesting &ltarticle&gt in &ltsection&gt or Vice Versa?</h6>
+                        The&ltarticle&gt element specifies independent, self-contained content.<br />
+                        The &ltsection&gt element defines section in a document.<br />
+                        Can we use the definitions to decide how to nest those elements? No, we cannot!<br />
+                        So, on the Internet, you will find HTML pages with &ltsection&gt elements containing &ltarticle&gt elements, and &ltarticle&gt elements containing &ltsection&gt elements.<br />
+                        You will also find pages with &ltsection&gt elements containing &ltsection&gt elements, and &ltarticle&gt elements containing &ltarticle&gt elements.<br />
+                        Example for a newspaper: The sport &ltarticle&gt in the sport section, may have a technical section in each &ltarticle&gt.<br />
+                        <br />
+                        <h6>HTML &ltheader&gt Element</h6>
+                        The &ltheader&gt element specifies a header for a document or section.<br />
+                        The &ltheader&gt element should be used as a container for introductory content.<br />
+                        You can have several &ltheader&gt elements in one document.<br />
+                        The following example defines a header for an article:<br />
+                        <br />
+                        <code><pre>    &ltarticle&gt</pre></code>
+                        <code><pre>        &ltheader&gt</pre></code>
+                        <code><pre>            &lth1&gtWhat Does WWF Do?&lt/h1&gt</pre></code>
+                        <code><pre>            &ltp&gtWWF's mission:&lt/p&gt</pre></code>
+                        <code><pre>            &lt/header&gt</pre></code>
+                        <code><pre>            &ltp&gtWWF's mission is to stop the degradation of our planet's natural environment,</pre></code>
+                        <code><pre>        and build a future in which humans live in harmony with nature.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/article&gt</pre></code>
+                        <br />
+                        <h6>HTML &ltfooter&gt Element</h6>
+                        The &ltfooter&gt element specifies a footer for a document or section.<br />
+                        A &ltfooter&gt element should contain information about its containing element.<br />
+                        A footer typically contains the author of the document, copyright information, links to terms of use, contact information, etc.<br />
+                        You may have several &ltfooter&gt elements in one document.<br />
+                        <br />
+                        <code><pre>    &ltfooter&gt</pre></code>
+                        <code><pre>        &ltp&gtPosted by: Hege Refsnes&lt/p&gt</pre></code>
+                        <code><pre>        &ltp&gtContact information: &lta href="mailto:someone@example.com"&gt</pre></code>
+                        <code><pre>        someone@example.com&lt/a&gt.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/footer&gt</pre></code>
+                        <br />
+                        <h6>HTML &ltnav&gt Element</h6>
+                        The &ltnav&gt element defines a set of navigation links.<br />
+                        Notice that NOT all links of a document should be inside a &ltnav&gt element. The &ltnav&gt element is intended only for major block of navigation links.<br />
+                        <br />
+                        <code><pre>    &ltnav&gt</pre></code>
+                        <code><pre>        &lta href="/html/"&gtHTML&lt/a&gt |</pre></code>
+                        <code><pre>        &lta href="/css/"&gtCSS&lt/a&gt |</pre></code>
+                        <code><pre>        &lta href="/js/"&gtJavaScript&lt/a&gt |</pre></code>
+                        <code><pre>        &lta href="/jquery/"&gtjQuery&lt/a&gt</pre></code>
+                        <code><pre>    &lt/nav&gt</pre></code>
+                        <br />
+                        <h6>HTML &ltaside&gt Element</h6>
+                        The &ltaside&gt element defines some content aside from the content it is placed in (like a sidebar).<br />
+                        The &ltaside&gt content should be related to the surrounding content.<br />
+                        <br />
+                        <code><pre>   &ltp&gtMy family and I visited The Epcot center this summer.&lt/p&gt</pre></code>
+                        <br />
+                        <code><pre>    &ltaside&gt</pre></code>
+                        <code><pre>        &lth4&gtEpcot Center&lt/h4&gt</pre></code>
+                        <code><pre>        &ltp&gtThe Epcot Center is a theme park in Disney World, Florida.&lt/p&gt</pre></code>
+                        <code><pre>    &lt/aside&gt</pre></code>
+                        <br />
+                        <h6>HTML &ltfigure&gt and &ltfigcaption&gt Elements</h6>
+                        An image and a caption can be grouped together in a &ltfigure&gt element.<br />
+                        The purpose of a caption is to add a visual explanation to an image.<br />
+                        <br />
+                        <code><pre>    &ltfigure&gt</pre></code>
+                        <code><pre>        &ltimg src="pic_trulli.jpg" alt="Trulli"&gt</pre></code>
+                        <code><pre>        &ltfigcaption&gtFig1. - Trulli, Puglia, Italy.&lt/figcaption&gt</pre></code>
+                        <code><pre>    &lt/figure&gt</pre></code>
+                        <br />
+                        The &ltimg&gt element defines the image, the &ltfigcaption&gt element defines the caption.<br />
+                        <br />
+                        <h6>Why Semantic Elements?</h6>
+                        According to the W3C: "A semantic Web allows data to be shared and reused across applications, enterprises, and communities."<br />
+                        <br />
+                        <h6>Semantic Elements in HTML</h6>
+                        Below is an alphabetical list of some of the semantic elements in HTML.<br />
+                        <br />
+                        The links go to our complete HTML Reference.<br />
+                        <br />
+                        <code><pre>    Tag				    Description</pre></code>
+                        <code><pre>    &ltarticle&gt		Defines an article</pre></code>
+                        <code><pre>    &ltaside&gt			Defines content aside from the page content</pre></code>
+                        <code><pre>    &ltdetails&gt		Defines additional details that the user can view or hide</pre></code>
+                        <code><pre>    &ltfigcaption&gt	    Defines a caption for a &ltfigure&gt element</pre></code>
+                        <code><pre>    &ltfigure&gt		    Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.</pre></code>
+                        <code><pre>    &ltfooter&gt		    Defines a footer for a document or section</pre></code>
+                        <code><pre>    &ltheader&gt		    Specifies a header for a document or section</pre></code>
+                        <code><pre>    &ltmain&gt			Specifies the main content of a document</pre></code>
+                        <code><pre>    &ltmark&gt			Defines marked/highlighted text</pre></code>
+                        <code><pre>    &ltnav&gt			Defines navigation links</pre></code>
+                        <code><pre>    &ltsection&gt		Defines a section in a document</pre></code>
+                        <code><pre>    &ltsummary&gt		Defines a visible heading for a &ltdetails&gt element</pre></code>
+                        <code><pre>    &lttime&gt			Defines a date/time</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLEntities">
+                        <h2><a target="_blank" href="https://www.w3schools.com/html/html_entities.asp">HTML Entities</a></h2>
+                        Reserved characters in HTML must be replaced with character entities.<br />
+                        <br />
+                        <h5>HTML Entities</h5>
+                        Some characters are reserved in HTML.<br />
+                        If you use the less than (&lt) or greater than (&gt) signs in your text, the browser might mix them with tags.<br />
+                        Character entities are used to display reserved characters in HTML.<br />
+                        A character entity looks like this:<br />
+                        <br />
+                        <code><pre>    &entity_name;</pre></code>
+                        <br />
+                        OR<br />
+                        <br />
+                        <code><pre>    &#entity_number;</pre></code>
+                        <br />
+                        To display a less than sign (&lt) we must write: &lt; or &#60;<br />
+                        Advantage of using an entity name: An entity name is easy to remember.<br />
+                        Disadvantage of using an entity name: Browsers may not support all entity names, but the support for numbers is good.<br />
+                        <br />
+                        <h5>Non-breaking Space</h5>
+                        A common character entity used in HTML is the non-breaking space: &nbsp;<br />
+                        A non-breaking space is a space that will not break into a new line.<br />
+                        Two words separated by a non-breaking space will stick together (not break into a new line). This is handy when breaking the words might be disruptive.<br />
+                        <br />
+                        <code><pre>    § 10</pre></code>
+                        <code><pre>    10 km/h</pre></code>
+                        <code><pre>    10 PM</pre></code>
+                        <br />
+                        Another common use of the non-breaking space is to prevent browsers from truncating spaces in HTML pages.<br />
+                        If you write 10 spaces in your text, the browser will remove 9 of them. To add real spaces to your text, you can use the &nbsp; character entity.<br />
+                        The non-breaking hyphen (&#8209;) lets you use a hyphen character (‑) that won't break.<br />
+                        <br />
+                        <h5>Some Other Useful HTML Character Entities</h5>
+                        <code><pre>    Result			Description							Entity Name		Entity Number</pre></code>
+                        <code><pre>    non-breaking	space								    &nbsp;			&#160;</pre></code>
+                        <code><pre>    &lt				less than							&lt;			&#60;</pre></code>
+                        <code><pre>    &gt				greater than						&gt;			&#62;</pre></code>
+                        <code><pre>    &				ampersand							&amp;			&#38;</pre></code>
+                        <code><pre>    "				double quotation mark				&quot;			&#34;</pre></code>
+                        <code><pre>    '				single quotation mark (apostrophe)	&apos;			&#39;</pre></code>
+                        <code><pre>    ¢				cent								&cent;			&#162;</pre></code>
+                        <code><pre>    £				pound								&pound;			&#163;</pre></code>
+                        <code><pre>    ¥				yen									&yen;			&#165;</pre></code>
+                        <code><pre>    €				euro								&euro;			&#8364;</pre></code>
+                        <code><pre>    ©				copyright							&copy;			&#169;</pre></code>
+                        <code><pre>    ®				registered trademark				&reg;			&#174;</pre></code>
+                        <code><pre>    Note: Entity names are case sensitive.</pre></code>
+                        <br />
+                        <h5>Combining Diacritical Marks</h5>
+                        A diacritical mark is a "glyph" added to a letter.<br />
+                        Some diacritical marks, like grave (  ̀) and acute (  ́) are called accents.<br />
+                        Diacritical marks can appear both above and below a letter, inside a letter, and between two letters.<br />
+                        Diacritical marks can be used in combination with alphanumeric characters to produce a character that is not present in the character set (encoding) used in the page.<br />
+                        <br />
+                        <code><pre>    Mark	Character	    Construct      Result</pre></code>
+                        <code><pre>     ̀'       a           a&#768;        à</pre></code>
+                        <code><pre>     ́		a           a&#769;        á</pre></code>
+                        <code><pre>     ̂        a           a&#770;        â</pre></code>
+                        <code><pre>     ̃		a           a&#771;        ã</pre></code>
+                        <code><pre>     ̀		O           O&#768;        Ò</pre></code>
+                        <code><pre>     ́		O           O&#769;        Ó</pre></code>
+                        <code><pre>    ̂		    O           O&#770;        Ô</pre></code>
+                        <code><pre>     ̃		O           O&#771;        Õ</pre></code>
+                    </li>
+                    <hr />
+                    <li id="HTMLReferences">
+                        <h5><a target="_blank" href="https://www.w3schools.com/html/html_symbols.asp">HTML Symbols</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/ref_utf_math.asp">Full Math Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/ref_utf_greek.asp">Full Greek Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/ref_utf_currency.asp">Full Currenecy Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/ref_utf_arrows.asp">Full Arrows Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/ref_utf_symbols.asp">Full Symbols Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/html/html_emojis.asp">HTML Emojis</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/ref_emoji.asp">Full Emoji Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/html/html_charset.asp">HTML Charset</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/charsets/default.asp">Complete HTML Character Set Reference</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/html/html_urlencode.asp">HTML Uniform Resource Locators</a></h5>
+                        <h5><a target="_blank" href="https://www.w3schools.com/html/html_xhtml.asp">HTML Versus XHTML</a></h5>
+                    </li>
+                </ul>
+                <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="font-weight: bold; color: white; font-size: large">^</a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

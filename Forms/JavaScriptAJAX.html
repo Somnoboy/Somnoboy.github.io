@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../CSS/MyStyle.css">
+    <script src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Files/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <script>
+        $(document).ready(function () {
+            $('main').scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            $('#back-to-top').click(function () {
+                $('main').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
+    <style>
+        .back-to-top {
+            background-color: gainsboro;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+        }
+
+        li::before {
+            display: block;
+            content: " ";
+            margin-top: -16px;
+            height: 16px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        main {
+            scroll-behavior: smooth;
+        }
+
+        pre {
+            font-size: 14px;
+            margin: 0px;
+            padding: 0px;
+            white-space: pre-wrap;
+        }
+
+        nav {
+            min-height: 99.9vh;
+            max-height: 99.9vh;
+        }
+
+        .nav-item {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        main {
+            max-height: 99.9vh;
+        }
+
+        .nav-link {
+            color: gainsboro;
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden" class="alert-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none d-md-block bg-dark navbar-dark sidebar" style="overflow-y: auto; border-right: solid 1px Gray">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#AJAXExamples">AJAX Examples</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#AJAXIntroduction">AJAX Introduction</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#TheXMLHttpRequestObject">The XMLHttpRequest Object</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#AJAXRequest">AJAX Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#AJAXResponse">AJAX Response</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#XMLFile">XML File</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 ml-md-auto pt-3 px-3" style="overflow-y: auto">
+                <center><h1>JavaScript AJAX</h1></center>
+                <hr />
+                <ul style="list-style-type:none;">
+                    <li id="AJAXExamples">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_ajax_examples.as">AJAX Examples</a></h2>
+                    </li>
+                    <hr>
+                    <li id="AJAXIntroduction">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_ajax_intro.asp">AJAX Introduction</a></h2>
+                        AJAX = Asynchronous JavaScript And XML.<br />
+                        AJAX is not a programming language.<br />
+                        AJAX just uses a combination of:<br />
+                        A browser built-in XMLHttpRequest object (to request data from a web server)<br />
+                        JavaScript and HTML DOM (to display or use the data)<br />
+                        AJAX is a misleading name. AJAX applications might use XML to transport data, but it is equally common to transport data as plain text or JSON text.<br />
+                        AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. <br />
+                        This means that it is possible to update parts of a web page, without reloading the whole page.<br />
+                        <br />
+                        <h5>How AJAX works:</h5>
+                        1. An event occurs in a web page (the page is loaded, a button is clicked)<br />
+                        2. An XMLHttpRequest object is created by JavaScript<br />
+                        3. The XMLHttpRequest object sends a request to a web server<br />
+                        4. The server processes the request<br />
+                        5. The server sends a response back to the web page<br />
+                        6. The response is read by JavaScript<br />
+                        7. Proper action (like page update) is performed by JavaScript<br />
+                        <br />
+                    </li>
+                    <hr>
+                    <li id="TheXMLHttpRequestObject">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_ajax_http.asp">The XMLHttpRequest Object</a></h2>
+                        All modern browsers support the XMLHttpRequest object.<br />
+                        Syntax for creating an XMLHttpRequest object:<br />
+                        <br />
+                        <code><pre>    variable = new XMLHttpRequest();</pre></code>
+                        <br />
+                        For security reasons, modern browsers do not allow access across domains.<br />
+                        This means that both the web page and the XML file it tries to load, must be located on the same server.<br />
+                        <br />
+                        <h5>Methods:</h5>
+                        <code><pre>    new XMLHttpRequest()	Creates a new XMLHttpRequest object</pre></code>
+                        <code><pre>    abort()	Cancels the current request</pre></code>
+                        <code><pre>    getAllResponseHeaders()	Returns header information</pre></code>
+                        <br />
+                        <code><pre>    var xhttp = new XMLHttpRequest();</pre></code>
+                        <code><pre>    xhttp.onreadystatechange = function() {</pre></code>
+                        <code><pre>        if (this.readyState == 4 && this.status == 200) {</pre></code>
+                        <code><pre>            document.getElementById("demo").innerHTML =</pre></code>
+                        <code><pre>            this.getAllResponseHeaders();</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    };</pre></code>
+                        <br />
+                        getResponseHeader()	Returns specific header information<br />
+                        <br />
+                        <code><pre>    var xhttp = new XMLHttpRequest();</pre></code>
+                        <code><pre>    xhttp.onreadystatechange = function() {</pre></code>
+                        <code><pre>        if (this.readyState == 4 && this.status == 200) {</pre></code>
+                        <code><pre>            document.getElementById("demo").innerHTML =</pre></code>
+                        <code><pre>            this.getResponseHeader("Last-Modified");</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>    };</pre></code>
+                        <code><pre>    xhttp.open("GET", "ajax_info.txt", true);</pre></code>
+                        <code><pre>    xhttp.send();</pre></code>
+                        <br />
+                        open(method, url, async, user, psw)<br />
+                        <code><pre>    Specifies the request method: the request type GET or POST</pre></code>
+                        <code><pre>    url: the file location</pre></code>
+                        <code><pre>        The url parameter of the open() method, is an address to a file on a server: xhttp.open("GET", "ajax_test.asp", true);</pre></code>
+                        <code><pre>        The file can be any kind of file, like .txt and .xml, or server scripting files like .asp and .php </pre></code>
+                        <code><pre>        (which can perform actions on the server before sending the response back).</pre></code>
+                        <code><pre>    async: true (asynchronous) or false (synchronous)</pre></code>
+                        <code><pre>    user: optional user name</pre></code>
+                        <code><pre>    psw: optional password</pre></code>
+                        <code><pre>    send() Sends the request to the server	Used for GET requests</pre></code>
+                        <code><pre>    send(string) Sends the request to the server. Used for POST requests</pre></code>
+                        <code><pre>    setRequestHeader() Adds a label/value pair to the header to be sent</pre></code>
+                        <br />
+                        <h5>Properties:</h5>
+                        onreadystatechange: Defines a function to be called when the readyState property changes readyState	Holds the status of the XMLHttpRequest.<br />
+                        <code><pre>    0: request not initialized</pre></code>
+                        <code><pre>    1: server connection established</pre></code>
+                        <code><pre>    2: request received</pre></code>
+                        <code><pre>    3: processing request</pre></code>
+                        <code><pre>    4: request finished and response is ready</pre></code>
+                        responseText: Returns the response data as a string<br />
+                        The responseText property returns the server response as a JavaScript string, and you can use it accordingly.<br />
+                        <br />
+                        <code><pre>    document.getElementById("demo").innerHTML = xhttp.responseText;</pre></code>
+                        <br />
+                        responseXML: Returns the response data as XML data
+                        The responseXML property returns the server response as an XML DOM object.
+                        Using this property you can parse the response as an XML DOM object:
+                        <br />
+                        <code><pre>    xmlDoc = xhttp.responseXML;</pre></code>
+                        <code><pre>    txt = "";</pre></code>
+                        <code><pre>    x = xmlDoc.getElementsByTagName("ARTIST");</pre></code>
+                        <code><pre>    for (i = 0; i < x.length; i++) {</pre></code>
+                        <code><pre>        txt += x[i].childNodes[0].nodeValue + "&ltbr&gt";</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    document.getElementById("demo").innerHTML = txt;</pre></code>
+                        <code><pre>    xhttp.open("GET", "cd_catalog.xml", true);</pre></code>
+                        <code><pre>    xhttp.send();</pre></code>
+                        <br />
+                        status:	Returns the status-number of a request<br />
+                        <code><pre>    200: "OK"</pre></code>
+                        <code><pre>    403: "Forbidden"</pre></code>
+                        <code><pre>    404: "Not Found"</pre></code>
+                        For a complete list go to the Http Messages Reference: https://www.w3schools.com/tags/ref_httpmessages.asp<br />
+                        statusText: Returns the status-text (e.g. "OK" or "Not Found")<br />
+                    </li>
+                    <hr>
+                    <li id="AJAXRequest">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_ajax_http_send.asp">AJAX Request</a></h2>
+                        To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object:<br />
+                        <br />
+                        <h5>Get Requests:</h5>
+                        GET is simpler and faster than POST, and can be used in most cases.<br />
+                        <br />
+                        <code><pre>    xhttp.open("GET", "ajax_info.txt", true);</pre></code>
+                        <code><pre>    xhttp.send();</pre></code>
+                        <br />
+                        However, always use POST requests when:<br />
+                        <br />
+                        <code><pre>    A cached file is not an option (update a file or database on the server).</pre></code>
+                        <code><pre>    Sending a large amount of data to the server (POST has no size limitations).</pre></code>
+                        <code><pre>    Sending user input (which can contain unknown characters), POST is more robust and secure than GET.</pre></code>
+                        <br />
+                        In the example above, you may get a cached result. To avoid this, add a unique ID to the URL:<br />
+                        <br />
+                        <code><pre>    xhttp.open("GET", "demo_get.asp?t=" + Math.random(), true);</pre></code>
+                        <code><pre>    xhttp.send();</pre></code>
+                        <br />
+                        If you want to send information with the GET method, add the information to the URL:<br />
+                        <br />
+                        <code><pre>    xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);</pre></code>
+                        <code><pre>    xhttp.send();</pre></code>
+                        <br />
+                        <h5>Post Requests:</h5>
+                        <code><pre>    xhttp.open("POST", "demo_post.asp", true);</pre></code>
+                        <code><pre>    xhttp.send();</pre></code>
+                        <br />
+                        To POST data like an HTML form, add an HTTP header with setRequestHeader(). Specify the data you want to send in the send() method:<br />
+                        <br />
+                        <code><pre>    xhttp.open("POST", "ajax_test.asp", true);</pre></code>
+                        <code><pre>    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");</pre></code>
+                        <code><pre>    xhttp.send("fname=Henry&lname=Ford");</pre></code>
+                        <br />
+                        Server requests should be sent asynchronously.<br />
+                        The async parameter of the open() method should be set to true:<br />
+                        By sending asynchronously, the JavaScript does not have to wait for the server response, but can instead:<br />
+                        <br />
+                        <code><pre>    execute other scripts while waiting for server response</pre></code>
+                        <code><pre>    deal with the response after the response is ready</pre></code>
+                        <br />
+                        With the XMLHttpRequest object you can define a function to be executed when the request receives an answer.<br />
+                        The function is defined in the onreadystatechange property of the XMLHttpRequest object.<br />
+                        Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will stop executing until the server response is ready. If the server is busy or slow, the application will hang or stop.<br />
+                        Synchronous XMLHttpRequest is in the process of being removed from the web standard, but this process can take many years.<br />
+                        Modern developer tools are encouraged to warn about using synchronous requests and may throw an InvalidAccessError exception when it occurs.<br />
+                        <br />
+                        </li>
+                        <hr />
+                        <li id="AJAXResponse">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_ajax_http_response.asp">AJAX Response</a></h2>
+                        <h5>The onreadystatechange Property</h5>
+                        The readyState property holds the status of the XMLHttpRequest.<br />
+                        The onreadystatechange property defines a function to be executed when the readyState changes.<br />
+                        The status property and the statusText property holds the status of the XMLHttpRequest object.<br />
+                        <br />
+                        The onreadystatechange function is called every time the readyState changes.<br />
+                        When readyState is 4 and status is 200, the response is ready:<br />
+                        <br />
+                        <code><pre>    function loadDoc() {</pre></code>
+                        <code><pre>        var xhttp = new XMLHttpRequest();</pre></code>
+                        <code><pre>        xhttp.onreadystatechange = function() {</pre></code>
+                        <code><pre>            if (this.readyState == 4 && this.status == 200) {</pre></code>
+                        <code><pre>                document.getElementById("demo").innerHTML =</pre></code>
+                        <code><pre>                this.responseText;</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        };</pre></code>
+                        <code><pre>        xhttp.open("GET", "ajax_info.txt", true);</pre></code>
+                        <code><pre>        xhttp.send();</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        If you have more than one AJAX task in a website, you should create one function for executing the XMLHttpRequest object, and one callback function for each AJAX task.<br />
+                        The function call should contain the URL and what function to call when the response is ready.<br />
+                        <br />
+                        <code><pre>    loadDoc("url-1", myFunction1);</pre></code>
+                        <code><pre>    loadDoc("url-2", myFunction2);</pre></code>
+                        <br />
+                        <code><pre>    function loadDoc(url, cFunction) {</pre></code>
+                        <code><pre>        var xhttp;</pre></code>
+                        <code><pre>        xhttp = new XMLHttpRequest();</pre></code>
+                        <code><pre>        xhttp.onreadystatechange = function() {</pre></code>
+                        <code><pre>            if (this.readyState == 4 && this.status == 200) {</pre></code>
+                        <code><pre>                cFunction(this);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        };</pre></code>
+                        <code><pre>        xhttp.open("GET", url, true);</pre></code>
+                        <code><pre>        xhttp.send();</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        <code><pre>    function myFunction1(xhttp) {</pre></code>
+                        <code><pre>        // action goes here</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    function myFunction2(xhttp) {</pre></code>
+                        <code><pre>        // action goes here</pre></code>
+                        <code><pre>    }</pre></code>
+                        <br />
+                        </li>
+                        <hr />
+                        <li id="XMLFile">
+                        <h2><a target="_blank" href="https://www.w3schools.com/js/js_ajax_xmlfile.asp">XML File</a></h2>
+                        The loadDoc() function creates an XMLHttpRequest object, adds the function to be executed when the server response is ready, and sends the request off to the server.<br />
+                        When the server response is ready, an HTML table is built, nodes (elements) are extracted from the XML file, and it finally updates the element "demo" with the HTML table filled with XML data:<br />
+                        <br />
+                        <code><pre>    function loadDoc() {</pre></code>
+                        <code><pre>        var xhttp = new XMLHttpRequest();</pre></code>
+                        <code><pre>        xhttp.onreadystatechange = function() {</pre></code>
+                        <code><pre>            if (this.readyState == 4 && this.status == 200) {</pre></code>
+                        <code><pre>            myFunction(this);</pre></code>
+                        <code><pre>            }</pre></code>
+                        <code><pre>        };</pre></code>
+                        <code><pre>        xhttp.open("GET", "cd_catalog.xml", true);</pre></code>
+                        <code><pre>        xhttp.send();</pre></code>
+                        <code><pre>    }</pre></code>
+                        <code><pre>    function myFunction(xml) {</pre></code>
+                        <code><pre>    var i;</pre></code>
+                        <code><pre>    var xmlDoc = xml.responseXML;</pre></code>
+                        <code><pre>    var table="&lttr&gt&ltth&gtArtist&lt/th&gt&ltth&gtTitle&lt/th&gt&lt/tr&gt";</pre></code>
+                        <code><pre>    var x = xmlDoc.getElementsByTagName("CD");</pre></code>
+                        <code><pre>        for (i = 0; i < x.length; i++) {</pre></code>
+                        <code><pre>            table += "&lttr&gt&lttd&gt" +</pre></code>
+                        <code><pre>            x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +</pre></code>
+                        <code><pre>            "&lt/td&gt&lttd&gt" +</pre></code>
+                        <code><pre>            x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +</pre></code>
+                        <code><pre>            "&lt/td&gt&lt/tr&gt";</pre></code>
+                        <code><pre>        }</pre></code>
+                        <code><pre>        document.getElementById("demo").innerHTML = table;</pre></code>
+                        <code><pre>    }</pre></code>
+                    </li>
+                </ul>
+                <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" style="font-weight: bold; color: white; font-size: large">^</a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

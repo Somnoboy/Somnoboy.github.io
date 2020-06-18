@@ -1,0 +1,68 @@
+﻿
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+header {
+    height: 55px;
+}
+
+section {
+    /* Adding 100px of header and 150px of footer */
+    height: calc(100% - (55px - 2px));
+    margin: -2px;
+}
+
+footer {
+    height: 50px;
+}
+.back-to-top {
+    background-color: gainsboro;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: none;
+}
+
+li::before {
+    display: block;
+    content: " ";
+    margin-top: -16px;
+    height: 16px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+main {
+    scroll-behavior: smooth;
+}
+
+pre {
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    white-space: pre-wrap;
+}
+
+nav {
+    max-height: 99.9vh;
+}
+
+.nav-item {
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    max-height: 99.9vh;
+}
+
+.nav-link {
+    color: gainsboro;
+}
+
+
+
