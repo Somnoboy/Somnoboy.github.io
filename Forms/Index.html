@@ -25,6 +25,10 @@
                 }, 400);
                 return false;
             });
+
+            $('.navbar-nav>li>a').on('click', function(){
+                $('.navbar-collapse').collapse('hide');
+            });
         });
         
         function loadPage(page) {
