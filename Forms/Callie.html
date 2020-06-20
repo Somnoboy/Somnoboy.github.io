@@ -8,17 +8,26 @@
     <script src="../Scripts/popper.min.js"></script>
     <script src="../Files/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../Files/bootstrap.min_SpaceLab.css">
+    <style>
+        .backgroundpic {
+            background: url('daisies.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
-<body>
-    <div class="container-fluid">
+<body style="overflow-y: hidden">
+    <div class="container">
         <br />
         <div class="card">
             <div class="card-header text-center">
                 <h1>Callie is farts.</h1>
             </div>
-                <div class="card-body" style="height: 80vh; background-image: url('daisies.jpg'); background-attachment: fixed; background-size: cover ; background-repeat: no-repeat">
+            <div id="cardbody" class="card-body m-0 p-0 backgroundpic" style="height: 70vh">
+                
             </div>
         </div>
     </div>         
 </body>
+
 </html>
